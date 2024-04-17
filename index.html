@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<head>
+  <style name="reset.css">
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ol,
+    ul {
+      margin: 0;
+      padding: 0;
+      font-weight: normal;
+    }
+
+    ol,
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    body {
+      font-size: 24px;
+      padding: 1rem;
+    }
+
+    .symbols {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    }
+
+    .symbol {
+      color: black;
+      border: 1px dashed #555;
+      border-radius: 10%;
+      padding: 1rem;
+      aspect-ratio: 1;
+      font-size: 6rem;
+      text-align: center;
+      line-height: 100%;
+      min-height: 125px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 200ms linear;
+    }
+
+    .symbol:hover {
+      background: #f7b73322;
+    }
+
+    .symbol-clicked {
+      font-size: 2rem;
+      background-color: #B1E8B6;
+      color: black;
+      border: 1px dashed #555;
+      border-radius: 10%;
+      padding: 1rem;
+      aspect-ratio: 1;
+      text-align: center;
+      line-height: 100%;
+      min-height: 125px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 200ms linear;
+    }
+  </style>
+
+  <script>
+    const symbols = ["©", "®", "™", "“", "”", "—", "—", "…", "½", "¼", "∞", "é", "á", "à", "ç", "€", "¥", "¢"];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const parent = document.querySelector(".symbols");
+      for (const symbol of symbols) {
+        const elem = document.createElement("div");
+        elem.classList = "symbol";
+        elem.textContent = symbol;
+        elem.addEventListener("click", () => {
+          const symbol = elem.textContent;
+          navigator.clipboard.writeText(symbol);
+
+          elem.textContent = "Copied!";
+          elem.classList = "symbol-clicked";
+
+          setTimeout(() => {
+            elem.textContent = symbol;
+            elem.classList = "symbol";
+          }, 1000);
+        });
+        parent.appendChild(elem);
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <div class="symbols"></div>
+</body>
