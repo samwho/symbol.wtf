@@ -2,17 +2,17 @@ const symbols = [
     {
         "glyph": "©",
         "name": "Copyright",
-        "searchTerms": ["copyright", "c"]
+        "searchTerms": ["copyright", "C"]
     },
     {
         "glyph": "®",
         "name": "Registered Trademark",
-        "searchTerms": ["registered", "trademark"]
+        "searchTerms": ["registered", "trademark", "R"]
     },
     {
         "glyph": "™",
         "name": "Trademark",
-        "searchTerms": ["trademark", "tm"]
+        "searchTerms": ["trademark", "TM"]
     },
     {
         "glyph": "“",
@@ -149,7 +149,6 @@ const symbols = [
         "name": "Interrobang",
         "searchTerms": ["interrobang", "?!"]
     },
-    {
         "glyph": "×",
         "name": "Times",
         "searchTerms": ["times", "x"]
@@ -163,5 +162,23 @@ const symbols = [
         "glyph": "•",
         "name": "Vertically Centered Dot",
         "searchTerms": ["vertical", "dot", "centered"]
+    },
+    {
+        "glyph": "\u00A0",
+        "display": false,
+        "name": "No-break Space",
+        "searchTerms": ["U+00A0", "&nbsp;", "non-breaking", "no-break", "break", "space"]
+    },
+    {
+        "glyph": "\u200E",
+        "display": false,
+        "name": "Left-to-Right",
+        "searchTerms": ["U+200E", "&lrm;", "ltr", "left-to-right"]
+    },
+    {
+        "glyph": "\u200F",
+        "display": false,
+        "name": "Right-to-Left",
+        "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
     }
 ]
