@@ -143,5 +143,15 @@ const symbols = [
         "glyph": "‽",
         "name": "Interrobang",
         "searchTerms": ["interrobang", "?!"]
+    },
+    {
+        "glyph": "×",
+        "name": "Times",
+        "searchTerms": ["times", "x"]
+    },
+    {
+        "glyph": "",
+        "name": "Apple",
+        "searchTerms": ["apple"]
     }
 ]
