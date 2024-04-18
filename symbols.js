@@ -211,6 +211,11 @@ const symbols = [
         "glyph": "¡",
         "name": "Reverse Exclamation Mark",
         "searchTerms": ["reverse", "exclamation", "mark"],
+    },
+    {
+        "glyph": "$",
+        "name": "Dollar Sign",
+        "searchTerms": ["dollar"]
     }
 ]
 
