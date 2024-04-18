@@ -2,106 +2,11 @@
 
 <head>
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:description" content="Dumb website for copying symbols.">
+  <meta name="twitter:description" content="Dumb website for copying symbols." />
   <meta name="twitter:title" content="symbol.wtf" />
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="symbols.css" />
   <script src="./symbols.js"></script>
-  <style name="reset.css">
-    html {
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    *,
-    *:before,
-    *:after {
-      box-sizing: inherit;
-    }
-
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    ol,
-    ul {
-      margin: 0;
-      padding: 0;
-      font-weight: normal;
-    }
-
-    ol,
-    ul {
-      list-style: none;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    body {
-      font-size: 24px;
-      padding: 1rem;
-    }
-
-    .search {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-
-    .symbols {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-    }
-
-    .symbol {
-      color: black;
-      border: 1px dashed #555;
-      border-radius: 10%;
-      padding: 1rem;
-      aspect-ratio: 1;
-      font-size: 6rem;
-      text-align: center;
-      line-height: 100%;
-      min-height: 125px;
-      max-height: 80vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background 200ms linear;
-    }
-
-    .symbol:hover {
-      background: #f7b73322;
-    }
-
-    .symbol-clicked {
-      font-size: 2rem;
-      background-color: #B1E8B6;
-      color: black;
-      border: 1px dashed #555;
-      border-radius: 10%;
-      padding: 1rem;
-      aspect-ratio: 1;
-      text-align: center;
-      line-height: 100%;
-      min-height: 125px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background 200ms linear;
-    }
-  </style>
 
   <script>
     function renderSymbols(searchTerm = "") {
