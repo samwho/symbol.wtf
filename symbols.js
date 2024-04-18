@@ -254,8 +254,9 @@ const symbols = [
     }
 ]
 
-function renderSymbols(searchTerm = "") {
+function renderSymbols(searchTerm) {
     const parent = document.querySelector(".symbols");
+    if (!searchTerm) searchTerm = "";
     searchTerm = searchTerm.toLowerCase();
     parent.innerHTML = "";
     for (const symbolInfo of symbols) {
@@ -287,15 +288,15 @@ function renderSymbols(searchTerm = "") {
     }
 }
 
-function setSearchListener() {
+document.addEventListener("DOMContentLoaded", () => {
+    const search = window.location.hash ? window.location.hash.substring(1) : "";
+    renderSymbols(search);
+
     const searchInput = document.querySelector(".search input");
+    searchInput.value = search;
     searchInput.addEventListener("input", (e) => {
         const searchTerm = e.target.value;
         renderSymbols(searchTerm);
+        window.location.hash = searchTerm;
     });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    renderSymbols();
-    setSearchListener();
 });
