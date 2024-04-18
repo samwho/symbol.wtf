@@ -170,9 +170,11 @@ const symbols = [
         "searchTerms": ["times", "x"]
     },
     {
-        "glyph": "",
-        "name": "Apple",
-        "searchTerms": ["apple"]
+        /* Apple logo is in Private Use Area and unlikely to render in most cases. */
+        /* TODO: Add images for characters that are unlikely to render. */
+        "glyph": "\uF8FF",
+        "name": "Apple Logo",
+        "searchTerms": ["apple", "logo"]
     },
     {
         "glyph": "π",
