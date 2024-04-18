@@ -25,6 +25,11 @@ const symbols = [
         "searchTerms": ["quotation", "quote", "double", '"']
     },
     {
+        "glyph": "—",
+        "name": "Em-dash",
+        "searchTerms": ["em", "dash"],
+    },
+    {
         "glyph": "£",
         "name": "Pound",
         "searchTerms": ["pound"]
@@ -125,6 +130,11 @@ const symbols = [
         "searchTerms": ["degree"]
     },
     {
+        "glyph": "¹",
+        "name": "Superscript One",
+        "searchTerms": ["superscript", "one"]
+    },
+    {
         "glyph": "²",
         "name": "Squared",
         "searchTerms": ["squared", "power"]
@@ -138,6 +148,20 @@ const symbols = [
         "glyph": "‽",
         "name": "Interrobang",
         "searchTerms": ["interrobang", "?!"]
+    },
+        "glyph": "×",
+        "name": "Times",
+        "searchTerms": ["times", "x"]
+    },
+    {
+        "glyph": "",
+        "name": "Apple",
+        "searchTerms": ["apple"]
+    },
+    {
+        "glyph": "•",
+        "name": "Vertically Centered Dot",
+        "searchTerms": ["vertical", "dot", "centered"]
     },
     {
         "glyph": "\u00A0",
