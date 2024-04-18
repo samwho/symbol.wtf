@@ -25,6 +25,11 @@ const symbols = [
         "searchTerms": ["quotation", "quote", "double", '"']
     },
     {
+        "glyph": "—",
+        "name": "Em-dash",
+        "searchTerms": ["em", "dash"],
+    },
+    {
         "glyph": "£",
         "name": "Pound",
         "searchTerms": ["pound"]
