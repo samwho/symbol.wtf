@@ -1,4 +1,5 @@
 const symbols = [
+    /* samwho */
     {
         "glyph": "©",
         "name": "Copyright",
@@ -14,15 +15,27 @@ const symbols = [
         "name": "Trademark",
         "searchTerms": ["trademark", "TM"]
     },
+
+    /* punctuation */
     {
         "glyph": "“",
         "name": "Left Double Quotation Mark",
-        "searchTerms": ["quotation", "quote", "double", '"']
+        "searchTerms": ["left", "quotation", "quote", "double", "mark", '"']
     },
     {
         "glyph": "”",
         "name": "Right Double Quotation Mark",
-        "searchTerms": ["quotation", "quote", "double", '"']
+        "searchTerms": ["right", "quotation", "quote", "double", "mark", '"']
+    },
+    {
+        "glyph": "‘",
+        "name": "Left Single Quotation Mark",
+        "searchTerms": ["left", "quotation", "quote", "single", "mark", "'"],
+    },
+    {
+        "glyph": "’",
+        "name": "Right Single Quotation Mark",
+        "searchTerms": ["right", "quotation", "quote", "single", "mark", "'"],
     },
     {
         "glyph": "—",
@@ -30,69 +43,46 @@ const symbols = [
         "searchTerms": ["em", "dash"],
     },
     {
+        "glyph": "¡",
+        "name": "Reverse Exclamation Mark",
+        "searchTerms": ["reverse", "exclamation", "mark", "!"],
+    },
+    {
+        "glyph": "‽",
+        "name": "Interrobang",
+        "searchTerms": ["interrobang", "?!"]
+    },
+    {
+        "glyph": "…",
+        "name": "Ellipsis",
+        "searchTerms": ["ellipsis", "..."]
+    },
+    {
+        "glyph": "•",
+        "name": "Vertically Centered Dot",
+        "searchTerms": ["vertical", "dot", "centered", "."]
+    },
+
+    /* currency */
+    {
+        "glyph": "¤",
+        "name": "Currency",
+        "searchTerms": ["currency"]
+    },
+    {
         "glyph": "£",
         "name": "Pound",
         "searchTerms": ["pound"]
     },
     {
-        "glyph": "…",
-        "name": "Ellipsis",
-        "searchTerms": ["ellipsis"]
-    },
-    {
-        "glyph": "½",
-        "name": "Half",
-        "searchTerms": ["half", "1/2"]
-    },
-    {
-        "glyph": "¼",
-        "name": "Quarter",
-        "searchTerms": ["quarter", "1/4"]
-    },
-    {
-        "glyph": "∞",
-        "name": "Infinity",
-        "searchTerms": ["infinity"]
-    },
-    {
-        "glyph": "±",
-        "name": "Plus-minus",
-        "searchTerms": ["plus", "minus"],
-    },
-    {
-        "glyph": "é",
-        "name": "E with Acute",
-        "searchTerms": ["acute", "e"]
-    },
-    {
-        "glyph": "á",
-        "name": "A with Acute",
-        "searchTerms": ["acute", "a"]
-    },
-    {
-        "glyph": "à",
-        "name": "A with Grave",
-        "searchTerms": ["grave", "a"]
-    },
-    {
-        "glyph": "ç",
-        "name": "C with Cedilla",
-        "searchTerms": ["cedilla", "c"]
-    },
-    {
-        "glyph": "‘",
-        "name": "Left Single Quotation Mark",
-        "searchTerms": ["left", "single", "quotation", "mark"],
-    },
-    {
-        "glyph": "’",
-        "name": "Right Single Quotation Mark",
-        "searchTerms": ["right", "single", "quotation", "mark"],
-    },
-    {
         "glyph": "€",
         "name": "Euro",
         "searchTerms": ["euro"]
+    },
+    {
+        "glyph": "$",
+        "name": "Dollar Sign",
+        "searchTerms": ["dollar"]
     },
     {
         "glyph": "¥",
@@ -109,21 +99,112 @@ const symbols = [
         "name": "Cent",
         "searchTerms": ["cent"]
     },
+
+    /* math */
     {
-        "glyph": "¤",
-        "name": "Currency",
-        "searchTerms": ["currency"]
+        "glyph": "±",
+        "name": "Plus-minus",
+        "searchTerms": ["plus", "minus", "+", "-"],
     },
     {
-        "glyph": "œ",
-        "name": "OE",
-        "searchTerms": ["oe"]
+        "glyph": "×",
+        "name": "Times",
+        "searchTerms": ["times", "multiply", "*", "x"]
     },
     {
-        "glyph": "Œ",
-        "name": "OE",
-        "searchTerms": ["oe"]
+        "glyph": "÷",
+        "name": "Divide",
+        "searchTerms": ["divide", "/"],
     },
+    {
+        "glyph": "¹",
+        "name": "Superscript One",
+        "searchTerms": ["power", "superscript", "one"]
+    },
+    {
+        "glyph": "²",
+        "name": "Superscript Two",
+        "searchTerms": ["squared", "power", "superscript", "two"]
+    },
+    {
+        "glyph": "³",
+        "name": "Superscript Three",
+        "searchTerms": ["cubed", "power", "superscript", "three"]
+    },
+    {
+        "glyph": "¼",
+        "name": "Quarter",
+        "searchTerms": ["quarter", "1/4"]
+    },
+    {
+        "glyph": "½",
+        "name": "Half",
+        "searchTerms": ["half", "1/2"]
+    },
+    {
+        "glyph": "∞",
+        "name": "Infinity",
+        "searchTerms": ["infinity"]
+    },
+    {
+        "glyph": "π",
+        "name": "Pi",
+        "searchTerms": ["pi", "pie"],
+    },
+    {
+        "glyph": "∅",
+        "name": "Empty Set",
+        "searchTerms": ["empty", "set"],
+    },
+    {
+        "glyph": "∆",
+        "name": "Delta",
+        "searchTerms": ["delta"],
+    },
+    {
+        "glyph": "µ",
+        "name": "Micro",
+        "searchTerms": ["micro", "mu"],
+    },
+    {
+        "glyph": "°",
+        "name": "Degree",
+        "searchTerms": ["degree"]
+    },
+
+    /* accented characters */
+    {
+        "glyph": "á",
+        "name": "A with Acute",
+        "searchTerms": ["acute", "a"]
+    },
+    {
+        "glyph": "à",
+        "name": "A with Grave",
+        "searchTerms": ["grave", "a"]
+    },
+    {
+        "glyph": "ç",
+        "name": "C with Cedilla",
+        "searchTerms": ["cedilla", "c"]
+    },
+    {
+        "glyph": "é",
+        "name": "E with Acute",
+        "searchTerms": ["acute", "e"]
+    },
+    {
+        "glyph": "ñ",
+        "name": "Latin Small Letter n with Tilde",
+        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
+    },
+    {
+        "glyph": "Ñ",
+        "name": "Latin Capital Letter N with Tilde",
+        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
+    },
+
+    /* combined characters */
     {
         "glyph": "æ",
         "name": "AE",
@@ -135,55 +216,39 @@ const symbols = [
         "searchTerms": ["ae"]
     },
     {
+        "glyph": "œ",
+        "name": "OE",
+        "searchTerms": ["oe"]
+    },
+    {
+        "glyph": "Œ",
+        "name": "OE",
+        "searchTerms": ["oe"]
+    },
+
+    /* miscellaneous */
+    {
         "glyph": "✔",
         "name": "Check",
         "searchTerms": ["check", "tick"]
     },
     {
-        "glyph": "°",
-        "name": "Degree",
-        "searchTerms": ["degree"]
+        "glyph": "←",
+        "name": "Left Arrow",
+        "searchTerms": ["left", "arrow"],
     },
     {
-        "glyph": "¹",
-        "name": "Superscript One",
-        "searchTerms": ["superscript", "one"]
+        "glyph": "→",
+        "name": "Right Arrow",
+        "searchTerms": ["right", "arrow"],
     },
     {
-        "glyph": "²",
-        "name": "Squared",
-        "searchTerms": ["squared", "power"]
+        "glyph": "~",
+        "name": "Tilde",
+        "searchTerms": ["tilde"],
     },
-    {
-        "glyph": "³",
-        "name": "Cubed",
-        "searchTerms": ["cubed"]
-    },
-    {
-        "glyph": "‽",
-        "name": "Interrobang",
-        "searchTerms": ["interrobang", "?!"]
-    },
-    {
-        "glyph": "×",
-        "name": "Times",
-        "searchTerms": ["times", "x"]
-    },
-    {
-        "glyph": "",
-        "name": "Apple",
-        "searchTerms": ["apple"]
-    },
-    {
-        "glyph": "π",
-        "name": "Pi",
-        "searchTerms": ["pie"],
-    },
-    {
-        "glyph": "•",
-        "name": "Vertically Centered Dot",
-        "searchTerms": ["vertical", "dot", "centered"]
-    },
+
+    /* invisible characters */
     {
         "glyph": "\u00A0",
         "display": "\u25A1",
@@ -202,55 +267,12 @@ const symbols = [
         "name": "Right-to-Left",
         "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
     },
+
+    /* Private Use Area (not official Unicode) */
     {
-        "glyph": "ñ",
-        "name": "Latin Small Letter n with Tilde",
-        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
-    },
-    {
-        "glyph": "Ñ",
-        "name": "Latin Capital Letter N with Tilde",
-        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
-    },
-    {
-        "glyph": "¡",
-        "name": "Reverse Exclamation Mark",
-        "searchTerms": ["reverse", "exclamation", "mark"],
-    },
-    {
-        "glyph": "$",
-        "name": "Dollar Sign",
-        "searchTerms": ["dollar"]
-    },
-    {
-        "glyph": "←",
-        "name": "Left Arrow",
-        "searchTerms": ["left", "arrow"],
-    },
-    {
-        "glyph": "→",
-        "name": "Right Arrow",
-        "searchTerms": ["right", "arrow"],
-    },
-    {
-        "glyph": "~",
-        "name": "Tilde",
-        "searchTerms": ["tilde"],
-    },
-    {
-        "glyph": "∅",
-        "name": "Empty set",
-        "searchTerms": ["empty", "set"],
-    },
-    {
-        "glyph": "∆",
-        "name": "Delta",
-        "searchTerms": ["delta"],
-    },
-    {
-        "glyph": "µ",
-        "name": "Micro",
-        "searchTerms": ["micro"],
+        "glyph": "\uF8FF",
+        "name": "Apple",
+        "searchTerms": ["apple"]
     }
 ]
 
