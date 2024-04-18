@@ -149,6 +149,7 @@ const symbols = [
         "name": "Interrobang",
         "searchTerms": ["interrobang", "?!"]
     },
+    {
         "glyph": "×",
         "name": "Times",
         "searchTerms": ["times", "x"]
@@ -182,3 +183,50 @@ const symbols = [
         "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
     }
 ]
+
+function renderSymbols(searchTerm = "") {
+    const parent = document.querySelector(".symbols");
+    searchTerm = searchTerm.toLowerCase();
+    parent.innerHTML = "";
+    for (const symbolInfo of symbols) {
+        symbolSearchTerms = symbolInfo.searchTerms.join(" ");
+        if (searchTerm !== "" && !symbolSearchTerms.toLowerCase().includes(searchTerm)) {
+            continue;
+        }
+        const elem = document.createElement("div");
+        elem.classList = "symbol";
+        /* If display is false, show an empty box. */
+        elem.textContent = symbolInfo.display !== false ? symbolInfo.glyph : "\u25A1";
+        elem.addEventListener("click", () => {
+            if (elem.classList.contains("symbol-clicked")) return;
+
+            const symbol = elem.textContent;
+            navigator.clipboard.writeText(symbol);
+
+            elem.textContent = "Copied!";
+            elem.classList.remove("symbol");
+            elem.classList.add("symbol-clicked");
+
+            setTimeout(() => {
+                elem.textContent = symbolInfo.glyph;
+                elem.title = symbolInfo.name;
+                elem.classList.remove("symbol-clicked");
+                elem.classList.add("symbol");
+            }, 1000);
+        });
+        parent.appendChild(elem);
+    }
+}
+
+function setSearchListener() {
+    const searchInput = document.querySelector(".search input");
+    searchInput.addEventListener("input", (e) => {
+        const searchTerm = e.target.value;
+        renderSymbols(searchTerm);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderSymbols();
+    setSearchListener();
+});
