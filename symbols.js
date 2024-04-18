@@ -170,6 +170,11 @@ const symbols = [
         "searchTerms": ["apple"]
     },
     {
+        "glyph": "π",
+        "name": "Pi",
+        "searchTerms": ["pie"],
+    },
+    {
         "glyph": "•",
         "name": "Vertically Centered Dot",
         "searchTerms": ["vertical", "dot", "centered"]
