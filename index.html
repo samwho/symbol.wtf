@@ -115,7 +115,8 @@
         }
         const elem = document.createElement("div");
         elem.classList = "symbol";
-        elem.textContent = symbolInfo.glyph;
+        /* If display is false, show an empty box. */
+        elem.textContent = symbolInfo.display !== false ? symbolInfo.glyph : "\u25A1";
         elem.addEventListener("click", () => {
           const symbol = elem.textContent;
           navigator.clipboard.writeText(symbol);
