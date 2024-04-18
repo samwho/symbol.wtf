@@ -196,6 +196,7 @@ function renderSymbols(searchTerm = "") {
         const elem = document.createElement("div");
         elem.classList = "symbol";
         elem.textContent = symbolInfo.display || symbolInfo.glyph;
+        elem.title = symbolInfo.name;
         elem.addEventListener("click", () => {
             if (elem.classList.contains("symbol-clicked")) return;
 
