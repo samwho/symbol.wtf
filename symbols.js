@@ -216,6 +216,16 @@ const symbols = [
         "glyph": "$",
         "name": "Dollar Sign",
         "searchTerms": ["dollar"]
+    },
+    {
+        "glyph": "←",
+        "name": "Left Arrow",
+        "searchTerms": ["left", "arrow"],
+    },
+    {
+        "glyph": "→",
+        "name": "Right Arrow",
+        "searchTerms": ["right", "arrow"],
     }
 ]
 
