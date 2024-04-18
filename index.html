@@ -108,6 +108,8 @@
         elem.classList = "symbol";
         elem.textContent = symbol;
         elem.addEventListener("click", () => {
+          if (elem.classList.contains("symbol-clicked")) return;
+
           const symbol = elem.textContent;
           navigator.clipboard.writeText(symbol);
 
