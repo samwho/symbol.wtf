@@ -110,7 +110,7 @@
       parent.innerHTML = "";
       for (const symbolInfo of symbols) {
         symbolSearchTerms = symbolInfo.searchTerms.join(" ");
-        if (searchTerm != "" && !symbolSearchTerms.toLowerCase().includes(searchTerm)) {
+        if (searchTerm !== "" && !symbolSearchTerms.toLowerCase().includes(searchTerm)) {
           continue;
         }
         const elem = document.createElement("div");
@@ -138,7 +138,6 @@
     function setSearchListener() {
       const searchInput = document.querySelector(".search input");
       searchInput.addEventListener("input", (e) => {
-        console.log(e.target.value)
         const searchTerm = e.target.value;
         renderSymbols(searchTerm);
       });
@@ -146,7 +145,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       renderSymbols();
-      setSearchListener();      
+      setSearchListener();
     });
   </script>
 </head>

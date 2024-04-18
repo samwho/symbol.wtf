@@ -2,27 +2,27 @@ const symbols = [
     {
         "glyph": "©",
         "name": "Copyright",
-        "searchTerms": ["copyright"]
+        "searchTerms": ["copyright", "c"]
     },
     {
         "glyph": "®",
         "name": "Registered Trademark",
-        "searchTerms": ["registered trademark"]
+        "searchTerms": ["registered", "trademark"]
     },
     {
         "glyph": "™",
         "name": "Trademark",
-        "searchTerms": ["trademark"]
+        "searchTerms": ["trademark", "tm"]
     },
     {
         "glyph": "“",
         "name": "Left Double Quotation Mark",
-        "searchTerms": ["quotation", "quote", "double"]
+        "searchTerms": ["quotation", "quote", "double", '"']
     },
     {
         "glyph": "”",
         "name": "Right Double Quotation Mark",
-        "searchTerms": ["quotation", "quote", "double"]
+        "searchTerms": ["quotation", "quote", "double", '"']
     },
     {
         "glyph": "£",
@@ -37,12 +37,12 @@ const symbols = [
     {
         "glyph": "½",
         "name": "Half",
-        "searchTerms": ["half"]
+        "searchTerms": ["half", "1/2"]
     },
     {
         "glyph": "¼",
         "name": "Quarter",
-        "searchTerms": ["quarter"]
+        "searchTerms": ["quarter", "1/4"]
     },
     {
         "glyph": "∞",
