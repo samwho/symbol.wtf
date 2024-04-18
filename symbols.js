@@ -200,12 +200,12 @@ const symbols = [
     {
         "glyph": "ñ",
         "name": "Latin Small Letter n with Tilde",
-        "searchTerm": ["n", "latin", "tilde", "jalapeno"],
+        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
     },
     {
         "glyph": "Ñ",
         "name": "Latin Capital Letter N with Tilde",
-        "searchTerm": ["n", "latin", "tilde", "jalapeno"],
+        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
     },
     {
         "glyph": "¡",
