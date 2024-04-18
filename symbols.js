@@ -125,6 +125,11 @@ const symbols = [
         "searchTerms": ["degree"]
     },
     {
+        "glyph": "¹",
+        "name": "Superscript One",
+        "searchTerms": ["superscript", "one"]
+    },
+    {
         "glyph": "²",
         "name": "Squared",
         "searchTerms": ["squared", "power"]
