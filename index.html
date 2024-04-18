@@ -5,6 +5,47 @@
   <meta name="twitter:description" content="Dumb website for copying symbols.">
   <meta name="twitter:title" content="symbol.wtf" />
 
+  <script>
+    const symbols = [
+      /* symbol.wtf */
+      "©", "®", "™",
+      /* miscellaneous */
+      "✔", "…",
+      /* currency */
+      "¤", "¢", "£", "€", "¥", "₩",
+      /* math */
+      "½", "¼", "°", "²", "³", "∞",
+      /* accents */
+      "é", "á", "à", "ç",
+      /* combinations */
+      "œ", "Œ", "æ", "Æ", "‽"
+      /* quoting */
+      "“", "”",
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const parent = document.querySelector(".symbols");
+      for (const symbol of symbols) {
+        const elem = document.createElement("div");
+        elem.classList = "symbol";
+        elem.textContent = symbol;
+        elem.addEventListener("click", () => {
+          const symbol = elem.textContent;
+          navigator.clipboard.writeText(symbol);
+
+          elem.textContent = "Copied!";
+          elem.classList = "symbol-clicked";
+
+          setTimeout(() => {
+            elem.textContent = symbol;
+            elem.classList = "symbol";
+          }, 1000);
+        });
+        parent.appendChild(elem);
+      }
+    });
+  </script>
+
   <style name="reset.css">
     html {
       box-sizing: border-box;
@@ -94,35 +135,6 @@
       transition: background 200ms linear;
     }
   </style>
-
-  <script>
-    const symbols = [
-      "©", "®", "™", "“", "”", "£", "…", "½", "¼", "∞", "é", "á", "à", "ç", "€",
-      "¥", "₩", "¢", "¤", "œ", "Œ", "æ", "Æ", "✔", "°", "²", "³", "‽"
-    ];
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const parent = document.querySelector(".symbols");
-      for (const symbol of symbols) {
-        const elem = document.createElement("div");
-        elem.classList = "symbol";
-        elem.textContent = symbol;
-        elem.addEventListener("click", () => {
-          const symbol = elem.textContent;
-          navigator.clipboard.writeText(symbol);
-
-          elem.textContent = "Copied!";
-          elem.classList = "symbol-clicked";
-
-          setTimeout(() => {
-            elem.textContent = symbol;
-            elem.classList = "symbol";
-          }, 1000);
-        });
-        parent.appendChild(elem);
-      }
-    });
-  </script>
 </head>
 
 <body>
