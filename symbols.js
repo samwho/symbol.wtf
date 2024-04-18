@@ -75,6 +75,16 @@ const symbols = [
         "searchTerms": ["cedilla", "c"]
     },
     {
+        "glyph": "‘",
+        "name": "Left Single Quotation Mark",
+        "searchTerms": ["left", "single", "quotation", "mark"],
+    },
+    {
+        "glyph": "’",
+        "name": "Right Single Quotation Mark",
+        "searchTerms": ["right", "single", "quotation", "mark"],
+    },
+    {
         "glyph": "€",
         "name": "Euro",
         "searchTerms": ["euro"]
