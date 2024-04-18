@@ -138,5 +138,23 @@ const symbols = [
         "glyph": "‽",
         "name": "Interrobang",
         "searchTerms": ["interrobang", "?!"]
+    },
+    {
+        "glyph": "\u00A0",
+        "display": false,
+        "name": "No-break Space",
+        "searchTerms": ["U+00A0", "&nbsp;", "non-breaking", "no-break", "break", "space"]
+    },
+    {
+        "glyph": "\u200E",
+        "display": false,
+        "name": "Left-to-Right",
+        "searchTerms": ["U+200E", "&lrm;", "ltr", "left-to-right"]
+    },
+    {
+        "glyph": "\u200F",
+        "display": false,
+        "name": "Right-to-Left",
+        "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
     }
 ]
