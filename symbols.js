@@ -15,6 +15,11 @@ const symbols = [
         "searchTerms": ["trademark", "TM"]
     },
     {
+         "glyph": "℠",
+         "name": "Service Mark",
+         "searchTerms": ["service mark", "SM"]
+    },
+    {
         "glyph": "“",
         "name": "Left Double Quotation Mark",
         "searchTerms": ["quotation", "quote", "double", '"']
