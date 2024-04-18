@@ -57,6 +57,11 @@ const symbols = [
         "searchTerms": ["infinity"]
     },
     {
+        "glyph": "±",
+        "name": "Plus-minus",
+        "searchTerms": ["plus", "minus"],
+    },
+    {
         "glyph": "é",
         "name": "E with Acute",
         "searchTerms": ["acute", "e"]
@@ -210,12 +215,12 @@ const symbols = [
     {
         "glyph": "ñ",
         "name": "Latin Small Letter n with Tilde",
-        "searchTerm": ["n", "latin", "tilde", "jalapeno"],
+        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
     },
     {
         "glyph": "Ñ",
         "name": "Latin Capital Letter N with Tilde",
-        "searchTerm": ["n", "latin", "tilde", "jalapeno"],
+        "searchTerms": ["n", "latin", "tilde", "jalapeno"],
     },
     {
         "glyph": "¡",
@@ -226,11 +231,42 @@ const symbols = [
         "glyph": "$",
         "name": "Dollar Sign",
         "searchTerms": ["dollar"]
+    },
+    {
+        "glyph": "←",
+        "name": "Left Arrow",
+        "searchTerms": ["left", "arrow"],
+    },
+    {
+        "glyph": "→",
+        "name": "Right Arrow",
+        "searchTerms": ["right", "arrow"],
+    },
+    {
+        "glyph": "~",
+        "name": "Tilde",
+        "searchTerms": ["tilde"],
+    },
+    {
+        "glyph": "∅",
+        "name": "Empty set",
+        "searchTerms": ["empty", "set"],
+    },
+    {
+        "glyph": "∆",
+        "name": "Delta",
+        "searchTerms": ["delta"],
+    },
+    {
+        "glyph": "µ",
+        "name": "Micro",
+        "searchTerms": ["micro"],
     }
 ]
 
-function renderSymbols(searchTerm = "") {
+function renderSymbols(searchTerm) {
     const parent = document.querySelector(".symbols");
+    if (!searchTerm) searchTerm = "";
     searchTerm = searchTerm.toLowerCase();
     parent.innerHTML = "";
     for (const symbolInfo of symbols) {
@@ -262,15 +298,15 @@ function renderSymbols(searchTerm = "") {
     }
 }
 
-function setSearchListener() {
+document.addEventListener("DOMContentLoaded", () => {
+    const search = window.location.hash ? window.location.hash.substring(1) : "";
+    renderSymbols(search);
+
     const searchInput = document.querySelector(".search input");
+    searchInput.value = search;
     searchInput.addEventListener("input", (e) => {
         const searchTerm = e.target.value;
         renderSymbols(searchTerm);
+        window.location.hash = searchTerm;
     });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    renderSymbols();
-    setSearchListener();
 });
