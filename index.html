@@ -23,6 +23,8 @@
         /* If display is false, show an empty box. */
         elem.textContent = symbolInfo.display !== false ? symbolInfo.glyph : "\u25A1";
         elem.addEventListener("click", () => {
+          if (elem.classList.contains("symbol-clicked")) return;
+
           const symbol = elem.textContent;
           navigator.clipboard.writeText(symbol);
 
@@ -44,7 +46,6 @@
     function setSearchListener() {
       const searchInput = document.querySelector(".search input");
       searchInput.addEventListener("input", (e) => {
-        console.log(e.target.value)
         const searchTerm = e.target.value;
         renderSymbols(searchTerm);
       });
@@ -52,7 +53,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       renderSymbols();
-      setSearchListener();      
+      setSearchListener();
     });
   </script>
 </head>
