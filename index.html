@@ -153,25 +153,27 @@
     });
 
     function fuzzyMatch(haystack, needle) {
-        let haystackIndex = 0; // Index to track position in haystack
-        let needleIndex = 0;  // Index to track position in needle
-        let haystackIndexLastMatch = -1; // Index to track position in haystack of the last match
-        let matchGaps = []; // List to track gaps between matched characters
+        let haystackIndex = 0;
+        let needleIndex = 0;
+        let haystackIndexLastMatch = -1;
+        let matchGaps = [];
 
         haystack = haystack.toLowerCase();
         needle = needle.toLowerCase();
 
         while (haystackIndex < haystack.length && needleIndex < needle.length) {
             if (haystack[haystackIndex] === needle[needleIndex]) {
-                if (haystackIndexLastMatch >= 0 && haystackIndexLastMatch !== haystackIndex - 1) {
-                    // `haystackIndex - haystackIndexLastMatch - 1` may overrepresent the gap between
-                    // matches due to greedy matching, so we search backwards to find the actual gap.
-                    // This correction may be overly charitable if the haystack has multiple instances
-                    // of the same character, but it's well worth the improvement in identifying
+                if (haystackIndexLastMatch >= 0) {
+                    // `haystackIndex - haystackIndexLastMatch - 1` may overrepresent
+                    // the gap between matches due to greedy matching, so we search
+                    // backwards to find the actual gap. This correction may be overly
+                    // charitable if the haystack has multiple instances of the same
+                    // character, but it's well worth the improvement in identifying
                     // exact matches.
                     //
-                    // For example, the needle "note" should match "beamed sixteenth notes" with
-                    // no gaps, but without this correction there would be a gap of 4 ("th n").
+                    // For example, the needle "note" should match "beamed sixteenth
+                    // notes" with no gaps, but without this correction there would
+                    // be a gap of 4 ("th n").
                     let gap = haystackIndex - haystackIndexLastMatch - 1;
                     for (let i = haystackIndex - 1; i > haystackIndexLastMatch; i--) {
                         if (haystack[i] === needle[needleIndex - 1]) {
@@ -194,10 +196,7 @@
             return 0;
         }
 
-        // Map all gaps to their logarithm
-        matchGaps = matchGaps.map(gap => Math.log(gap + 1));
-        // Calculate the score as the inverse of the sum of the logarithms of the gaps
-        return 1 / matchGaps.reduce((a, b) => a + b, 0);
+        return 1 / matchGaps.map(gap => Math.log(gap + 1)).reduce((a, b) => a + b, 0);
     }
 
     function updateMatches() {
