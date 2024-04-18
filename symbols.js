@@ -196,6 +196,21 @@ const symbols = [
         "display": "\u25A1",
         "name": "Right-to-Left",
         "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
+    },
+    {
+        "glyph": "ñ",
+        "name": "Latin Small Letter n with Tilde",
+        "searchTerm": ["n", "latin", "tilde", "jalapeno"],
+    },
+    {
+        "glyph": "Ñ",
+        "name": "Latin Capital Letter N with Tilde",
+        "searchTerm": ["n", "latin", "tilde", "jalapeno"],
+    },
+    {
+        "glyph": "¡",
+        "name": "Reverse Exclamation Mark",
+        "searchTerms": ["reverse", "exclamation", "mark"],
     }
 ]
 
