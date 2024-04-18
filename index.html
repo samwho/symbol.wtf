@@ -72,6 +72,10 @@
       transition: background 200ms linear;
     }
 
+    .symbol-long {
+      font-size: 2rem;
+    }
+
     .symbol:hover {
       background: #f7b73322;
     }
@@ -98,7 +102,7 @@
   <script>
     const symbols = [
       "©", "®", "™", "“", "”", "£", "…", "½", "¼", "∞", "é", "á", "à", "ç", "€",
-      "¥", "₩", "¢", "¤", "œ", "Œ", "æ", "Æ", "✔", "°", "²", "³", "‽"
+      "¥", "₩", "¢", "¤", "œ", "Œ", "æ", "Æ", "✔", "°", "²", "³", "‽", { display: "ZWSP", character: "\u{200B}" }
     ];
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -106,17 +110,29 @@
       for (const symbol of symbols) {
         const elem = document.createElement("div");
         elem.classList = "symbol";
-        elem.textContent = symbol;
-        elem.addEventListener("click", () => {
-          const symbol = elem.textContent;
-          navigator.clipboard.writeText(symbol);
 
+        let display, character;
+
+        if (typeof symbol === "string") {
+          display = symbol;
+          character = symbol;
+        } else {
+          display = symbol["display"];
+          character = symbol["character"];
+          elem.classList += " symbol-long";
+        }
+
+        elem.textContent = display;
+        elem.addEventListener("click", () => {
+          navigator.clipboard.writeText(character);
+
+          const prevousClassList = elem.classList;
           elem.textContent = "Copied!";
           elem.classList = "symbol-clicked";
 
           setTimeout(() => {
-            elem.textContent = symbol;
-            elem.classList = "symbol";
+            elem.textContent = display;
+            elem.classList = prevousClassList;
           }, 1000);
         });
         parent.appendChild(elem);
