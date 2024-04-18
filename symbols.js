@@ -186,32 +186,6 @@ const symbols = [
         "name": "Vertically Centered Dot",
         "searchTerms": ["vertical", "dot", "centered"]
     },
-
-    /* invisible characters */
-    {
-        "glyph": "\u00A0",
-        "display": DISPLAY_BOX,
-        "name": "No-break Space",
-        "searchTerms": ["U+00A0", "&nbsp;", "non-breaking", "no-break", "break", "space"]
-    },
-    {
-        "glyph": "\u200B",
-        "display": DISPLAY_BOX,
-        "name": "Zero Width Space",
-        "searchTerms": ["U+200B", "zwsp", "zero", "width", "space"]
-    },
-    {
-        "glyph": "\u200E",
-        "display": DISPLAY_BOX,
-        "name": "Left-to-Right",
-        "searchTerms": ["U+200E", "&lrm;", "ltr", "left-to-right"]
-    },
-    {
-        "glyph": "\u200F",
-        "display": DISPLAY_BOX,
-        "name": "Right-to-Left",
-        "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
-    },
     {
         "glyph": "ñ",
         "name": "Latin Small Letter n with Tilde",
@@ -261,6 +235,32 @@ const symbols = [
         "glyph": "µ",
         "name": "Micro",
         "searchTerms": ["micro"],
+    },
+
+    /* invisible characters */
+    {
+        "glyph": "\u00A0",
+        "display": DISPLAY_BOX,
+        "name": "No-break Space",
+        "searchTerms": ["U+00A0", "&nbsp;", "non-breaking", "no-break", "break", "space"]
+    },
+    {
+        "glyph": "\u200B",
+        "display": DISPLAY_BOX,
+        "name": "Zero Width Space",
+        "searchTerms": ["U+200B", "zwsp", "zero", "width", "space"]
+    },
+    {
+        "glyph": "\u200E",
+        "display": DISPLAY_BOX,
+        "name": "Left-to-Right",
+        "searchTerms": ["U+200E", "&lrm;", "ltr", "left-to-right"]
+    },
+    {
+        "glyph": "\u200F",
+        "display": DISPLAY_BOX,
+        "name": "Right-to-Left",
+        "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
     }
 ]
 
