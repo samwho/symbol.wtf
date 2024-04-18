@@ -153,5 +153,10 @@ const symbols = [
         "glyph": "",
         "name": "Apple",
         "searchTerms": ["apple"]
+    },
+    {
+        "glyph": "•",
+        "name": "Vertically Centered Dot",
+        "searchTerms": ["vertical", "dot", "centered"]
     }
 ]
