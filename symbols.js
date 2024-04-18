@@ -1,3 +1,5 @@
+const DISPLAY_BOX = "\u25A1";
+
 const symbols = [
     {
         "glyph": "©",
@@ -179,21 +181,29 @@ const symbols = [
         "name": "Vertically Centered Dot",
         "searchTerms": ["vertical", "dot", "centered"]
     },
+
+    /* invisible characters */
     {
         "glyph": "\u00A0",
-        "display": "\u25A1",
+        "display": DISPLAY_BOX,
         "name": "No-break Space",
         "searchTerms": ["U+00A0", "&nbsp;", "non-breaking", "no-break", "break", "space"]
     },
     {
+        "glyph": "\u200B",
+        "display": DISPLAY_BOX,
+        "name": "Zero Width Space",
+        "searchTerms": ["U+200B", "zwsp", "zero", "width", "space"]
+    },
+    {
         "glyph": "\u200E",
-        "display": "\u25A1",
+        "display": DISPLAY_BOX,
         "name": "Left-to-Right",
         "searchTerms": ["U+200E", "&lrm;", "ltr", "left-to-right"]
     },
     {
         "glyph": "\u200F",
-        "display": "\u25A1",
+        "display": DISPLAY_BOX,
         "name": "Right-to-Left",
         "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
     },
