@@ -226,6 +226,11 @@ const symbols = [
         "glyph": "→",
         "name": "Right Arrow",
         "searchTerms": ["right", "arrow"],
+    },
+    {
+        "glyph": "~",
+        "name": "Tilde",
+        "searchTerms": ["tilde"],
     }
 ]
 
