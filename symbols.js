@@ -55,6 +55,11 @@ const symbols = [
         "searchTerms": ["infinity"]
     },
     {
+        "glyph": "±",
+        "name": "Plus-minus",
+        "searchTerms": ["plus", "minus"],
+    },
+    {
         "glyph": "é",
         "name": "E with Acute",
         "searchTerms": ["acute", "e"]
@@ -231,6 +236,21 @@ const symbols = [
         "glyph": "~",
         "name": "Tilde",
         "searchTerms": ["tilde"],
+    },
+    {
+        "glyph": "∅",
+        "name": "Empty set",
+        "searchTerms": ["empty", "set"],
+    },
+    {
+        "glyph": "∆",
+        "name": "Delta",
+        "searchTerms": ["delta"],
+    },
+    {
+        "glyph": "µ",
+        "name": "Micro",
+        "searchTerms": ["micro"],
     }
 ]
 
