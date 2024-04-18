@@ -166,19 +166,19 @@ const symbols = [
     },
     {
         "glyph": "\u00A0",
-        "display": false,
+        "display": "\u25A1",
         "name": "No-break Space",
         "searchTerms": ["U+00A0", "&nbsp;", "non-breaking", "no-break", "break", "space"]
     },
     {
         "glyph": "\u200E",
-        "display": false,
+        "display": "\u25A1",
         "name": "Left-to-Right",
         "searchTerms": ["U+200E", "&lrm;", "ltr", "left-to-right"]
     },
     {
         "glyph": "\u200F",
-        "display": false,
+        "display": "\u25A1",
         "name": "Right-to-Left",
         "searchTerms": ["U+200F", "&rlm;", "rtl", "right-to-left"]
     }
@@ -195,20 +195,18 @@ function renderSymbols(searchTerm = "") {
         }
         const elem = document.createElement("div");
         elem.classList = "symbol";
-        /* If display is false, show an empty box. */
-        elem.textContent = symbolInfo.display !== false ? symbolInfo.glyph : "\u25A1";
+        elem.textContent = symbolInfo.display || symbolInfo.glyph;
         elem.addEventListener("click", () => {
             if (elem.classList.contains("symbol-clicked")) return;
 
-            const symbol = elem.textContent;
-            navigator.clipboard.writeText(symbol);
+            navigator.clipboard.writeText(symbolInfo.glyph);
 
             elem.textContent = "Copied!";
             elem.classList.remove("symbol");
             elem.classList.add("symbol-clicked");
 
             setTimeout(() => {
-                elem.textContent = symbolInfo.glyph;
+                elem.textContent = symbolInfo.display || symbolInfo.glyph;
                 elem.title = symbolInfo.name;
                 elem.classList.remove("symbol-clicked");
                 elem.classList.add("symbol");
