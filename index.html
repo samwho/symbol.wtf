@@ -93,38 +93,148 @@
       cursor: pointer;
       transition: background 200ms linear;
     }
+
+    input.search {
+      color: black;
+      border: 1px dashed #555;
+      margin: 1rem auto;
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 1.5rem;
+      padding: 0.5rem;
+      padding-left: 40px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: 16px center;
+      background-size: 16px 16px;
+    }
   </style>
 
   <script>
-    const symbols = [
-      "©", "®", "™", "“", "”", "£", "…", "½", "¼", "∞", "é", "á", "à", "ç", "€",
-      "¥", "₩", "¢", "¤", "œ", "Œ", "æ", "Æ", "✔", "°", "²", "³", "‽"
-    ];
+    const symbols = {
+      "©": "Copyright Sign",
+      "®": "Registered Sign",
+      "™": "Trade Mark Sign",
+      "“": "Left Double Quotation Mark",
+      "”": "Right Double Quotation Mark",
+      "£": "Pound Sign",
+      "…": "Horizontal Ellipsis",
+      "½": "Vulgar Fraction One Half",
+      "¼": "Vulgar Fraction One Quarter",
+      "∞": "Infinity",
+      "é": "Latin Small Letter E With Acute",
+      "á": "Latin Small Letter A With Acute",
+      "à": "Latin Small Letter A With Grave",
+      "ç": "Latin Small Letter C With Cedilla",
+      "€": "Euro Sign",
+      "¥": "Yen Sign",
+      "₩": "Won Sign",
+      "¢": "Cent Sign",
+      "¤": "Currency Sign",
+      "œ": "Latin Small Ligature Oe",
+      "Œ": "Latin Capital Ligature Oe",
+      "æ": "Latin Small Letter Ae",
+      "Æ": "Latin Capital Letter Ae",
+      "✔": "Heavy Check Mark",
+      "°": "Degree Sign",
+      "²": "Superscript Two",
+      "³": "Superscript Three",
+      "‽": "Interrobang"
+    };
 
     document.addEventListener("DOMContentLoaded", () => {
-      const parent = document.querySelector(".symbols");
-      for (const symbol of symbols) {
-        const elem = document.createElement("div");
-        elem.classList = "symbol";
-        elem.textContent = symbol;
-        elem.addEventListener("click", () => {
-          const symbol = elem.textContent;
-          navigator.clipboard.writeText(symbol);
+        const inputElement = document.querySelector('.search');
+        inputElement.addEventListener('input', function() { updateMatches(); });
 
-          elem.textContent = "Copied!";
-          elem.classList = "symbol-clicked";
-
-          setTimeout(() => {
-            elem.textContent = symbol;
-            elem.classList = "symbol";
-          }, 1000);
-        });
-        parent.appendChild(elem);
-      }
+        updateMatches();
     });
+
+    function fuzzyMatch(haystack, needle) {
+        let haystackIndex = 0; // Index to track position in haystack
+        let needleIndex = 0;  // Index to track position in needle
+        let haystackIndexLastMatch = -1; // Index to track position in haystack of the last match
+        let matchGaps = []; // List to track gaps between matched characters
+
+        haystack = haystack.toLowerCase();
+        needle = needle.toLowerCase();
+
+        while (haystackIndex < haystack.length && needleIndex < needle.length) {
+            if (haystack[haystackIndex] === needle[needleIndex]) {
+                if (haystackIndexLastMatch >= 0 && haystackIndexLastMatch !== haystackIndex - 1) {
+                    // `haystackIndex - haystackIndexLastMatch - 1` may overrepresent the gap between
+                    // matches due to greedy matching, so we search backwards to find the actual gap.
+                    // This correction may be overly charitable if the haystack has multiple instances
+                    // of the same character, but it's well worth the improvement in identifying
+                    // exact matches.
+                    //
+                    // For example, the needle "note" should match "beamed sixteenth notes" with
+                    // no gaps, but without this correction there would be a gap of 4 ("th n").
+                    let gap = haystackIndex - haystackIndexLastMatch - 1;
+                    for (let i = haystackIndex - 1; i > haystackIndexLastMatch; i--) {
+                        if (haystack[i] === needle[needleIndex - 1]) {
+                            gap = haystackIndex - i - 1;
+                            break;
+                        }
+                    }
+                    if (gap > 0) {
+                        matchGaps.push(gap);
+                    }
+                }
+                needleIndex++;
+                haystackIndexLastMatch = haystackIndex;
+            }
+            haystackIndex++;
+        }
+
+        if (needleIndex !== needle.length) {
+            // No match: not all needle characters were found in sequence
+            return 0;
+        }
+
+        // Map all gaps to their logarithm
+        matchGaps = matchGaps.map(gap => Math.log(gap + 1));
+        // Calculate the score as the inverse of the sum of the logarithms of the gaps
+        return 1 / matchGaps.reduce((a, b) => a + b, 0);
+    }
+
+    function updateMatches() {
+        const inputElement = document.querySelector('.search');
+        const parent = document.querySelector(".symbols");
+        let filteredSymbols = inputElement.value == "" ? symbols :
+            Object.fromEntries(Object.entries(symbols)
+                .map(([symbol, description]) => [symbol, { description, score: fuzzyMatch(description, inputElement.value) }])
+                .filter(([symbol, { score }]) => score !== 0)
+                .sort((a, b) => b[1].score - a[1].score)
+                .map(([symbol, { description }]) => [symbol, description]));
+
+        parent.innerHTML = "";
+        for (const [symbol, description] of Object.entries(filteredSymbols)) {
+            const elem = document.createElement("div");
+            elem.classList = "symbol";
+            elem.textContent = symbol;
+            elem.title = description;
+            elem.addEventListener("click", () => {
+                const symbol = elem.textContent;
+                navigator.clipboard.writeText(symbol);
+
+                elem.textContent = "Copied!";
+                elem.classList = "symbol-clicked";
+
+                setTimeout(() => {
+                    elem.textContent = symbol;
+                    elem.classList = "symbol";
+                }, 1000);
+            });
+            parent.appendChild(elem);
+        }
+    }
   </script>
 </head>
 
 <body>
+  <input type="text" class="search" placeholder="Search symbols...">
   <div class="symbols"></div>
 </body>
