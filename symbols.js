@@ -268,19 +268,19 @@ const symbols = [
         "glyph": "\u00A0",
         "display": "\u25A1",
         "name": "No-break Space",
-        "searchTerms": ["U+00A0", "&nbsp;", "non-breaking", "break"]
+        "searchTerms": ["&nbsp;", "non-breaking", "break"]
     },
     {
         "glyph": "\u200E",
         "display": "\u25A1",
         "name": "Left-to-Right",
-        "searchTerms": ["U+200E", "&lrm;", "ltr"]
+        "searchTerms": ["&lrm;", "ltr"]
     },
     {
         "glyph": "\u200F",
         "display": "\u25A1",
         "name": "Right-to-Left",
-        "searchTerms": ["U+200F", "&rlm;", "rtl"]
+        "searchTerms": ["&rlm;", "rtl"]
     },
 
     /* Private Use Area (not official Unicode) */
@@ -298,8 +298,16 @@ function renderSymbols(searchTerm) {
     searchTerm = searchTerm?.toLowerCase() ?? "";
 
     const symbolsFiltered = symbols.filter((s) => {
-        symbolSearchTerms = [ s.name, ...s.searchTerms ].join(" ");
-        return searchTerm === "" || symbolSearchTerms.toLowerCase().includes(searchTerm);
+        /* Get hex representation of codepoint, e.g. 00A0 for &nbsp; or 20AC for € */
+        const codePoint = s.glyph.codePointAt(0).toString(16).padStart(4, 0);
+
+        const searchTerms = [
+            s.name,
+            ...s.searchTerms,
+            `U+${codePoint}`,
+            `0x${codePoint}`
+        ];
+        return searchTerm === "" || searchTerms.join(" ").toLowerCase().includes(searchTerm);
     });
 
     for (const symbolInfo of symbolsFiltered) {
