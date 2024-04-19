@@ -42,7 +42,7 @@ const symbols = [
     {
         "glyph": "—",
         "name": "Em-dash",
-        "searchTerms": ["em", "dash"],
+        "searchTerms": [],
     },
     {
         "glyph": "¡",
@@ -111,7 +111,7 @@ const symbols = [
     {
         "glyph": "±",
         "name": "Plus-minus",
-        "searchTerms": ["plus", "minus", "+", "-"],
+        "searchTerms": ["+", "-"],
     },
     {
         "glyph": "×",
@@ -280,7 +280,7 @@ const symbols = [
         "glyph": "\u00A0",
         "display": DISPLAY_BOX,
         "name": "No-break Space",
-        "searchTerms": ["&nbsp;", "non-breaking", "break"]
+        "searchTerms": ["&nbsp;", "non-breaking"]
     },
     {
         "glyph": "\u200B",
