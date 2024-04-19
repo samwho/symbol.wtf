@@ -3,12 +3,12 @@ const symbols = [
     {
         "glyph": "©",
         "name": "Copyright",
-        "searchTerms": ["copyright", "C"]
+        "searchTerms": ["copyright", "(C)"]
     },
     {
         "glyph": "®",
         "name": "Registered Trademark",
-        "searchTerms": ["registered", "trademark", "R"]
+        "searchTerms": ["registered", "trademark", "(R)"]
     },
     {
         "glyph": "™",
