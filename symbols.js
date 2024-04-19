@@ -264,6 +264,16 @@ const symbols = [
         "name": "Tilde",
         "searchTerms": [],
     },
+    {
+        "glyph": "⌘",
+        "name": "Command (Looped Square)",
+        "searchTerms": []
+    },
+    {
+        "glyph": "⌥",
+        "name": "Option",
+        "searchTerms": []
+    },
 
     /* invisible characters */
     {
