@@ -1,3 +1,5 @@
+const DISPLAY_BOX = "\u25A1";
+
 const symbols = [
     /* samwho */
     {
@@ -266,19 +268,25 @@ const symbols = [
     /* invisible characters */
     {
         "glyph": "\u00A0",
-        "display": "\u25A1",
+        "display": DISPLAY_BOX,
         "name": "No-break Space",
         "searchTerms": ["&nbsp;", "non-breaking", "break"]
     },
     {
+        "glyph": "\u200B",
+        "display": DISPLAY_BOX,
+        "name": "Zero Width Space",
+        "searchTerms": ["zwsp"]
+    },
+    {
         "glyph": "\u200E",
-        "display": "\u25A1",
+        "display": DISPLAY_BOX,
         "name": "Left-to-Right",
         "searchTerms": ["&lrm;", "ltr"]
     },
     {
         "glyph": "\u200F",
-        "display": "\u25A1",
+        "display": DISPLAY_BOX,
         "name": "Right-to-Left",
         "searchTerms": ["&rlm;", "rtl"]
     },
@@ -319,6 +327,8 @@ function renderSymbols(searchTerm) {
             if (elem.classList.contains("symbol-clicked")) return;
 
             navigator.clipboard.writeText(symbolInfo.glyph);
+
+            console.log(`Copied ${symbolInfo.name} (${symbolInfo.glyph})!`);
 
             elem.textContent = "Copied!";
             elem.classList.remove("symbol");
