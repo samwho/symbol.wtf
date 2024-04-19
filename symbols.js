@@ -65,7 +65,7 @@ const symbols = [
     {
         "glyph": "•",
         "name": "Vertically Centered Dot",
-        "searchTerms": ["vertical", "dot", "centered", "."]
+        "searchTerms": ["bullet", "vertical", "dot", "centered", "."]
     },
 
     /* currency */
