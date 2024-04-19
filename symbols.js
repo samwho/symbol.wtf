@@ -105,6 +105,11 @@ const symbols = [
         "searchTerms": ["won"]
     },
     {
+        "glyph": "₹",
+        "name": "Rupee",
+        "searchTerms": ["rupee"]
+    },
+    {
         "glyph": "¢",
         "name": "Cent",
         "searchTerms": ["cent"]
