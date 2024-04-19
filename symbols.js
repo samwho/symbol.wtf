@@ -20,22 +20,22 @@ const symbols = [
     {
         "glyph": "“",
         "name": "Left Double Quotation Mark",
-        "searchTerms": ["left", "quotation", "quote", "double", "mark", '"']
+        "searchTerms": ["left", "open", "quotation", "quote", "double", "mark", '"']
     },
     {
         "glyph": "”",
         "name": "Right Double Quotation Mark",
-        "searchTerms": ["right", "quotation", "quote", "double", "mark", '"']
+        "searchTerms": ["right", "close", "quotation", "quote", "double", "mark", '"']
     },
     {
         "glyph": "‘",
         "name": "Left Single Quotation Mark",
-        "searchTerms": ["left", "quotation", "quote", "single", "mark", "'"],
+        "searchTerms": ["left", "open", "quotation", "quote", "single", "mark", "'"],
     },
     {
         "glyph": "’",
         "name": "Right Single Quotation Mark",
-        "searchTerms": ["right", "quotation", "quote", "single", "mark", "'"],
+        "searchTerms": ["right", "close", "quotation", "quote", "single", "mark", "'"],
     },
     {
         "glyph": "—",
@@ -44,8 +44,13 @@ const symbols = [
     },
     {
         "glyph": "¡",
-        "name": "Reverse Exclamation Mark",
-        "searchTerms": ["reverse", "exclamation", "mark", "!"],
+        "name": "Inverted Exclamation Mark",
+        "searchTerms": ["inverted", "exclamation", "mark", "!"],
+    },
+    {
+        "glyph": "¿",
+        "name": "Inverted Question Mark",
+        "searchTerms": ["inverted", "question", "mark", "?"],
     },
     {
         "glyph": "‽",
@@ -117,6 +122,11 @@ const symbols = [
         "searchTerms": ["divide", "/"],
     },
     {
+        "glyph": "√",
+        "name": "Square Root",
+        "searchTerms": ["square", "root", "sqrt"],
+    },
+    {
         "glyph": "¹",
         "name": "Superscript One",
         "searchTerms": ["power", "superscript", "one"]
@@ -133,13 +143,18 @@ const symbols = [
     },
     {
         "glyph": "¼",
-        "name": "Quarter",
-        "searchTerms": ["quarter", "1/4"]
+        "name": "One Quarter",
+        "searchTerms": ["fraction", "one", "quarter", "1/4"]
     },
     {
         "glyph": "½",
-        "name": "Half",
-        "searchTerms": ["half", "1/2"]
+        "name": "One Half",
+        "searchTerms": ["fraction", "half", "1/2"]
+    },
+    {
+        "glyph": "¾",
+        "name": "Three Quarters",
+        "searchTerms": ["fraction", "three", "quarter", "3/4"]
     },
     {
         "glyph": "∞",
