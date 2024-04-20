@@ -251,6 +251,11 @@ const symbols = [
         "glyph": "µ",
         "name": "Micro",
         "searchTerms": ["micro"],
+    },
+    {
+        "glyph": "₿",
+        "name": "Bitcoin",
+        "searchTerms": ["bitcoin", "btc"],
     }
 ]
 
