@@ -373,6 +373,7 @@ function search(searchTerm) {
 
         const searchTerms = [
             s.name,
+            s.glyph,
             ...s.searchTerms,
             `U+${codePoint}`,
             `0x${codePoint}`
