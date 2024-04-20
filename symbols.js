@@ -15,6 +15,11 @@ const symbols = [
         "searchTerms": ["trademark", "TM"]
     },
     {
+        "glyph": "“",
+        "name": "Left Double Quotation Mark",
+        "searchTerms": ["quotation", "quote", "double", '"']
+    },
+    {
         "glyph": "”",
         "name": "Right Double Quotation Mark",
         "searchTerms": ["quotation", "quote", "double", '"']
@@ -281,11 +286,6 @@ const symbols = [
         "glyph": "µ",
         "name": "Micro",
         "searchTerms": ["micro"],
-    },
-    {
-        "glyph": "“",
-        "name": "Left Double Quotation Mark",
-        "searchTerms": ["quotation", "quote", "double", '"']
     },
 ]
 
