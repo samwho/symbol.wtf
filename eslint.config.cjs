@@ -1,9 +1,9 @@
-import globals from "globals";
-import js from "@eslint/js";
-import prettierRecommended from "eslint-plugin-prettier/recommended";
-import prettierConfig from "eslint-config-prettier";
+const globals = require("globals");
+const js = require("@eslint/js");
+const prettierRecommended = require("eslint-plugin-prettier/recommended");
+const prettierConfig = require("eslint-config-prettier");
 
-export default [
+module.exports = [
 	js.configs.recommended,
 	prettierRecommended,
 	prettierConfig,
