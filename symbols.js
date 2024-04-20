@@ -5,6 +5,11 @@ const symbols = [
         "searchTerms": ["copyright", "C"]
     },
     {
+        "glyph": "🄯",
+        "name": "Copyleft",
+        "searchTerms": ["copyleft", "C"]
+    },
+    {
         "glyph": "®",
         "name": "Registered Trademark",
         "searchTerms": ["registered", "trademark", "R"]
