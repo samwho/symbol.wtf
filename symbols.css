@@ -100,10 +100,11 @@ body {
 .symbol {
   display: flex;
   flex-direction: column;
+  container-type: inline-size;
 }
 
 .symbol .glyph {
-  font-size: 3rem;
+  font-size: 60cqw;
 }
 
 .symbol .name {
