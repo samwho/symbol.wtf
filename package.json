@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint --cache --cache-strategy metadata --cache-location .cache/eslint .",
     "format": "prettier --write --cache --cache-strategy metadata  --cache-location .cache/prettier .",
-    "start": "http-server --cors"
+    "start": "http-server src/ --cors"
   },
   "devDependencies": {
     "@eslint/js": "^9.1.1",
