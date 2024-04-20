@@ -25,6 +25,11 @@ const symbols = [
         "searchTerms": ["em", "dash"],
     },
     {
+        "glyph": "–",
+        "name": "En-dash",
+        "searchTerms": ["en", "dash"],
+    },
+    {
         "glyph": "£",
         "name": "Pound",
         "searchTerms": ["pound"]
@@ -167,7 +172,12 @@ const symbols = [
     {
         "glyph": "×",
         "name": "Times",
-        "searchTerms": ["times", "x"]
+        "searchTerms": ["times", "x", "multiply", "multiplication", "product"]
+    },
+    {
+        "glyph": "÷",
+        "name": "Division",
+        "searchTerms": ["division", "divided"]
     },
     {
         "glyph": "",
@@ -231,6 +241,26 @@ const symbols = [
         "glyph": "→",
         "name": "Right Arrow",
         "searchTerms": ["right", "arrow"],
+    },
+    {
+        "glyph": "↑",
+        "name": "Upwards Arrow",
+        "searchTerms": ["up", "upwards", "arrow"],
+    },
+    {
+        "glyph": "↓",
+        "name": "Downwards Arrow",
+        "searchTerms": ["down", "downwards", "arrow"],
+    },
+    {
+        "glyph": "↔",
+        "name": "Left Right Arrow",
+        "searchTerms": ["left", "right", "arrow"],
+    },
+    {
+        "glyph": "↕",
+        "name": "Up Down Arrow",
+        "searchTerms": ["up", "down", "arrow"],
     },
     {
         "glyph": "~",
