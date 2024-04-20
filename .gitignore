@@ -1,0 +1,18 @@
+# I like nano.  Deal with it.
+**/*.swp
+
+# Transient node files
+package-lock.json
+yarn.lock
+**/node_modules/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.cjs
+.pnp.loader.mjs
+
+# Build output
+.cache/*
