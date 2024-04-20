@@ -55,6 +55,11 @@ const symbols = [
         searchTerms: ["quarter", "1/4"]
     },
     {
+        glyph: "¾",
+        name: "Three-Quarter",
+        searchTerms: ["three", "quarter", "3/4"]
+    },
+    {
         glyph: "∞",
         name: "Infinity",
         searchTerms: ["infinity"]
@@ -63,6 +68,11 @@ const symbols = [
         glyph: "±",
         name: "Plus-minus",
         searchTerms: ["plus", "minus"],
+    },
+    {
+        glyph: "−",
+        name: "minus",
+        searchTerms: ["minus"],
     },
     {
         glyph: "é",
@@ -286,6 +296,51 @@ const symbols = [
         glyph: "µ",
         name: "Micro",
         searchTerms: ["micro"],
+    },
+    {
+        glyph: "þ",
+        name: "thorn",
+        searchTerms: ["thorn"],
+    },
+    {
+        glyph: "Þ",
+        name: "thorn",
+        searchTerms: ["thorn"],
+    },
+    {
+        glyph: "ð",
+        name: "eth",
+        searchTerms: ["eth"],
+    },
+    {
+        glyph: "Ð",
+        name: "eth",
+        searchTerms: ["eth"],
+    },
+    {
+        glyph: "†",
+        name: "dagger",
+        searchTerms: ["dagger"],
+    },
+    {
+        glyph: "♥",
+        name: "heart",
+        searchTerms: ["heart"],
+    },
+    {
+        glyph: "♦",
+        name: "diamond",
+        searchTerms: ["diamond"],
+    },
+    {
+        glyph: "♣",
+        name: "club",
+        searchTerms: ["club"],
+    },
+    {
+        glyph: "♠",
+        name: "spade",
+        searchTerms: ["spade"],
     },
 ]
 
