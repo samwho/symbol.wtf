@@ -1,12 +1,35 @@
-html {
-  box-sizing: border-box;
-  font-size: 16px;
+@media (prefers-color-scheme: dark) {
+  * {
+    --main-bg-color: #1f1f1fff;
+    --main-fg-color: #f0f0f0ff;
+    --border-color: #666666;
+    --clicked-color: rgb(15, 85, 21);
+    --hover-color: #f7b73322;
+    --link-color: #0077cc;
+    --placeholder-color: #7f7f7fff;
+  }
+}
+
+@media (not (prefers-color-scheme: dark)) {
+  * {
+    --main-bg-color: #f0f0f0ff;
+    --main-fg-color: #1f1f1fff;
+    --border-color: #666666;
+    --clicked-color: #b1e8b6ff;
+    --hover-color: #f7b73322;
+    --link-color: #0077cc;
+    --placeholder-color: #7f7f7fff;
+  }
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+::placeholder {
+  color: var(--placeholder-color);
 }
 
 body,
@@ -35,14 +58,31 @@ img {
 }
 
 body {
-  font-size: 24px;
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+  box-sizing: border-box;
+  font-size: 16px;
   padding: 1rem;
+}
+
+a {
+  color: var(--link-color);
 }
 
 .search {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  max-width: 1200px;
+}
+
+.search > input {
+  width: 100%;
+  font-size: 3rem;
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
 }
 
 .symbols {
@@ -53,42 +93,49 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
 }
 
+.symbols > span {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: auto;
+}
+
 .symbol {
-  color: black;
-  border: 1px dashed #555;
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
+  border: 1px dashed var(--border-color);
   border-radius: 10%;
   padding: 1rem;
   aspect-ratio: 1;
-  font-size: 6rem;
   text-align: center;
-  line-height: 100%;
   min-height: 125px;
-  max-height: 80vh;
-  display: flex;
-  justify-content: center;
+  max-height: calc(100vh - 8rem);
+  max-width: calc(100vw - 2rem);
+  justify-content: space-between;
+  justify-self: normal;
   align-items: center;
   cursor: pointer;
   transition: background 200ms linear;
+}
+
+.symbol > .glyph {
+  font-size: 60cqw;
+}
+
+.symbol > .name {
+  font-size: 1rem;
+  text-wrap: nowrap;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+  overflow: hidden;
 }
 
 .symbol:hover {
-  background: #f7b73322;
+  background-color: var(--hover-color);
 }
 
-.symbol-clicked {
-  font-size: 2rem;
-  background-color: #B1E8B6;
-  color: black;
-  border: 1px dashed #555;
-  border-radius: 10%;
-  padding: 1rem;
-  aspect-ratio: 1;
-  text-align: center;
-  line-height: 100%;
-  min-height: 125px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background 200ms linear;
+.clicked {
+  background-color: var(--clicked-color) !important;
 }

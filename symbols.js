@@ -32,27 +32,32 @@ const symbols = [
     {
         "glyph": "‘",
         "name": "Left Single Quotation Mark",
-        "searchTerms": ["open", "quote", "'"],
+        "searchTerms": ["open", "quote", "'"]
     },
     {
         "glyph": "’",
         "name": "Right Single Quotation Mark",
-        "searchTerms": ["close", "quote", "'"],
+        "searchTerms": ["close", "quote", "'"]
     },
     {
         "glyph": "—",
         "name": "Em-dash",
-        "searchTerms": [],
+        "searchTerms": []
+    },
+    {
+        glyph: "–",
+        name: "En-dash",
+        searchTerms: ["en", "dash"]
     },
     {
         "glyph": "¡",
         "name": "Inverted Exclamation Mark",
-        "searchTerms": ["!"],
+        "searchTerms": ["!"]
     },
     {
         "glyph": "¿",
         "name": "Inverted Question Mark",
-        "searchTerms": ["?"],
+        "searchTerms": ["?"]
     },
     {
         "glyph": "‽",
@@ -102,6 +107,11 @@ const symbols = [
         "searchTerms": []
     },
     {
+        glyph: "₹",
+        name: "Rupee",
+        searchTerms: []
+    },
+    {
         "glyph": "¢",
         "name": "Cent",
         "searchTerms": []
@@ -111,7 +121,7 @@ const symbols = [
     {
         "glyph": "±",
         "name": "Plus-minus",
-        "searchTerms": ["+", "-"],
+        "searchTerms": ["+", "-"]
     },
     {
         "glyph": "×",
@@ -121,12 +131,12 @@ const symbols = [
     {
         "glyph": "÷",
         "name": "Divide",
-        "searchTerms": ["/"],
+        "searchTerms": ["/"]
     },
     {
         "glyph": "√",
         "name": "Square Root",
-        "searchTerms": ["sqrt"],
+        "searchTerms": ["sqrt"]
     },
     {
         "glyph": "¹",
@@ -164,24 +174,19 @@ const symbols = [
         "searchTerms": []
     },
     {
-        "glyph": "π",
-        "name": "Pi",
-        "searchTerms": ["pie"],
-    },
-    {
         "glyph": "∅",
         "name": "Empty Set",
-        "searchTerms": [],
+        "searchTerms": []
     },
     {
         "glyph": "∆",
         "name": "Delta",
-        "searchTerms": [],
+        "searchTerms": []
     },
     {
         "glyph": "µ",
         "name": "Micro",
-        "searchTerms": ["mu"],
+        "searchTerms": ["mu"]
     },
     {
         "glyph": "°",
@@ -213,12 +218,12 @@ const symbols = [
     {
         "glyph": "ñ",
         "name": "Latin Small Letter n with Tilde",
-        "searchTerms": ["jalapeno"],
+        "searchTerms": ["jalapeno"]
     },
     {
         "glyph": "Ñ",
         "name": "Latin Capital Letter N with Tilde",
-        "searchTerms": ["jalapeno"],
+        "searchTerms": ["jalapeno"]
     },
 
     /* combined characters */
@@ -252,17 +257,37 @@ const symbols = [
     {
         "glyph": "←",
         "name": "Left Arrow",
-        "searchTerms": [],
+        "searchTerms": []
     },
     {
         "glyph": "→",
         "name": "Right Arrow",
-        "searchTerms": [],
+        "searchTerms": []
+    },
+    {
+        glyph: "↑",
+        name: "Upwards Arrow",
+        searchTerms: []
+    },
+    {
+        glyph: "↓",
+        name: "Downwards Arrow",
+        searchTerms: []
+    },
+    {
+        glyph: "↔",
+        name: "Left Right Arrow",
+        searchTerms: []
+    },
+    {
+        glyph: "↕",
+        name: "Up Down Arrow",
+        searchTerms: []
     },
     {
         "glyph": "~",
         "name": "Tilde",
-        "searchTerms": [],
+        "searchTerms": []
     },
     {
         "glyph": "⌘",
@@ -309,13 +334,10 @@ const symbols = [
     }
 ];
 
-function renderSymbols(searchTerm) {
-    const parent = document.querySelector(".symbols");
-    parent.innerHTML = "";
-
+function search(searchTerm) {
     searchTerm = searchTerm?.toLowerCase() ?? "";
 
-    const symbolsFiltered = symbols.filter((s) => {
+    return symbols.filter((s) => {
         /* Get hex representation of codepoint, e.g. 00A0 for &nbsp; or 20AC for € */
         const codePoint = s.glyph.codePointAt(0).toString(16).padStart(4, 0);
 
@@ -327,29 +349,70 @@ function renderSymbols(searchTerm) {
         ];
         return searchTerm === "" || searchTerms.join(" ").toLowerCase().includes(searchTerm);
     });
+}
 
-    for (const symbolInfo of symbolsFiltered) {
+function renderSymbols(searchTerm) {
+    const parent = document.querySelector(".symbols");
+    parent.innerHTML = "";
+
+    const results = search(searchTerm);
+    if (results.length === 0) {
+        const span = document.createElement("span");
+
+        const p = document.createElement("p");
+        p.textContent = "Can't find what you're looking for?";
+        span.appendChild(p);
+
+        const a = document.createElement("a");
+        a.href = "https://github.com/samwho/symbol.wtf"
+        a.target = "_blank";
+        a.textContent = "Open a PR!";
+        span.appendChild(a);
+
+        parent.appendChild(span);
+        return;
+    }
+
+    for (const symbol of results) {
         const elem = document.createElement("div");
+        const glyphElem = document.createElement("div");
+        const nameElem = document.createElement("div");
+
         elem.classList = "symbol";
-        elem.textContent = symbolInfo.display || symbolInfo.glyph;
-        elem.title = symbolInfo.name;
-        elem.addEventListener("click", () => {
-            if (elem.classList.contains("symbol-clicked")) return;
+        elem.tabIndex = 0;
+        elem.title = symbol.name;
 
-            navigator.clipboard.writeText(symbolInfo.glyph);
+        glyphElem.classList = "glyph";
+        glyphElem.textContent = symbol.display || symbol.glyph;
 
-            console.log(`Copied ${symbolInfo.name} (${symbolInfo.glyph})!`);
+        nameElem.classList = "name";
+        nameElem.textContent = symbol.name;
 
-            elem.textContent = "Copied!";
-            elem.classList.remove("symbol");
-            elem.classList.add("symbol-clicked");
+        elem.appendChild(glyphElem);
+        elem.appendChild(nameElem);
+
+        const handleAction = () => {
+            if (elem.classList.contains("clicked")) {
+                return;
+            }
+
+            navigator.clipboard.writeText(symbol.glyph);
+
+            console.log(`Copied ${symbol.name} (${symbol.glyph})!`);
+            nameElem.textContent = "Copied!";
+            elem.classList.add("clicked");
 
             setTimeout(() => {
-                elem.textContent = symbolInfo.display || symbolInfo.glyph;
-                elem.title = symbolInfo.name;
-                elem.classList.remove("symbol-clicked");
-                elem.classList.add("symbol");
+                nameElem.textContent = symbol.name;
+                elem.classList.remove("clicked");
             }, 1000);
+        };
+        elem.addEventListener("click", handleAction);
+        elem.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                handleAction();
+            }
         });
         parent.appendChild(elem);
     }
