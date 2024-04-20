@@ -172,7 +172,12 @@ const symbols = [
     {
         "glyph": "×",
         "name": "Times",
-        "searchTerms": ["times", "x"]
+        "searchTerms": ["times", "x", "multiply", "multiplication", "product"]
+    },
+    {
+        "glyph": "÷",
+        "name": "Division",
+        "searchTerms": ["division", "divided"]
     },
     {
         "glyph": "",
