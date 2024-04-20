@@ -3,6 +3,7 @@
     --main-bg-color: #1F1F1FFF;
     --main-fg-color: #F0F0F0FF;
     --border-color: #666666;
+    --clicked-color: rgb(15, 85, 21);
   }
 }
 
@@ -11,6 +12,7 @@
     --main-bg-color: #F0F0F0FF;
     --main-fg-color: #1F1F1FFF;
     --border-color: #666666;
+    --clicked-color: #B1E8B6FF;
   }
 }
 
@@ -107,5 +109,5 @@ body {
 
 .symbol-clicked {
   font-size: 2rem;
-  background-color: #B1E8B6FF;
+  background-color: var(--clicked-color);
 }
