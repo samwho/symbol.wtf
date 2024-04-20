@@ -139,6 +139,26 @@ const symbols = [
         "searchTerms": ["sqrt"]
     },
     {
+        "glyph": "∑",
+        "name": "Summation",
+        "searchTerms": ["sum"]
+    },
+    {
+        "glyph": "∏",
+        "name": "Product",
+        "searchTerms": []
+    },
+    {
+        "glyph": "∫",
+        "name": "Integral",
+        "searchTerms": []
+    },
+    {
+        "glyph": "∂",
+        "name": "Partial Derivative",
+        "searchTerms": []
+    },
+    {
         "glyph": "¹",
         "name": "Superscript One",
         "searchTerms": ["power"]
@@ -179,8 +199,18 @@ const symbols = [
         "searchTerms": []
     },
     {
+        "glyph": "π",
+        "name": "pi",
+        "searchTerms": ["pie"]
+    },
+    {
         "glyph": "∆",
         "name": "Delta",
+        "searchTerms": []
+    },
+    {
+        "glyph": "ε",
+        "name": "Epsilon",
         "searchTerms": []
     },
     {
