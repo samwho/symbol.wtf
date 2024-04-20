@@ -271,9 +271,10 @@ function renderSymbols(searchTerm) {
         }
         const elem = document.createElement("div");
         elem.classList = "symbol";
+        elem.tabIndex = 0;
         elem.textContent = symbolInfo.display || symbolInfo.glyph;
         elem.title = symbolInfo.name;
-        elem.addEventListener("click", () => {
+        const handleAction = () => {
             if (elem.classList.contains("symbol-clicked")) return;
 
             navigator.clipboard.writeText(symbolInfo.glyph);
@@ -288,6 +289,13 @@ function renderSymbols(searchTerm) {
                 elem.classList.remove("symbol-clicked");
                 elem.classList.add("symbol");
             }, 1000);
+        };
+        elem.addEventListener("click", handleAction);
+        elem.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                handleAction();
+            }
         });
         parent.appendChild(elem);
     }

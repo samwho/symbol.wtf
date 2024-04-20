@@ -2,6 +2,7 @@
   * {
     --main-bg-color: #1F1F1FFF;
     --main-fg-color: #F0F0F0FF;
+    --border-color: #666666;
   }
 }
 
@@ -9,6 +10,7 @@
   * {
     --main-bg-color: #F0F0F0FF;
     --main-fg-color: #1F1F1FFF;
+    --border-color: #666666;
   }
 }
 
@@ -58,7 +60,10 @@ body {
 .search {
   display: flex;
   justify-content: center;
-  margin: 0 1rem 1rem 1rem;
+  margin: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  max-width: 1200px;
 }
 
 .search > input {
@@ -77,7 +82,7 @@ body {
 }
 
 .symbols > * {
-  border: 1px dashed var(--main-fg-color);
+  border: 1px dashed var(--border-color);
   border-radius: 10%;
   padding: 1rem;
   aspect-ratio: 1;
