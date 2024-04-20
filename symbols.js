@@ -270,24 +270,33 @@ function renderSymbols(searchTerm) {
             continue;
         }
         const elem = document.createElement("div");
+        const glyphElem = document.createElement("div");
+        const nameElem = document.createElement("div");
+
         elem.classList = "symbol";
         elem.tabIndex = 0;
-        elem.textContent = symbolInfo.display || symbolInfo.glyph;
         elem.title = symbolInfo.name;
+
+        glyphElem.classList = "glyph";
+        glyphElem.textContent = symbolInfo.display || symbolInfo.glyph;
+
+        nameElem.classList = "name";
+        nameElem.textContent = symbolInfo.name;
+
+        elem.appendChild(glyphElem);
+        elem.appendChild(nameElem);
+
         const handleAction = () => {
             if (elem.classList.contains("symbol-clicked")) return;
 
             navigator.clipboard.writeText(symbolInfo.glyph);
 
-            elem.textContent = "Copied!";
-            elem.classList.remove("symbol");
-            elem.classList.add("symbol-clicked");
+            nameElem.textContent = "Copied!";
+            elem.classList.add("clicked");
 
             setTimeout(() => {
-                elem.textContent = symbolInfo.display || symbolInfo.glyph;
-                elem.title = symbolInfo.name;
-                elem.classList.remove("symbol-clicked");
-                elem.classList.add("symbol");
+                nameElem.textContent = symbolInfo.name;
+                elem.classList.remove("clicked");
             }, 1000);
         };
         elem.addEventListener("click", handleAction);

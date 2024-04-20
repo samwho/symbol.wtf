@@ -89,25 +89,37 @@ body {
   padding: 1rem;
   aspect-ratio: 1;
   text-align: center;
-  line-height: 100%;
   min-height: 125px;
-  display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   cursor: pointer;
-  max-height: 80vh;
+  max-height: 40vh;
   transition: background 200ms linear;
 }
 
 .symbol {
-  font-size: 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.symbol .glyph {
+  font-size: 3rem;
+}
+
+.symbol .name {
+  font-size: 1rem;
+  text-wrap: nowrap;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+  overflow: hidden;
 }
 
 .symbol:hover {
   background-color: #F7B73322;
 }
 
-.symbol-clicked {
-  font-size: 2rem;
-  background-color: var(--clicked-color);
+.clicked {
+  background-color: var(--clicked-color) !important;
 }
