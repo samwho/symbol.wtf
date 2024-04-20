@@ -74,6 +74,16 @@ const symbols = [
         "name": "Vertically Centered Dot",
         "searchTerms": ["bullet", "."]
     },
+    {
+        "glyph": "§",
+        "name": "Section",
+        "searchTerms": ["silcrow", "s"]
+    },
+    {
+        "glyph": "¶",
+        "name": "Paragraph",
+        "searchTerms": ["pilcrow", "p"]
+    }
 
     /* currency */
     {
