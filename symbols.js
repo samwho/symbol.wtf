@@ -15,16 +15,6 @@ const symbols = [
         "searchTerms": ["trademark", "TM"]
     },
     {
-         "glyph": "℠",
-         "name": "Service Mark",
-         "searchTerms": ["service mark", "SM"]
-    },
-    {
-        "glyph": "“",
-        "name": "Left Double Quotation Mark",
-        "searchTerms": ["quotation", "quote", "double", '"']
-    },
-    {
         "glyph": "”",
         "name": "Right Double Quotation Mark",
         "searchTerms": ["quotation", "quote", "double", '"']
@@ -256,7 +246,12 @@ const symbols = [
         "glyph": "µ",
         "name": "Micro",
         "searchTerms": ["micro"],
-    }
+    },
+    {
+        "glyph": "“",
+        "name": "Left Double Quotation Mark",
+        "searchTerms": ["quotation", "quote", "double", '"']
+    },
 ]
 
 function renderSymbols(searchTerm) {
@@ -271,11 +266,9 @@ function renderSymbols(searchTerm) {
         }
         const elem = document.createElement("div");
         elem.classList = "symbol";
-        elem.tabIndex = 0;
         elem.textContent = symbolInfo.display || symbolInfo.glyph;
         elem.title = symbolInfo.name;
-
-        const handleAction = () => {
+        elem.addEventListener("click", () => {
             if (elem.classList.contains("symbol-clicked")) return;
 
             navigator.clipboard.writeText(symbolInfo.glyph);
@@ -290,14 +283,6 @@ function renderSymbols(searchTerm) {
                 elem.classList.remove("symbol-clicked");
                 elem.classList.add("symbol");
             }, 1000);
-        }
-        elem.addEventListener("click", handleAction);
-
-        elem.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                handleAction();
-            }
         });
         parent.appendChild(elem);
     }
