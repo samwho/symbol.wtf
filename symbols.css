@@ -4,6 +4,7 @@
     --main-fg-color: #F0F0F0FF;
     --border-color: #666666;
     --clicked-color: rgb(15, 85, 21);
+    --link-color: #0077CC;
   }
 }
 
@@ -13,6 +14,7 @@
     --main-fg-color: #1F1F1FFF;
     --border-color: #666666;
     --clicked-color: #B1E8B6FF;
+    --link-color: #0077CC;
   }
 }
 
@@ -59,6 +61,10 @@ body {
   padding: 1rem;
 }
 
+a {
+  color: var(--link-color);
+}
+
 .search {
   display: flex;
   justify-content: center;
@@ -83,7 +89,16 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
 }
 
-.symbols > * {
+.symbols p {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: auto;
+}
+
+.symbol {
+  display: flex;
+  flex-direction: column;
+  container-type: inline-size;
   border: 1px dashed var(--border-color);
   border-radius: 10%;
   padding: 1rem;
@@ -95,12 +110,6 @@ body {
   cursor: pointer;
   max-height: 40vh;
   transition: background 200ms linear;
-}
-
-.symbol {
-  display: flex;
-  flex-direction: column;
-  container-type: inline-size;
 }
 
 .symbol .glyph {

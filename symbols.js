@@ -289,29 +289,50 @@ const symbols = [
     },
 ]
 
-function renderSymbols(searchTerm) {
-    const parent = document.querySelector(".symbols");
+function search(searchTerm) {
     if (!searchTerm) searchTerm = "";
     searchTerm = searchTerm.toLowerCase();
-    parent.innerHTML = "";
-    for (const symbolInfo of symbols) {
-        symbolSearchTerms = symbolInfo.searchTerms.join(" ");
-        if (searchTerm !== "" && !symbolSearchTerms.toLowerCase().includes(searchTerm)) {
+    results = [];
+    for (const symbol of symbols) {
+        terms = symbol.searchTerms.join(" ").toLowerCase();
+        if (!terms.includes(searchTerm)) {
             continue;
         }
+        results.push(symbol);
+    }
+    return results;
+}
+
+function renderSymbols(searchTerm) {
+    const parent = document.querySelector(".symbols");
+    parent.innerHTML = "";
+    const results = search(searchTerm);
+    if (results.length === 0) {
+        const p = document.createElement("p");
+        p.style.margin = "auto";
+        p.style.width = "50%";
+        p.style.textAlign = "center";
+        p.innerHTML = `
+            Can't find what you're looking for? <a href="https://github.com/samwho/symbol.wtf" target="_blank">Open a PR!</a>
+        `
+        parent.appendChild(p);
+        return;
+    }
+
+    for (const symbol of results) {
         const elem = document.createElement("div");
         const glyphElem = document.createElement("div");
         const nameElem = document.createElement("div");
 
         elem.classList = "symbol";
         elem.tabIndex = 0;
-        elem.title = symbolInfo.name;
+        elem.title = symbol.name;
 
         glyphElem.classList = "glyph";
-        glyphElem.textContent = symbolInfo.display || symbolInfo.glyph;
+        glyphElem.textContent = symbol.display || symbol.glyph;
 
         nameElem.classList = "name";
-        nameElem.textContent = symbolInfo.name;
+        nameElem.textContent = symbol.name;
 
         elem.appendChild(glyphElem);
         elem.appendChild(nameElem);
@@ -319,13 +340,13 @@ function renderSymbols(searchTerm) {
         const handleAction = () => {
             if (elem.classList.contains("symbol-clicked")) return;
 
-            navigator.clipboard.writeText(symbolInfo.glyph);
+            navigator.clipboard.writeText(symbol.glyph);
 
             nameElem.textContent = "Copied!";
             elem.classList.add("clicked");
 
             setTimeout(() => {
-                nameElem.textContent = symbolInfo.name;
+                nameElem.textContent = symbol.name;
                 elem.classList.remove("clicked");
             }, 1000);
         };
