@@ -1,12 +1,25 @@
-html {
-  box-sizing: border-box;
-  font-size: 16px;
+@media (prefers-color-scheme: dark) {
+  * {
+    --main-bg-color: #1F1F1FFF;
+    --main-fg-color: #F0F0F0FF;
+  }
+}
+
+@media (not (prefers-color-scheme: dark)) {
+  * {
+    --main-bg-color: #F0F0F0FF;
+    --main-fg-color: #1F1F1FFF;
+  }
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+::placeholder {
+  color: #7F7F7FFF
 }
 
 body,
@@ -35,14 +48,24 @@ img {
 }
 
 body {
-  font-size: 24px;
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+  box-sizing: border-box;
+  font-size: 16px;
   padding: 1rem;
 }
 
 .search {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.search > input {
+  width: 100%;
+  font-size: 3rem;
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
 }
 
 .symbols {
@@ -53,42 +76,31 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
 }
 
-.symbol {
-  color: black;
-  border: 1px dashed #555;
+.symbols > * {
+  border: 1px dashed var(--main-fg-color);
   border-radius: 10%;
   padding: 1rem;
   aspect-ratio: 1;
-  font-size: 6rem;
   text-align: center;
   line-height: 100%;
   min-height: 125px;
-  max-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  max-height: 80vh;
   transition: background 200ms linear;
 }
 
+.symbol {
+  font-size: 6rem;
+}
+
 .symbol:hover {
-  background: #f7b73322;
+  background-color: #F7B73322;
 }
 
 .symbol-clicked {
   font-size: 2rem;
-  background-color: #B1E8B6;
-  color: black;
-  border: 1px dashed #555;
-  border-radius: 10%;
-  padding: 1rem;
-  aspect-ratio: 1;
-  text-align: center;
-  line-height: 100%;
-  min-height: 125px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: background 200ms linear;
+  background-color: #B1E8B6FF;
 }
