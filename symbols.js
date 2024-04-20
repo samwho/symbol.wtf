@@ -326,7 +326,7 @@ const symbols = [
         "searchTerms": ["&rlm;", "rtl"]
     },
 
-    /* Private Use Area (not official Unicode) */
+    /* Private Use Area (not official Unicode, may not display) */
     {
         "glyph": "\uF8FF",
         "name": "Apple Logo",
