@@ -169,17 +169,32 @@ const symbols = [
     {
         glyph: "¹",
         name: "Superscript One",
-        searchTerms: ["power"]
+        searchTerms: ["power","1","^1","**1"]
     },
     {
         glyph: "²",
         name: "Superscript Two",
-        searchTerms: ["squared", "power"]
+        searchTerms: ["squared", "power","2","^2","**2"]
     },
     {
         glyph: "³",
         name: "Superscript Three",
-        searchTerms: ["cubed", "power"]
+        searchTerms: ["cubed", "power","3","^3","**3"]
+    },
+    {
+        glyph: "₀",
+        name: "Subscript Zero",
+        searchTerms: ["not", "0", "_0"]
+    },
+    {
+        glyph: "₁",
+        name: "Subscript One",
+        searchTerms: ["1", "_1"]
+    },
+    {
+        glyph: "₂",
+        name: "Subscript Two",
+        searchTerms: ["2", "_2"]
     },
     {
         glyph: "¼",
@@ -203,6 +218,10 @@ const symbols = [
     {
         glyph: "∅",
         name: "Empty Set"
+    },
+    {
+        glyph: "⌀",
+        name: "Diameter",
     },
     {
         glyph: "π",
