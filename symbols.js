@@ -298,8 +298,13 @@ const symbols = [
         name: "Tilde"
     },
     {
+        glyph: "ꩰ",
+        name: "Khamti Reduplication",
+        searchTerms: ["xn--8r9a" /* Punycode */]
+    },
+    {
         glyph: "⌘",
-        name: "Command (Looped Square)"
+        name: "Command (Looped Square)",
     },
     {
         glyph: "⌥",
