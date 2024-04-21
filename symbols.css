@@ -120,6 +120,7 @@ a {
 
 .symbol > .glyph {
   font-size: 60cqw;
+  overflow: hidden;
 }
 
 .symbol > .name {
