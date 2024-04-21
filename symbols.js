@@ -69,6 +69,16 @@ const symbols = [
         searchTerms: ["..."]
     },
     {
+        glyph: "−",
+        name: "minus",
+        searchTerms: ["minus", "dash"],
+    },
+    {
+        glyph: "é",
+        name: "E with Acute",
+        searchTerms: ["acute", "e"]
+    },
+    {
         glyph: "•",
         name: "Vertically Centered Dot",
         searchTerms: ["bullet", "."]
@@ -314,6 +324,42 @@ const symbols = [
     {
         glyph: "⌥",
         name: "Option"
+    },
+    {
+        glyph: "þ",
+        name: "lowercase thorn"
+    },
+    {
+        glyph: "Þ",
+        name: "uppercase thorn"
+    },
+    {
+        glyph: "ð",
+        name: "lowercase eth"
+    },
+    {
+        glyph: "Ð",
+        name: "uppercase eth"
+    },
+    {
+        glyph: "†",
+        name: "dagger"
+    },
+    {
+        glyph: "♥",
+        name: "heart"
+    },
+    {
+        glyph: "♦",
+        name: "diamond"
+    },
+    {
+        glyph: "♣",
+        name: "club"
+    },
+    {
+        glyph: "♠",
+        name: "spade"
     },
 
     /* invisible characters */
