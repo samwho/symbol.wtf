@@ -303,6 +303,11 @@ const symbols = [
         searchTerms: ["xn--8r9a" /* Punycode */]
     },
     {
+        glyph: "ဪ",
+        name: "Myanmar Letter Au",
+        searchTerms: ["xn--ujd" /* Punycode */]
+    },
+    {
         glyph: "⌘",
         name: "Command (Looped Square)",
     },
