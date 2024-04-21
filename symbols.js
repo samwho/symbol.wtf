@@ -67,7 +67,7 @@ const symbols = [
     {
         glyph: "−",
         name: "minus",
-        searchTerms: ["minus"],
+        searchTerms: ["minus", "dash"],
     },
     {
         glyph: "é",
@@ -294,48 +294,39 @@ const symbols = [
     },
     {
         glyph: "þ",
-        name: "lowercase thorn",
-        searchTerms: ["thorn"],
+        name: "lowercase thorn"
     },
     {
         glyph: "Þ",
-        name: "uppercase thorn",
-        searchTerms: ["thorn"],
+        name: "uppercase thorn"
     },
     {
         glyph: "ð",
-        name: "lowercase eth",
-        searchTerms: ["eth"],
+        name: "lowercase eth"
     },
     {
         glyph: "Ð",
-        name: "uppercase eth",
-        searchTerms: ["eth"],
+        name: "uppercase eth"
     },
     {
         glyph: "†",
-        name: "dagger",
-        searchTerms: ["dagger"],
+        name: "dagger"
     },
     {
         glyph: "♥",
-        name: "heart",
-        searchTerms: ["heart"],
+        name: "heart"
     },
     {
         glyph: "♦",
-        name: "diamond",
-        searchTerms: ["diamond"],
+        name: "diamond"
     },
     {
         glyph: "♣",
-        name: "club",
-        searchTerms: ["club"],
+        name: "club"
     },
     {
         glyph: "♠",
-        name: "spade",
-        searchTerms: ["spade"],
+        name: "spade"
     },
 ]
 
