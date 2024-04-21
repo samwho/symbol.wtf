@@ -487,8 +487,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.querySelector(".search input");
     searchInput.value = search;
     searchInput.addEventListener("input", (e) => {
-        const searchTerm = e.target.value;
-        renderSymbols(searchTerm);
-        window.location.hash = searchTerm;
+        renderSymbols(e.target.value);
+    });
+    searchInput.addEventListener("blur", (e) => {
+        window.location.hash = e.target.value;
+    });
+
+    window.addEventListener("hashchange", () => {
+        const search = window.location.hash ? window.location.hash.substring(1) : "";
+        searchInput.value = search;
+        renderSymbols(search);
     });
 });
