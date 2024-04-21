@@ -1,20 +1,24 @@
 @media (prefers-color-scheme: dark) {
   * {
-    --main-bg-color: #1F1F1FFF;
-    --main-fg-color: #F0F0F0FF;
+    --main-bg-color: #1f1f1fff;
+    --main-fg-color: #f0f0f0ff;
     --border-color: #666666;
     --clicked-color: rgb(15, 85, 21);
-    --link-color: #0077CC;
+    --hover-color: #f7b73322;
+    --link-color: #0077cc;
+    --placeholder-color: #7f7f7fff;
   }
 }
 
 @media (not (prefers-color-scheme: dark)) {
   * {
-    --main-bg-color: #F0F0F0FF;
-    --main-fg-color: #1F1F1FFF;
+    --main-bg-color: #f0f0f0ff;
+    --main-fg-color: #1f1f1fff;
     --border-color: #666666;
-    --clicked-color: #B1E8B6FF;
-    --link-color: #0077CC;
+    --clicked-color: #b1e8b6ff;
+    --hover-color: #f7b73322;
+    --link-color: #0077cc;
+    --placeholder-color: #7f7f7fff;
   }
 }
 
@@ -25,7 +29,7 @@
 }
 
 ::placeholder {
-  color: #7F7F7FFF
+  color: var(--placeholder-color);
 }
 
 body,
@@ -89,7 +93,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
 }
 
-.symbols p {
+.symbols > span {
   text-align: center;
   font-size: 2.5rem;
   margin: auto;
@@ -105,18 +109,21 @@ a {
   aspect-ratio: 1;
   text-align: center;
   min-height: 125px;
-  justify-content: space-around;
+  max-height: calc(100vh - 8rem);
+  max-width: calc(100vw - 2rem);
+  justify-content: space-between;
+  justify-self: normal;
   align-items: center;
   cursor: pointer;
-  max-height: 40vh;
   transition: background 200ms linear;
 }
 
-.symbol .glyph {
+.symbol > .glyph {
   font-size: 60cqw;
+  overflow: hidden;
 }
 
-.symbol .name {
+.symbol > .name {
   font-size: 1rem;
   text-wrap: nowrap;
   white-space: nowrap;
@@ -127,7 +134,7 @@ a {
 }
 
 .symbol:hover {
-  background-color: #F7B73322;
+  background-color: var(--hover-color);
 }
 
 .clicked {
