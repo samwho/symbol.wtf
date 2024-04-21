@@ -320,6 +320,11 @@ const symbols = [
         "searchTerms": []
     },
     {
+        glyph: "ꩰ",
+        name: "Khamti Reduplication",
+        searchTerms: ["xn--8r9a" /* Punycode */]
+    },
+    {
         "glyph": "⌘",
         "name": "Command (Looped Square)",
         "searchTerms": []
