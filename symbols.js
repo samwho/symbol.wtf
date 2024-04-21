@@ -55,11 +55,6 @@ const symbols = [
         searchTerms: ["quarter", "1/4"]
     },
     {
-        glyph: "¾",
-        name: "Three-Quarter",
-        searchTerms: ["three", "quarter", "3/4"]
-    },
-    {
         glyph: "∞",
         name: "Infinity",
         searchTerms: ["infinity"]
@@ -299,22 +294,22 @@ const symbols = [
     },
     {
         glyph: "þ",
-        name: "thorn",
+        name: "lowercase thorn",
         searchTerms: ["thorn"],
     },
     {
         glyph: "Þ",
-        name: "thorn",
+        name: "uppercase thorn",
         searchTerms: ["thorn"],
     },
     {
         glyph: "ð",
-        name: "eth",
+        name: "lowercase eth",
         searchTerms: ["eth"],
     },
     {
         glyph: "Ð",
-        name: "eth",
+        name: "uppercase eth",
         searchTerms: ["eth"],
     },
     {
