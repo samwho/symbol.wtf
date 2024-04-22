@@ -446,7 +446,8 @@ function editSymbol(elem, classname) {
         if (!symbols[target.dataset.index].name) {
             symbols[target.dataset.index].name = symbols[target.dataset.index].glyph;
             target.parentNode.parentNode.getElementsByClassName("name")[0].textContent = symbols[target.dataset.index].name;
-        }            
+        }
+		target.parentNode.parentNode.title = symbols[target.dataset.index].name;
         target.parentNode.textContent = target.value;
         window.localStorage.setItem("symbols", JSON.stringify(symbols));
     }
