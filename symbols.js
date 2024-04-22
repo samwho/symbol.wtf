@@ -359,7 +359,7 @@ const symbols = [
     },
     {
         glyph: "⌥",
-        name: "Option"
+        name: "Option Key"
     },
     {
         glyph: "þ",
