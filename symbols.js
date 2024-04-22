@@ -370,6 +370,11 @@ const symbols = [
         name: "Shift (Upwards White Arrow)"
     },
     {
+        glyph: "⌃",
+        name: "Control (Up Arrowhead)",
+        searchTerms: ["ctrl"]
+    },
+    {
         glyph: "þ",
         name: "lowercase thorn"
     },
