@@ -362,6 +362,10 @@ const symbols = [
         name: "Option Key"
     },
     {
+        glyph: "⇪",
+        name: "Caps Lock (Upwards White Arrow from Bar)"
+    },
+    {
         glyph: "þ",
         name: "lowercase thorn"
     },
