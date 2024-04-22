@@ -127,6 +127,14 @@ a {
   transition: background 200ms linear;
 }
 
+.symbol.drag {
+	opacity: 0.4;
+}
+
+.symbol.over {
+	border: 1px solid var(--border-color);
+}
+
 .symbol > .glyph {
   font-size: 60cqw;
   overflow: hidden;
@@ -154,6 +162,10 @@ a {
   background-color: var(--main-bg-color);
 }
 
+.symbol:hover {
+  background-color: var(--hover-color);
+}
+
 .symbol:hover > .remove:after {
     color: var(--warning-fg-color);
     content: "🗑";
@@ -163,9 +175,10 @@ a {
     right: 0.5rem;
 }
 
-.symbol:hover {
-  background-color: var(--hover-color);
+.symbol.drag:hover > .remove:after {
+	content: "";
 }
+
 
 .clicked {
   background-color: var(--clicked-color) !important;

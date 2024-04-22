@@ -443,10 +443,10 @@ function editSymbol(elem, classname) {
         symbols[target.dataset.index][target.dataset.classname] = target.value;
         if (!symbols[target.dataset.index].name) {
             symbols[target.dataset.index].name = symbols[target.dataset.index].glyph;
-            target.parentNode.parentNode.getElementsByClassName("name")[0].textContent = symbols[target.dataset.index].name;
+            target.parentElement.parentElement.getElementsByClassName("name")[0].textContent = symbols[target.dataset.index].name;
         }
-        target.parentNode.parentNode.title = symbols[target.dataset.index].name;
-        target.parentNode.textContent = target.value;
+        target.parentElement.parentElement.title = symbols[target.dataset.index].name;
+        target.parentElement.textContent = target.value;
         window.localStorage.setItem("symbols", JSON.stringify(symbols));
     }
     
@@ -454,7 +454,7 @@ function editSymbol(elem, classname) {
     input = document.createElement("input");    
     input.value = elemClass.innerHTML;
     input.dataset.classname = classname;
-    input.dataset.index = Array.from(elem.parentNode.childNodes).indexOf(elem);
+    input.dataset.index = Array.from(elem.parentElement.children).indexOf(elem);
     input.addEventListener("blur", (e) => handleAction(e.target))
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -466,7 +466,7 @@ function editSymbol(elem, classname) {
     input.focus();
 }
 
-function isEditingSymbol() {
+function isNotEditingSymbol() {
     return document
         .getElementsByClassName("symbols")[0]
         .getElementsByTagName("INPUT")
@@ -474,7 +474,7 @@ function isEditingSymbol() {
 }
 
 function removeSymbol(elem) {
-    symbols.splice(Array.from(elem.parentNode.childNodes).indexOf(elem), 1);
+    symbols.splice(Array.from(elem.parentElement.children).indexOf(elem), 1);
     window.localStorage.setItem("symbols", JSON.stringify(symbols));
     elem.remove();
 }
@@ -511,6 +511,7 @@ function renderSymbols(searchTerm) {
         elem.classList = "symbol";
         elem.tabIndex = 0;
         elem.title = symbol.name;
+		elem.setAttribute("draggable", "true");
 
         glyphElem.classList = "glyph";
         glyphElem.textContent = symbol.display || symbol.glyph;
@@ -525,7 +526,6 @@ function renderSymbols(searchTerm) {
         elem.appendChild(removeElem);
 
         const handleAction = () => {
-            console.log("handleAction");
             if (elem.classList.contains("clicked")) {
                 return;
             }
@@ -542,14 +542,12 @@ function renderSymbols(searchTerm) {
             }, 1000);
         };
         elem.addEventListener("click", (event) => {
-            console.log(event);
-            if (isEditingSymbol()) {
-                console.log("handleAction");
+            if (isNotEditingSymbol()) {
                 handleAction();
             }
         });
         elem.addEventListener("keydown", (event) => {
-            if (isEditingSymbol() && (event.key === "Enter" || event.key === " ")
+            if (isNotEditingSymbol() && (event.key === "Enter" || event.key === " ")
             ) {
                 event.preventDefault();
                 handleAction();
@@ -557,6 +555,74 @@ function renderSymbols(searchTerm) {
         });
         parent.appendChild(elem);
     }
+}
+
+function handleDragStart(e) {
+    e.target.classList.add('drag');
+	document.getElementsByClassName("symbols")[0].dataset.dragIndex = 
+		Array.from(e.target.parentElement.children).indexOf(e.target);
+}
+
+
+function handleDragEnd(e) {
+	console.log("End", e.target.title)
+    e.target.classList.remove('drag');
+	Array.from(e.target.parentElement.children).forEach(elem => elem.classList.remove("over"));
+}
+
+
+function handleDragOver(e) {
+    e.preventDefault();
+    return false;
+}
+
+function handleDragEnter(e) {
+	Array.from(document.getElementsByClassName("over")).forEach(elem => elem.classList.remove("over"));
+	let target = e.target;
+	while (target) {
+		if (target.classList?.contains("symbol")) {
+			target.classList.add("over");
+			break;
+		}
+		target = target.parentElement
+	}
+}
+
+function handleDragLeave(e) {
+	//console.log("handleDragLeave()", e.target);
+    //e.target.classList.remove('over');
+}
+
+function handleDrop(e) {
+	console.log("drop", e.target.title, e.target)
+	let target = e.target;
+	while (target) {
+		if (target.classList?.contains("symbol")) {
+			target.parentElement.dataset.dragTarget = 
+				Array.from(target.parentElement.children).indexOf(target);
+			
+			symbols.splice(target.parentElement.dataset.dragTarget, 0, symbols.splice(target.parentElement.dataset.dragIndex, 1)[0]);
+			window.localStorage.setItem("symbols", JSON.stringify(symbols));
+			
+			if (parseInt(target.parentElement.dataset.dragIndex) < parseInt(target.parentElement.dataset.dragTarget)) {
+				if (target.nextElementSibling) { 
+					target.nextElementSibling.before(target.parentElement.children[target.parentElement.dataset.dragIndex]);
+				} else {
+					target.parentElement.appendChild(target.parentElement.children[target.parentElement.dataset.dragIndex]);
+				}
+			} else {
+				target.before(target.parentElement.children[target.parentElement.dataset.dragIndex]);
+			}
+			break;
+		}
+		target = target.parentElement;
+	}
+	
+
+	;
+	
+	e.stopPropagation();
+	return false;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -584,18 +650,25 @@ document.addEventListener("DOMContentLoaded", () => {
         let target = e.target;
         while(target) {
             if (target.classList?.contains("remove")) {
-                return removeSymbol(target.parentNode);
+                return removeSymbol(target.parentElement);
             }
             if (target.classList?.contains("glyph")) {
-                return editSymbol(target.parentNode, "glyph");
+                return editSymbol(target.parentElement, "glyph");
             }
             if (target.classList?.contains("name")) {
-                return editSymbol(target.parentNode, "name");
+                return editSymbol(target.parentElement, "name");
             }
             if (target.classList?.contains("symbol")) {
                 return editSymbol(target, "glyph");
             }
-            target = target.parentNode;
+            target = target.parentElement;
         }
     });
+	
+	window.addEventListener("dragstart", handleDragStart);
+	window.addEventListener("dragover", handleDragOver);
+	window.addEventListener("dragenter", handleDragEnter);
+	window.addEventListener("dragleave", handleDragLeave);
+	window.addEventListener("dragend", handleDragEnd);
+	window.addEventListener("drop", handleDrop);
 });
