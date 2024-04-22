@@ -156,6 +156,16 @@ a {
   width: 100%;
   overflow: hidden;
 }
+.symbol > .name,
+.symbol.clicked > .copy {
+  display: block;
+}
+
+.symbol.clicked > .name,
+.symbol > .copy {
+  display: none;
+}
+
 
 .symbol > .glyph > input {
   color: var(--main-fg-color);

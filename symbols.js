@@ -439,6 +439,7 @@ function addSymbol() {
 }
 
 function editSymbol(elem, classname) {
+	console.log("editSymbol", classname, elem);
     const handleAction = (target) => {
         symbols[target.dataset.index][target.dataset.classname] = target.value;
         if (!symbols[target.dataset.index].name) {
@@ -448,8 +449,10 @@ function editSymbol(elem, classname) {
         target.parentElement.parentElement.title = symbols[target.dataset.index].name;
         target.parentElement.textContent = target.value;
         window.localStorage.setItem("symbols", JSON.stringify(symbols));
+		return true;
     }
     
+	elem.classList.remove("clicked");
     elemClass = elem.getElementsByClassName(classname)[0];
     input = document.createElement("input");    
     input.value = elemClass.innerHTML;
@@ -470,7 +473,7 @@ function isNotEditingSymbol() {
     return document
         .getElementsByClassName("symbols")[0]
         .getElementsByTagName("INPUT")
-        .length === 0
+        .length === 0;
 }
 
 function removeSymbol(elem) {
@@ -506,6 +509,7 @@ function renderSymbols(searchTerm) {
         const elem = document.createElement("div");
         const glyphElem = document.createElement("div");
         const nameElem = document.createElement("div");
+        const copyElem = document.createElement("div");
         const removeElem = document.createElement("div");
 
         elem.classList = "symbol";
@@ -519,33 +523,31 @@ function renderSymbols(searchTerm) {
         nameElem.classList = "name";
         nameElem.textContent = symbol.name;
 
+		copyElem.classList = "copy";
+        copyElem.textContent = "Copied!";
+		
         removeElem.classList = "remove";
         
         elem.appendChild(glyphElem);
         elem.appendChild(nameElem);
+        elem.appendChild(copyElem);
         elem.appendChild(removeElem);
 
         const handleAction = () => {
-            if (elem.classList.contains("clicked")) {
+            if (elem.classList.contains("clicked") || !isNotEditingSymbol()) {
                 return;
             }
 
             navigator.clipboard.writeText(symbol.glyph);
 
             console.log(`Copied ${symbol.name} (${symbol.glyph})!`);
-            nameElem.textContent = "Copied!";
             elem.classList.add("clicked");
 
             setTimeout(() => {
-                nameElem.textContent = symbol.name;
                 elem.classList.remove("clicked");
             }, 1000);
         };
-        elem.addEventListener("click", (event) => {
-            if (isNotEditingSymbol()) {
-                handleAction();
-            }
-        });
+        elem.addEventListener("click", handleAction);
         elem.addEventListener("keydown", (event) => {
             if (isNotEditingSymbol() && (event.key === "Enter" || event.key === " ")
             ) {
@@ -636,6 +638,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     searchInput.addEventListener("blur", (e) => {
         window.location.hash = e.target.value;
+		return false;
     });
 
     window.addEventListener("hashchange", () => {
@@ -649,6 +652,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("dblclick", (e) => {
         let target = e.target;
         while(target) {
+			console.log(target);
             if (target.classList?.contains("remove")) {
                 return removeSymbol(target.parentElement);
             }
@@ -656,6 +660,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 return editSymbol(target.parentElement, "glyph");
             }
             if (target.classList?.contains("name")) {
+                return editSymbol(target.parentElement, "name");
+            }
+            if (target.classList?.contains("copy")) {
                 return editSymbol(target.parentElement, "name");
             }
             if (target.classList?.contains("symbol")) {
