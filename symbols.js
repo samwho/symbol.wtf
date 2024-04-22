@@ -169,17 +169,32 @@ const symbols_default = [
     {
         glyph: "¹",
         name: "Superscript One",
-        searchTerms: ["power"]
+        searchTerms: ["power","exponent","1","^1","**1"]
     },
     {
         glyph: "²",
         name: "Superscript Two",
-        searchTerms: ["squared", "power"]
+        searchTerms: ["squared", "power","exponent","2","^2","**2"]
     },
     {
         glyph: "³",
         name: "Superscript Three",
-        searchTerms: ["cubed", "power"]
+        searchTerms: ["cubed", "power","exponent","3","^3","**3"]
+    },
+    {
+        glyph: "₀",
+        name: "Subscript Zero",
+        searchTerms: ["not", "0", "_0"]
+    },
+    {
+        glyph: "₁",
+        name: "Subscript One",
+        searchTerms: ["1", "_1"]
+    },
+    {
+        glyph: "₂",
+        name: "Subscript Two",
+        searchTerms: ["2", "_2"]
     },
     {
         glyph: "¼",
@@ -203,6 +218,10 @@ const symbols_default = [
     {
         glyph: "∅",
         name: "Empty Set"
+    },
+    {
+        glyph: "⌀",
+        name: "Diameter",
     },
     {
         glyph: "π",
@@ -235,6 +254,23 @@ const symbols_default = [
     {
         glyph: "à",
         name: "A with Grave"
+    },
+    {
+        glyph: "å",
+        name: "Latin small letter A with ring above",
+    },
+    {
+        glyph: "Å",
+        name: "Latin capital letter A with ring above",
+        searchTerms: ["angstrom"]
+    },
+    {
+        glyph: "ä",
+        name: "Latin small letter A with diaeresis"
+    },
+    {
+        glyph: "Ä",
+        name: "Latin capital letter A with diaeresis"
     },
     {
         glyph: "ç",
@@ -360,6 +396,11 @@ const symbols_default = [
     {
         glyph: "♠",
         name: "spade"
+    },
+    {
+        glyph: "℠",
+        name: "Service Mark",
+        searchTerms: ["service mark", "SM"]
     },
 
     /* invisible characters */
