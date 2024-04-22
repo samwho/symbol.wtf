@@ -402,7 +402,6 @@ try {
     symbols = JSON.parse(window.localStorage.getItem("symbols"));
 } catch(err) {
     console.error(err);
-    symbols = []
 }
 if (!symbols) {
     symbols = symbols_default;
@@ -439,7 +438,6 @@ function addSymbol() {
 }
 
 function editSymbol(elem, classname) {
-	console.log("editSymbol", classname, elem);
     const handleAction = (target) => {
         symbols[target.dataset.index][target.dataset.classname] = target.value;
         if (!symbols[target.dataset.index].name) {
@@ -567,11 +565,9 @@ function handleDragStart(e) {
 
 
 function handleDragEnd(e) {
-	console.log("End", e.target.title)
     e.target.classList.remove('drag');
 	Array.from(e.target.parentElement.children).forEach(elem => elem.classList.remove("over"));
 }
-
 
 function handleDragOver(e) {
     e.preventDefault();
@@ -590,39 +586,32 @@ function handleDragEnter(e) {
 	}
 }
 
-function handleDragLeave(e) {
-	//console.log("handleDragLeave()", e.target);
-    //e.target.classList.remove('over');
-}
-
 function handleDrop(e) {
-	console.log("drop", e.target.title, e.target)
 	let target = e.target;
 	while (target) {
 		if (target.classList?.contains("symbol")) {
-			target.parentElement.dataset.dragTarget = 
-				Array.from(target.parentElement.children).indexOf(target);
+			const parentElem = target.parentElement;
+			const dragIndex = parseInt(parentElem.dataset.dragIndex);
+			const dragTarget = Array.from(parentElem.children).indexOf(target);
 			
-			symbols.splice(target.parentElement.dataset.dragTarget, 0, symbols.splice(target.parentElement.dataset.dragIndex, 1)[0]);
+			symbols.splice(dragTarget, 0, symbols.splice(dragIndex, 1)[0]);
 			window.localStorage.setItem("symbols", JSON.stringify(symbols));
 			
-			if (parseInt(target.parentElement.dataset.dragIndex) < parseInt(target.parentElement.dataset.dragTarget)) {
+			if (dragIndex < dragTarget) {
 				if (target.nextElementSibling) { 
-					target.nextElementSibling.before(target.parentElement.children[target.parentElement.dataset.dragIndex]);
+					target.nextElementSibling.before(
+						parentElem.children[dragIndex]
+					);
 				} else {
-					target.parentElement.appendChild(target.parentElement.children[target.parentElement.dataset.dragIndex]);
+					parentElem.appendChild(parentElem.children[dragIndex]);
 				}
 			} else {
-				target.before(target.parentElement.children[target.parentElement.dataset.dragIndex]);
+				target.before(parentElem.children[dragIndex]);
 			}
 			break;
 		}
 		target = target.parentElement;
 	}
-	
-
-	;
-	
 	e.stopPropagation();
 	return false;
 }
@@ -652,7 +641,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("dblclick", (e) => {
         let target = e.target;
         while(target) {
-			console.log(target);
             if (target.classList?.contains("remove")) {
                 return removeSymbol(target.parentElement);
             }
@@ -675,7 +663,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	window.addEventListener("dragstart", handleDragStart);
 	window.addEventListener("dragover", handleDragOver);
 	window.addEventListener("dragenter", handleDragEnter);
-	window.addEventListener("dragleave", handleDragLeave);
 	window.addEventListener("dragend", handleDragEnd);
 	window.addEventListener("drop", handleDrop);
 });
