@@ -256,6 +256,23 @@ const symbols = [
         name: "A with Grave"
     },
     {
+        glyph: "å",
+        name: "Latin small letter A with ring above",
+    },
+    {
+        glyph: "Å",
+        name: "Latin capital letter A with ring above",
+        searchTerms: ["angstrom"]
+    },
+    {
+        glyph: "ä",
+        name: "Latin small letter A with diaeresis"
+    },
+    {
+        glyph: "Ä",
+        name: "Latin capital letter A with diaeresis"
+    },
+    {
         glyph: "ç",
         name: "C with Cedilla"
     },
