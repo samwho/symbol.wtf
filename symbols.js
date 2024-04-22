@@ -366,6 +366,10 @@ const symbols = [
         name: "Caps Lock (Upwards White Arrow from Bar)"
     },
     {
+        glyph: "⇧",
+        name: "Shift (Upwards White Arrow)"
+    },
+    {
         glyph: "þ",
         name: "lowercase thorn"
     },
