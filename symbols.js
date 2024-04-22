@@ -224,6 +224,10 @@ const symbols = [
         name: "Diameter",
     },
     {
+        glyph: "⌀",
+        name: "Diameter",
+    },
+    {
         glyph: "π",
         name: "pi",
         searchTerms: ["pie"]
