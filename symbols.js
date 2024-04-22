@@ -408,8 +408,6 @@ if (!symbols) {
     symbols = symbols_default;
 }
 
-console.log(symbols);
-
 function search(searchTerm) {
     searchTerm = searchTerm?.toLowerCase() ?? "";
 
@@ -447,7 +445,7 @@ function editSymbol(elem, classname) {
             symbols[target.dataset.index].name = symbols[target.dataset.index].glyph;
             target.parentNode.parentNode.getElementsByClassName("name")[0].textContent = symbols[target.dataset.index].name;
         }
-		target.parentNode.parentNode.title = symbols[target.dataset.index].name;
+        target.parentNode.parentNode.title = symbols[target.dataset.index].name;
         target.parentNode.textContent = target.value;
         window.localStorage.setItem("symbols", JSON.stringify(symbols));
     }
@@ -466,6 +464,13 @@ function editSymbol(elem, classname) {
     elemClass.innerHTML = '';
     elemClass.appendChild(input);
     input.focus();
+}
+
+function isEditingSymbol() {
+    return document
+        .getElementsByClassName("symbols")[0]
+        .getElementsByTagName("INPUT")
+        .length === 0
 }
 
 function removeSymbol(elem) {
@@ -520,6 +525,7 @@ function renderSymbols(searchTerm) {
         elem.appendChild(removeElem);
 
         const handleAction = () => {
+            console.log("handleAction");
             if (elem.classList.contains("clicked")) {
                 return;
             }
@@ -536,14 +542,14 @@ function renderSymbols(searchTerm) {
             }, 1000);
         };
         elem.addEventListener("click", (event) => {
-            if (!(document.getElementsByClassName("symbols")[0].getElementsByTagName("INPUT"))) {
+            console.log(event);
+            if (isEditingSymbol()) {
+                console.log("handleAction");
                 handleAction();
             }
         });
         elem.addEventListener("keydown", (event) => {
-            if (
-                !(document.getElementsByClassName("symbols")[0].getElementsByTagName("INPUT")) 
-                && (event.key === "Enter" || event.key === " ")
+            if (isEditingSymbol() && (event.key === "Enter" || event.key === " ")
             ) {
                 event.preventDefault();
                 handleAction();
