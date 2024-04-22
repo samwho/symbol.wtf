@@ -361,6 +361,11 @@ const symbols = [
         glyph: "♠",
         name: "spade"
     },
+    {
+        glyph: "℠",
+        name: "Service Mark",
+        searchTerms: ["service mark", "SM"]
+    },
 
     /* invisible characters */
     {
