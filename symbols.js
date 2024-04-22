@@ -1,6 +1,6 @@
 const DISPLAY_BOX = "\u25A1";
 
-const symbols = [
+const symbols_default = [
     /* samwho */
     {
         glyph: "©",
@@ -395,12 +395,27 @@ const symbols = [
     }
 ];
 
+let symbols = []
+
+try {
+    // Catching invallid json, not an invalid symbol array
+    symbols = JSON.parse(window.localStorage.getItem("symbols"));
+} catch(err) {
+    console.error(err);
+    symbols = []
+}
+if (!symbols) {
+    symbols = symbols_default;
+}
+
+console.log(symbols);
+
 function search(searchTerm) {
     searchTerm = searchTerm?.toLowerCase() ?? "";
 
     return symbols.filter((s) => {
         /* Get hex representation of codepoint, e.g. 00A0 for &nbsp; or 20AC for € */
-        const codePoint = s.glyph.codePointAt(0).toString(16).padStart(4, 0);
+        const codePoint = s.glyph.codePointAt(0)?.toString(16).padStart(4, 0);
 
         const searchTerms = [
             s.name,
@@ -412,6 +427,52 @@ function search(searchTerm) {
         return searchTerm === "" || searchTerms.join(" ").toLowerCase().includes(searchTerm);
     });
 }
+
+function addSymbol() {
+    symbols.unshift({
+        glyph: "",
+        name: "",
+        // For now: no display and search terms
+    });
+    // Better to just add the one div for the symbol
+    // For now this is fast enough.
+    renderSymbols();
+    editSymbol(document.getElementsByClassName("symbol")[0], "glyph");
+}
+
+function editSymbol(elem, classname) {
+    const handleAction = (target) => {
+        symbols[target.dataset.index][target.dataset.classname] = target.value;
+        if (!symbols[target.dataset.index].name) {
+            symbols[target.dataset.index].name = symbols[target.dataset.index].glyph;
+            target.parentNode.parentNode.getElementsByClassName("name")[0].textContent = symbols[target.dataset.index].name;
+        }            
+        target.parentNode.textContent = target.value;
+        window.localStorage.setItem("symbols", JSON.stringify(symbols));
+    }
+    
+    elemClass = elem.getElementsByClassName(classname)[0];
+    input = document.createElement("input");    
+    input.value = elemClass.innerHTML;
+    input.dataset.classname = classname;
+    input.dataset.index = Array.from(elem.parentNode.childNodes).indexOf(elem);
+    input.addEventListener("blur", (e) => handleAction(e.target))
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            handleAction(e.target);
+        }
+    });
+    elemClass.innerHTML = '';
+    elemClass.appendChild(input);
+    input.focus();
+}
+
+function removeSymbol(elem) {
+    symbols.splice(Array.from(elem.parentNode.childNodes).indexOf(elem), 1);
+    window.localStorage.setItem("symbols", JSON.stringify(symbols));
+    elem.remove();
+}
+
 
 function renderSymbols(searchTerm) {
     const parent = document.querySelector(".symbols");
@@ -439,6 +500,7 @@ function renderSymbols(searchTerm) {
         const elem = document.createElement("div");
         const glyphElem = document.createElement("div");
         const nameElem = document.createElement("div");
+        const removeElem = document.createElement("div");
 
         elem.classList = "symbol";
         elem.tabIndex = 0;
@@ -450,8 +512,11 @@ function renderSymbols(searchTerm) {
         nameElem.classList = "name";
         nameElem.textContent = symbol.name;
 
+        removeElem.classList = "remove";
+        
         elem.appendChild(glyphElem);
         elem.appendChild(nameElem);
+        elem.appendChild(removeElem);
 
         const handleAction = () => {
             if (elem.classList.contains("clicked")) {
@@ -469,9 +534,16 @@ function renderSymbols(searchTerm) {
                 elem.classList.remove("clicked");
             }, 1000);
         };
-        elem.addEventListener("click", handleAction);
+        elem.addEventListener("click", (event) => {
+            if (!(document.getElementsByClassName("symbols")[0].getElementsByTagName("INPUT"))) {
+                handleAction();
+            }
+        });
         elem.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" || event.key === " ") {
+            if (
+                !(document.getElementsByClassName("symbols")[0].getElementsByTagName("INPUT")) 
+                && (event.key === "Enter" || event.key === " ")
+            ) {
                 event.preventDefault();
                 handleAction();
             }
@@ -497,5 +569,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const search = window.location.hash ? window.location.hash.substring(1) : "";
         searchInput.value = search;
         renderSymbols(search);
+    });
+    
+    document.getElementById("add_symbol").addEventListener("click", () => addSymbol());
+    
+    window.addEventListener("dblclick", (e) => {
+        let target = e.target;
+        while(target) {
+            if (target.classList?.contains("remove")) {
+                return removeSymbol(target.parentNode);
+            }
+            if (target.classList?.contains("glyph")) {
+                return editSymbol(target.parentNode, "glyph");
+            }
+            if (target.classList?.contains("name")) {
+                return editSymbol(target.parentNode, "name");
+            }
+            if (target.classList?.contains("symbol")) {
+                return editSymbol(target, "glyph");
+            }
+            target = target.parentNode;
+        }
     });
 });

@@ -22,6 +22,10 @@
   }
 }
 
+* {
+    --warning-fg-color: red;
+}
+
 *,
 *:before,
 *:after {
@@ -85,6 +89,11 @@ a {
   background-color: var(--main-bg-color);
 }
 
+.search > button {
+  font-size: 3rem;
+  margin-left: 1rem;
+}
+
 .symbols {
   max-width: 1200px;
   margin: 0 auto;
@@ -123,6 +132,13 @@ a {
   overflow: hidden;
 }
 
+.symbol > .glyph > input {
+  width: 50%;
+  font-size: 3rem;
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+}
+
 .symbol > .name {
   font-size: 1rem;
   text-wrap: nowrap;
@@ -131,6 +147,20 @@ a {
   display: block;
   width: 100%;
   overflow: hidden;
+}
+
+.symbol > .glyph > input {
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+}
+
+.symbol:hover > .remove:after {
+    color: var(--warning-fg-color);
+    content: "🗑";
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0.3rem;
+    right: 0.5rem;
 }
 
 .symbol:hover {
