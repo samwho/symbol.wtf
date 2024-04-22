@@ -1,29 +1,29 @@
 @media (prefers-color-scheme: dark) {
   * {
-    --main-bg-color: #1f1f1fff;
-    --main-fg-color: #f0f0f0ff;
-    --border-color: #666666;
-    --clicked-color: rgb(15, 85, 21);
-    --hover-color: #f7b73322;
-    --link-color: #0077cc;
-    --placeholder-color: #7f7f7fff;
+  --main-bg-color: #1f1f1fff;
+  --main-fg-color: #f0f0f0ff;
+  --border-color: #666666;
+  --clicked-color: rgb(15, 85, 21);
+  --hover-color: #f7b73322;
+  --link-color: #0077cc;
+  --placeholder-color: #7f7f7fff;
   }
 }
 
 @media (not (prefers-color-scheme: dark)) {
   * {
-    --main-bg-color: #f0f0f0ff;
-    --main-fg-color: #1f1f1fff;
-    --border-color: #666666;
-    --clicked-color: #b1e8b6ff;
-    --hover-color: #f7b73322;
-    --link-color: #0077cc;
-    --placeholder-color: #7f7f7fff;
+  --main-bg-color: #f0f0f0ff;
+  --main-fg-color: #1f1f1fff;
+  --border-color: #666666;
+  --clicked-color: #b1e8b6ff;
+  --hover-color: #f7b73322;
+  --link-color: #0077cc;
+  --placeholder-color: #7f7f7fff;
   }
 }
 
 * {
-    --warning-fg-color: red;
+  --warning-fg-color: red;
 }
 
 *,
@@ -167,12 +167,12 @@ a {
 }
 
 .symbol:hover > .remove:after {
-    color: var(--warning-fg-color);
-    content: "🗑";
-    font-size: 1.2rem;
-    position: absolute;
-    top: 0.3rem;
-    right: 0.5rem;
+  color: var(--warning-fg-color);
+  content: "🗑";
+  font-size: 1.2rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.5rem;
 }
 
 .symbol.drag:hover > .remove:after {
