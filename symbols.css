@@ -1,24 +1,24 @@
 @media (prefers-color-scheme: dark) {
   * {
-  --main-bg-color: #1f1f1fff;
-  --main-fg-color: #f0f0f0ff;
-  --border-color: #666666;
-  --clicked-color: rgb(15, 85, 21);
-  --hover-color: #f7b73322;
-  --link-color: #0077cc;
-  --placeholder-color: #7f7f7fff;
+    --main-bg-color: #1f1f1fff;
+    --main-fg-color: #f0f0f0ff;
+    --border-color: #666666;
+    --clicked-color: rgb(15, 85, 21);
+    --hover-color: #f7b73322;
+    --link-color: #0077cc;
+    --placeholder-color: #7f7f7fff;
   }
 }
 
 @media (not (prefers-color-scheme: dark)) {
   * {
-  --main-bg-color: #f0f0f0ff;
-  --main-fg-color: #1f1f1fff;
-  --border-color: #666666;
-  --clicked-color: #b1e8b6ff;
-  --hover-color: #f7b73322;
-  --link-color: #0077cc;
-  --placeholder-color: #7f7f7fff;
+    --main-bg-color: #f0f0f0ff;
+    --main-fg-color: #1f1f1fff;
+    --border-color: #666666;
+    --clicked-color: #b1e8b6ff;
+    --hover-color: #f7b73322;
+    --link-color: #0077cc;
+    --placeholder-color: #7f7f7fff;
   }
 }
 
@@ -128,11 +128,11 @@ a {
 }
 
 .symbol.drag {
-	opacity: 0.4;
+    opacity: 0.4;
 }
 
 .symbol.over {
-	border: 1px solid var(--border-color);
+    border: 1px solid var(--border-color);
 }
 
 .symbol > .glyph {
@@ -176,7 +176,7 @@ a {
 }
 
 .symbol.drag:hover > .remove:after {
-	content: "";
+    content: "";
 }
 
 
