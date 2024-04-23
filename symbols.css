@@ -94,6 +94,10 @@ a {
   margin-left: 1rem;
 }
 
+.over#save_symbols {
+  background-color: var(--hover-color);
+}
+
 .symbols {
   max-width: 1200px;
   margin: 0 auto;

@@ -656,18 +656,20 @@ function fileHandler(file) {
 }
 
 function dragOverHandler(ev) {
-  // Prevent default behavior (Prevent file from being opened)
   ev.preventDefault();
+  ev.target.classList.add("over");
 }
 
-
+function dragLeaveHandler(ev) {
+  ev.preventDefault();
+  ev.target.classList.remove("over");
+}
 
 function handleDragStart(e) {
     e.target.classList.add('drag');
     document.getElementsByClassName("symbols")[0].dataset.dragIndex = 
         Array.from(e.target.parentElement.children).indexOf(e.target);
 }
-
 
 function handleDragEnd(e) {
     e.target.classList.remove('drag');
@@ -769,6 +771,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.getElementById("save_symbols").addEventListener("drop", dropHandler);
     document.getElementById("save_symbols").addEventListener("dragover", dragOverHandler);
+    document.getElementById("save_symbols").addEventListener("dragleave", dragLeaveHandler);
     
     document.getElementsByClassName("symbols")[0].addEventListener("dragstart", handleDragStart);
     document.getElementsByClassName("symbols")[0].addEventListener("dragover", handleDragOver);
