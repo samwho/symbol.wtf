@@ -710,7 +710,7 @@ function handleDrop(e) {
             const dragIndex = parseInt(parentElem.dataset.dragIndex);
             const dragTarget = Array.from(parentElem.children).indexOf(target);
             
-            if (!dragIndex >= 0) {
+            if (!(dragIndex >= 0)) {
                 return false;
             }                
             
