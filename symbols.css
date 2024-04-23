@@ -138,6 +138,8 @@ a {
 .symbol > .glyph {
   font-size: 60cqw;
   overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .symbol > .glyph > input {
