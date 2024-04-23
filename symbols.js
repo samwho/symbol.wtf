@@ -488,10 +488,10 @@ function editSymbol(elem, classname) {
         target.parentElement.parentElement.title = symbols[target.dataset.index].name;
         target.parentElement.textContent = target.value;
         window.localStorage.setItem("symbols", JSON.stringify(symbols));
-		return true;
+        return true;
     }
     
-	elem.classList.remove("clicked");
+    elem.classList.remove("clicked");
     elemClass = elem.getElementsByClassName(classname)[0];
     input = document.createElement("input");    
     input.value = elemClass.innerHTML;
@@ -554,7 +554,7 @@ function renderSymbols(searchTerm) {
         elem.classList = "symbol";
         elem.tabIndex = 0;
         elem.title = symbol.name;
-		elem.setAttribute("draggable", "true");
+        elem.setAttribute("draggable", "true");
 
         glyphElem.classList = "glyph";
         glyphElem.textContent = symbol.display || symbol.glyph;
@@ -562,9 +562,9 @@ function renderSymbols(searchTerm) {
         nameElem.classList = "name";
         nameElem.textContent = symbol.name;
 
-		copyElem.classList = "copy";
+        copyElem.classList = "copy";
         copyElem.textContent = "Copied!";
-		
+        
         removeElem.classList = "remove";
         
         elem.appendChild(glyphElem);
@@ -588,10 +588,17 @@ function renderSymbols(searchTerm) {
         };
         elem.addEventListener("click", handleAction);
         elem.addEventListener("keydown", (event) => {
-            if (isNotEditingSymbol() && (event.key === "Enter" || event.key === " ")
-            ) {
-                event.preventDefault();
-                handleAction();
+            if (isNotEditingSymbol()) {
+                switch (event.key) {
+                    case " ":
+                    case "Enter":
+                        event.preventDefault();
+                        handleAction();
+                        break;
+                    case "Delete":
+                        removeSymbol(event.target);
+                        break;
+                }
             }
         });
         parent.appendChild(elem);
@@ -600,14 +607,14 @@ function renderSymbols(searchTerm) {
 
 function handleDragStart(e) {
     e.target.classList.add('drag');
-	document.getElementsByClassName("symbols")[0].dataset.dragIndex = 
-		Array.from(e.target.parentElement.children).indexOf(e.target);
+    document.getElementsByClassName("symbols")[0].dataset.dragIndex = 
+        Array.from(e.target.parentElement.children).indexOf(e.target);
 }
 
 
 function handleDragEnd(e) {
     e.target.classList.remove('drag');
-	Array.from(e.target.parentElement.children).forEach(elem => elem.classList.remove("over"));
+    Array.from(e.target.parentElement.children).forEach(elem => elem.classList.remove("over"));
 }
 
 function handleDragOver(e) {
@@ -616,50 +623,50 @@ function handleDragOver(e) {
 }
 
 function handleDragEnter(e) {
-	Array.from(document.getElementsByClassName("over")).forEach(elem => elem.classList.remove("over"));
-	let target = e.target;
-	while (target) {
-		if (target.classList?.contains("symbol")) {
-			target.classList.add("over");
-			break;
-		}
-		target = target.parentElement
-	}
+    Array.from(document.getElementsByClassName("over")).forEach(elem => elem.classList.remove("over"));
+    let target = e.target;
+    while (target) {
+        if (target.classList?.contains("symbol")) {
+            target.classList.add("over");
+            break;
+        }
+        target = target.parentElement
+    }
 }
 
 function handleDrop(e) {
-	e.preventDefault();
-	let target = e.target;
-	while (target) {
-		if (target.classList?.contains("symbol")) {
-			const parentElem = target.parentElement;
-			const dragIndex = parseInt(parentElem.dataset.dragIndex);
-			const dragTarget = Array.from(parentElem.children).indexOf(target);
-			
-			if (!dragIndex >= 0) {
-				return false;
-			}				
-			
-			symbols.splice(dragTarget, 0, symbols.splice(dragIndex, 1)[0]);
-			window.localStorage.setItem("symbols", JSON.stringify(symbols));
-			
-			if (dragIndex < dragTarget) {
-				if (target.nextElementSibling) { 
-					target.nextElementSibling.before(
-						parentElem.children[dragIndex]
-					);
-				} else {
-					parentElem.appendChild(parentElem.children[dragIndex]);
-				}
-			} else {
-				target.before(parentElem.children[dragIndex]);
-			}
-			break;
-		}
-		target = target.parentElement;
-	}
-	e.stopPropagation();
-	return false;
+    e.preventDefault();
+    let target = e.target;
+    while (target) {
+        if (target.classList?.contains("symbol")) {
+            const parentElem = target.parentElement;
+            const dragIndex = parseInt(parentElem.dataset.dragIndex);
+            const dragTarget = Array.from(parentElem.children).indexOf(target);
+            
+            if (!dragIndex >= 0) {
+                return false;
+            }                
+            
+            symbols.splice(dragTarget, 0, symbols.splice(dragIndex, 1)[0]);
+            window.localStorage.setItem("symbols", JSON.stringify(symbols));
+            
+            if (dragIndex < dragTarget) {
+                if (target.nextElementSibling) { 
+                    target.nextElementSibling.before(
+                        parentElem.children[dragIndex]
+                    );
+                } else {
+                    parentElem.appendChild(parentElem.children[dragIndex]);
+                }
+            } else {
+                target.before(parentElem.children[dragIndex]);
+            }
+            break;
+        }
+        target = target.parentElement;
+    }
+    e.stopPropagation();
+    return false;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -673,7 +680,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     searchInput.addEventListener("blur", (e) => {
         window.location.hash = e.target.value;
-		return false;
+        return false;
     });
 
     window.addEventListener("hashchange", () => {
@@ -705,10 +712,10 @@ document.addEventListener("DOMContentLoaded", () => {
             target = target.parentElement;
         }
     });
-	
-	window.addEventListener("dragstart", handleDragStart);
-	window.addEventListener("dragover", handleDragOver);
-	window.addEventListener("dragenter", handleDragEnter);
-	window.addEventListener("dragend", handleDragEnd);
-	window.addEventListener("drop", handleDrop);
+    
+    window.addEventListener("dragstart", handleDragStart);
+    window.addEventListener("dragover", handleDragOver);
+    window.addEventListener("dragenter", handleDragEnter);
+    window.addEventListener("dragend", handleDragEnd);
+    window.addEventListener("drop", handleDrop);
 });
