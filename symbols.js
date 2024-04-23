@@ -494,9 +494,9 @@ function editSymbol(elem, classname) {
     elem.classList.remove("clicked");
     elemClass = elem.getElementsByClassName(classname)[0];
     input = document.createElement("input");    
-    input.value = elemClass.innerHTML;
     input.dataset.classname = classname;
     input.dataset.index = Array.from(elem.parentElement.children).indexOf(elem);
+    input.value = symbols[input.dataset.index][classname];
     input.addEventListener("blur", (e) => handleAction(e.target))
     input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
@@ -633,6 +633,7 @@ function fileHandler(file) {
             }
             if (!+dataset.todo) {
                 console.log("Number of files loaded:", dataset.uploads);
+	            window.localStorage.setItem("symbols", JSON.stringify(symbols));
                 renderSymbols();
             }
         }
