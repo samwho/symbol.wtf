@@ -628,12 +628,17 @@ function handleDragEnter(e) {
 }
 
 function handleDrop(e) {
+	e.preventDefault();
 	let target = e.target;
 	while (target) {
 		if (target.classList?.contains("symbol")) {
 			const parentElem = target.parentElement;
 			const dragIndex = parseInt(parentElem.dataset.dragIndex);
 			const dragTarget = Array.from(parentElem.children).indexOf(target);
+			
+			if (!dragIndex >= 0) {
+				return false;
+			}				
 			
 			symbols.splice(dragTarget, 0, symbols.splice(dragIndex, 1)[0]);
 			window.localStorage.setItem("symbols", JSON.stringify(symbols));
