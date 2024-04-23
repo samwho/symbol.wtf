@@ -595,38 +595,21 @@ function renderSymbols(searchTerm) {
         };
         elem.addEventListener("click", handleAction);
         elem.addEventListener("keydown", (event) => {
-            if (isNotEditingSymbol() && (event.key === "Enter" || event.key === " ")
-            ) {
-                event.preventDefault();
-                handleAction();
+            if (isNotEditingSymbol()) {
+                switch (event.key) {
+                    case " ":
+                    case "Enter":
+                        event.preventDefault();
+                        handleAction();
+                        break;
+                    case "Delete":
+                        removeSymbol(event.target);
+                        break;
+                }
             }
         });
         parent.appendChild(elem);
     }
-}
-
-
-function dropHandler(ev) {
-    // Prevent default behavior (Prevent file from being opened)
-    ev.preventDefault();
-	ev.target.classList.remove("over");
-    document.getElementById("save_symbols").dataset.uploads = 0;
-    document.getElementById("save_symbols").dataset.todo = 0;
-
-    if (ev.dataTransfer.items) {
-    // Use DataTransferItemList interface to access the file(s)
-    [...ev.dataTransfer.items].forEach((item, i) => {
-        // If dropped items aren't files, reject them
-        if (item.kind === "file") {
-        fileHandler(item.getAsFile());
-        }
-    });
-    } else {
-    // Use DataTransfer interface to access the file(s)
-    [...ev.dataTransfer.files].forEach((file) => {
-        fileHandler(file);
-    });
-    }    
 }
 
 function fileHandler(file) {
@@ -666,6 +649,29 @@ function dragLeaveHandler(ev) {
   ev.target.classList.remove("over");
 }
 
+function dropHandler(ev) {
+    // Prevent default behavior (Prevent file from being opened)
+    ev.preventDefault();
+    ev.target.classList.remove("over");
+    document.getElementById("save_symbols").dataset.uploads = 0;
+    document.getElementById("save_symbols").dataset.todo = 0;
+
+    if (ev.dataTransfer.items) {
+    // Use DataTransferItemList interface to access the file(s)
+    [...ev.dataTransfer.items].forEach((item, i) => {
+        // If dropped items aren't files, reject them
+        if (item.kind === "file") {
+        fileHandler(item.getAsFile());
+        }
+    });
+    } else {
+    // Use DataTransfer interface to access the file(s)
+    [...ev.dataTransfer.files].forEach((file) => {
+        fileHandler(file);
+    });
+    }    
+}
+
 function handleDragStart(e) {
     e.target.classList.add('drag');
     document.getElementsByClassName("symbols")[0].dataset.dragIndex = 
@@ -684,7 +690,7 @@ function handleDragOver(e) {
 
 function handleDragEnter(e) {
     Array.from(document.getElementsByClassName("over"))
-		.forEach(elem => elem.classList.remove("over"));
+        .forEach(elem => elem.classList.remove("over"));
     let target = e.target;
     while (target) {
         if (target.classList?.contains("symbol")) {
