@@ -609,6 +609,7 @@ function renderSymbols(searchTerm) {
 function dropHandler(ev) {
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
+	ev.target.classList.remove("over");
     document.getElementById("save_symbols").dataset.uploads = 0;
     document.getElementById("save_symbols").dataset.todo = 0;
 
@@ -682,7 +683,8 @@ function handleDragOver(e) {
 }
 
 function handleDragEnter(e) {
-    Array.from(document.getElementsByClassName("over")).forEach(elem => elem.classList.remove("over"));
+    Array.from(document.getElementsByClassName("over"))
+		.forEach(elem => elem.classList.remove("over"));
     let target = e.target;
     while (target) {
         if (target.classList?.contains("symbol")) {
@@ -701,6 +703,10 @@ function handleDrop(e) {
             const parentElem = target.parentElement;
             const dragIndex = parseInt(parentElem.dataset.dragIndex);
             const dragTarget = Array.from(parentElem.children).indexOf(target);
+            
+            if (!dragIndex >= 0) {
+                return false;
+            }                
             
             symbols.splice(dragTarget, 0, symbols.splice(dragIndex, 1)[0]);
             window.localStorage.setItem("symbols", JSON.stringify(symbols));
