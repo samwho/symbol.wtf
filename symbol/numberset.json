@@ -1,0 +1,48 @@
+[
+	{
+		"glyph": "ℕ",
+		"name": "Naturals",
+		"searchTerms": [
+			"Set of Natural Numbers Symbol",
+			"natnums"
+		]
+	},
+	{
+		"glyph": "ℤ",
+		"name": "Integers",
+		"searchTerms": [
+			"Set of Integer Numbers Symbol"
+		]
+	},
+	{
+		"glyph": "ℚ",
+		"name": "Rationals",
+		"searchTerms": [
+			"Set of Rational Numbers Symbol"
+		]
+	},
+	{
+		"glyph": "ℝ",
+		"name": "Reals",
+		"searchTerms": [
+			"Set of Real Numbers Symbol"
+		]
+	},
+	{
+		"glyph": "ℂ",
+		"name": "Complexes",
+		"searchTerms": [
+			"Set of Complex Numbers Symbol",
+			"cnums"
+		]
+	},
+	{
+		"glyph": "ℍ",
+		"name": "Quaternions",
+		"searchTerms": [
+			"Set of Complex Numbers Symbol",
+			"Hamiltonians",
+			"Set of Hamiltonian Number"
+		]
+	}
+]

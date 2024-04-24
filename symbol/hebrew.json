@@ -1,0 +1,137 @@
+[
+	{
+		"glyph": "א",
+		"name": "Alef",
+		"searchTerms": ["Hebrew Letter Alef", "Aleph"] 
+	},
+	{
+		"glyph": "ב",
+		"name": "Bet",
+		"searchTerms": ["Hebrew Letter Bet"] 
+	},
+	{
+		"glyph": "ג",
+		"name": "Gimel",
+		"searchTerms": ["Hebrew Letter Gimel"] 
+	},
+	{
+		"glyph": "ד",
+		"name": "Dalet",
+		"searchTerms": ["Hebrew Letter Dalet"] 
+	},
+	{
+		"glyph": "ה",
+		"name": "He",
+		"searchTerms": ["Hebrew Letter He"] 
+	},
+	{
+		"glyph": "ו",
+		"name": "Vav",
+		"searchTerms": ["Hebrew Letter Vav"] 
+	},
+	{
+		"glyph": "ז",
+		"name": "Zayin",
+		"searchTerms": ["Hebrew Letter Zayin"] 
+	},
+	{
+		"glyph": "ח",
+		"name": "Het",
+		"searchTerms": ["Hebrew Letter Het"] 
+	},
+	{
+		"glyph": "ט",
+		"name": "Tet",
+		"searchTerms": ["Hebrew Letter Tet"] 
+	},
+	{
+		"glyph": "י",
+		"name": "Yod",
+		"searchTerms": ["Hebrew Letter Yod"] 
+	},
+	{
+		"glyph": "ך",
+		"name": "Final Kaf",
+		"searchTerms": ["Hebrew Letter Final Kaf"] 
+	},
+	{
+		"glyph": "כ",
+		"name": "Kaf",
+		"searchTerms": ["Hebrew Letter Kaf"] 
+	},
+	{
+		"glyph": "ל",
+		"name": "Lamed",
+		"searchTerms": ["Hebrew Letter Lamed"] 
+	},
+	{
+		"glyph": "ם",
+		"name": "Final Mem",
+		"searchTerms": ["Hebrew Letter Final Mem"] 
+	},
+	{
+		"glyph": "מ",
+		"name": "Mem",
+		"searchTerms": ["Hebrew Letter Mem"] 
+	},
+	{
+		"glyph": "ן",
+		"name": "Final Nun",
+		"searchTerms": ["Hebrew Letter Final Nun"] 
+	},
+	{
+		"glyph": "נ",
+		"name": "Nun",
+		"searchTerms": ["Hebrew Letter Nun"] 
+	},
+	{
+		"glyph": "ס",
+		"name": "Samekh",
+		"searchTerms": ["Hebrew Letter Samekh"] 
+	},
+	{
+		"glyph": "ע",
+		"name": "Ayin",
+		"searchTerms": ["Hebrew Letter Ayin "] 
+	},
+	{
+		"glyph": "ף",
+		"name": "Final Pe",
+		"searchTerms": ["Hebrew Letter Final Pe"] 
+	},
+	{
+		"glyph": "פ",
+		"name": "Pe",
+		"searchTerms": ["Hebrew Letter Pe"] 
+	},
+	{
+		"glyph": "ץ",
+		"name": "Final Tsadi",
+		"searchTerms": ["Hebrew Letter Final Tsadi"] 
+	},
+	{
+		"glyph": "צ",
+		"name": "Tsadi",
+		"searchTerms": ["Hebrew Letter Tsadi"] 
+	},
+	{
+		"glyph": "ק",
+		"name": "Qof",
+		"searchTerms": ["Hebrew Letter Qof"] 
+	},
+	{
+		"glyph": "ר",
+		"name": "Resh",
+		"searchTerms": ["Hebrew Letter Resh"] 
+	},
+	{
+		"glyph": "ש",
+		"name": "Shin",
+		"searchTerms": ["Hebrew Letter Shin"] 
+	},
+	{
+		"glyph": "ת",
+		"name": "Tav",
+		"searchTerms": ["Hebrew Letter Tav"] 
+	}
+]

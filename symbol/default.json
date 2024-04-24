@@ -1,0 +1,438 @@
+[
+	"samwho",
+    {
+        "glyph": "©",
+        "name": "Copyright",
+        "searchTerms": ["(C)"]
+    },
+    {
+        "glyph": "®",
+        "name": "Registered Trademark",
+        "searchTerms": ["(R)"]
+    },
+    {
+        "glyph": "™",
+        "name": "Trademark",
+        "searchTerms": ["TM"]
+    },
+	
+	"punctuation",
+    {
+
+        "glyph": "“",
+        "name": "Left Double Quotation Mark",
+        "searchTerms": ["open", "quote", "\""]
+    },
+    {
+        "glyph": "”",
+        "name": "Right Double Quotation Mark",
+        "searchTerms": ["close", "quote", "\""]
+    },
+    {
+        "glyph": "‘",
+        "name": "Left Single Quotation Mark",
+        "searchTerms": ["open", "quote", "'"]
+    },
+    {
+        "glyph": "’",
+        "name": "Right Single Quotation Mark",
+        "searchTerms": ["close", "quote", "'"]
+    },
+    {
+        "glyph": "—",
+        "name": "Em-dash"
+    },
+    {
+        "glyph": "–",
+        "name": "En-dash",
+        "searchTerms": ["en", "dash"]
+    },
+    {
+        "glyph": "¡",
+        "name": "Inverted Exclamation Mark",
+        "searchTerms": ["!"]
+    },
+    {
+        "glyph": "¿",
+        "name": "Inverted Question Mark",
+        "searchTerms": ["?"]
+    },
+    {
+        "glyph": "‽",
+        "name": "Interrobang",
+        "searchTerms": ["?!"]
+    },
+    {
+        "glyph": "…",
+        "name": "Ellipsis",
+        "searchTerms": ["..."]
+    },
+    {
+        "glyph": "−",
+        "name": "minus",
+        "searchTerms": ["minus", "dash"]
+    },
+    {
+        "glyph": "é",
+        "name": "E with Acute",
+        "searchTerms": ["acute", "e"]
+    },
+    {
+        "glyph": "•",
+        "name": "Vertically Centered Dot",
+        "searchTerms": ["bullet", "."]
+    },
+    {
+        "glyph": "§",
+        "name": "Section",
+        "searchTerms": ["silcrow", "s"]
+    },
+    {
+        "glyph": "¶",
+        "name": "Paragraph",
+        "searchTerms": ["pilcrow", "p"]
+    },
+
+    "currency",
+    {
+        "glyph": "¤",
+        "name": "Currency"
+    },
+    {
+        "glyph": "£",
+        "name": "Pound"
+    },
+    {
+        "glyph": "€",
+        "name": "Euro"
+    },
+    {
+        "glyph": "$",
+        "name": "Dollar Sign"
+    },
+    {
+        "glyph": "¥",
+        "name": "Yen"
+    },
+    {
+        "glyph": "₩",
+        "name": "Won"
+    },
+    {
+        "glyph": "₹",
+        "name": "Rupee"
+    },
+    {
+        "glyph": "¢",
+        "name": "Cent"
+    },
+
+    "math",
+    {
+        "glyph": "±",
+        "name": "Plus-minus",
+        "searchTerms": ["+", "-"]
+    },
+    {
+        "glyph": "×",
+        "name": "Times",
+        "searchTerms": ["multiply", "*", "x"]
+    },
+    {
+        "glyph": "÷",
+        "name": "Divide",
+        "searchTerms": ["/"]
+    },
+    {
+        "glyph": "√",
+        "name": "Square Root",
+        "searchTerms": ["sqrt"]
+    },
+    {
+        "glyph": "∑",
+        "name": "Summation",
+        "searchTerms": ["sum"]
+    },
+    {
+        "glyph": "∏",
+        "name": "Product"
+    },
+    {
+        "glyph": "∫",
+        "name": "Integral"
+    },
+    {
+        "glyph": "∂",
+        "name": "Partial Derivative"
+    },
+    {
+        "glyph": "¹",
+        "name": "Superscript One",
+        "searchTerms": ["power","exponent","1","^1","**1"]
+    },
+    {
+        "glyph": "²",
+        "name": "Superscript Two",
+        "searchTerms": ["squared", "power","exponent","2","^2","**2"]
+    },
+    {
+        "glyph": "³",
+        "name": "Superscript Three",
+        "searchTerms": ["cubed", "power","exponent","3","^3","**3"]
+    },
+    {
+        "glyph": "₀",
+        "name": "Subscript Zero",
+        "searchTerms": ["not", "0", "_0"]
+    },
+    {
+        "glyph": "₁",
+        "name": "Subscript One",
+        "searchTerms": ["1", "_1"]
+    },
+    {
+        "glyph": "₂",
+        "name": "Subscript Two",
+        "searchTerms": ["2", "_2"]
+    },
+    {
+        "glyph": "¼",
+        "name": "One Quarter",
+        "searchTerms": ["fraction", "1/4"]
+    },
+    {
+        "glyph": "½",
+        "name": "One Half",
+        "searchTerms": ["fraction", "1/2"]
+    },
+    {
+        "glyph": "¾",
+        "name": "Three Quarters",
+        "searchTerms": ["fraction", "3/4"]
+    },
+    {
+        "glyph": "∞",
+        "name": "Infinity"
+    },
+    {
+        "glyph": "∅",
+        "name": "Empty Set"
+    },
+    {
+        "glyph": "⌀",
+        "name": "Diameter"
+    },
+    {
+        "glyph": "π",
+        "name": "pi",
+        "searchTerms": ["pie"]
+    },
+    {
+        "glyph": "∆",
+        "name": "Delta"
+    },
+    {
+        "glyph": "ε",
+        "name": "Epsilon"
+    },
+    {
+        "glyph": "µ",
+        "name": "Micro",
+        "searchTerms": ["mu"]
+    },
+    {
+        "glyph": "°",
+        "name": "Degree"
+    },
+
+    "accented characters",
+    {
+        "glyph": "á",
+        "name": "A with Acute"
+    },
+    {
+        "glyph": "à",
+        "name": "A with Grave"
+    },
+    {
+        "glyph": "å",
+        "name": "Latin small letter A with ring above"
+    },
+    {
+        "glyph": "Å",
+        "name": "Latin capital letter A with ring above",
+        "searchTerms": ["angstrom"]
+    },
+    {
+        "glyph": "ä",
+        "name": "Latin small letter A with diaeresis"
+    },
+    {
+        "glyph": "Ä",
+        "name": "Latin capital letter A with diaeresis"
+    },
+    {
+        "glyph": "ç",
+        "name": "C with Cedilla"
+    },
+    {
+        "glyph": "é",
+        "name": "E with Acute"
+    },
+    {
+        "glyph": "ñ",
+        "name": "Latin Small Letter n with Tilde",
+        "searchTerms": ["jalapeno"]
+    },
+    {
+        "glyph": "Ñ",
+        "name": "Latin Capital Letter N with Tilde",
+        "searchTerms": ["jalapeno"]
+    },
+
+    "combined characters",
+    {
+        "glyph": "æ",
+        "name": "AE"
+    },
+    {
+        "glyph": "Æ",
+        "name": "AE"
+    },
+    {
+        "glyph": "œ",
+        "name": "OE"
+    },
+    {
+        "glyph": "Œ",
+        "name": "OE"
+    },
+
+    "miscellaneous",
+    {
+        "glyph": "✔",
+        "name": "Check",
+        "searchTerms": ["tick"]
+    },
+    {
+        "glyph": "←",
+        "name": "Left Arrow"
+    },
+    {
+        "glyph": "→",
+        "name": "Right Arrow"
+    },
+    {
+        "glyph": "↑",
+        "name": "Upwards Arrow"
+    },
+    {
+        "glyph": "↓",
+        "name": "Downwards Arrow"
+    },
+    {
+        "glyph": "↔",
+        "name": "Left Right Arrow"
+    },
+    {
+        "glyph": "↕",
+        "name": "Up Down Arrow"
+    },
+    {
+        "glyph": "~",
+        "name": "Tilde"
+    },
+    {
+        "glyph": "ꩰ",
+        "name": "Khamti Reduplication",
+		"_": "search term is Punycode",
+        "searchTerms": ["xn--8r9a"]
+    },
+    {
+        "glyph": "ဪ",
+        "name": "Myanmar Letter Au",
+		"_": "search term is Punycode",
+        "searchTerms": ["xn--ujd"]
+    },
+    {
+        "glyph": "⌘",
+        "name": "Command (Looped Square)"
+    },
+    {
+        "glyph": "⌥",
+        "name": "Option"
+    },
+    {
+        "glyph": "þ",
+        "name": "lowercase thorn"
+    },
+    {
+        "glyph": "Þ",
+        "name": "uppercase thorn"
+    },
+    {
+        "glyph": "ð",
+        "name": "lowercase eth"
+    },
+    {
+        "glyph": "Ð",
+        "name": "uppercase eth"
+    },
+    {
+        "glyph": "†",
+        "name": "dagger"
+    },
+    {
+        "glyph": "♥",
+        "name": "heart"
+    },
+    {
+        "glyph": "♦",
+        "name": "diamond"
+    },
+    {
+        "glyph": "♣",
+        "name": "club"
+    },
+    {
+        "glyph": "♠",
+        "name": "spade"
+    },
+    {
+        "glyph": "℠",
+        "name": "Service Mark",
+        "searchTerms": ["service mark", "SM"]
+    },
+
+    "invisible characters",
+    {
+        "glyph": "\u00A0",
+        "display": "\u25A1",
+        "name": "No-break Space",
+        "searchTerms": ["&nbsp;", "non-breaking"]
+    },
+    {
+        "glyph": "\u200B",
+        "display": "\u25A1",
+        "name": "Zero Width Space",
+        "searchTerms": ["zwsp"]
+    },
+    {
+        "glyph": "\u200E",
+        "display": "\u25A1",
+        "name": "Left-to-Right",
+        "searchTerms": ["&lrm;", "ltr"]
+    },
+    {
+        "glyph": "\u200F",
+        "display": "\u25A1",
+        "name": "Right-to-Left",
+        "searchTerms": ["&rlm;", "rtl"]
+    },
+
+    "Private Use Area (not official Unicode, may not display)",
+    {
+        "glyph": "\uF8FF",
+        "name": "Apple Logo"
+    }
+]
