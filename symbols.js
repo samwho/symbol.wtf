@@ -449,16 +449,16 @@ if (symbols.length === 0) {
 }
 
 function sanitise(symbols) {
-	if (!Array.isArray(symbols)) {
-		return [];
-	}
+    if (!Array.isArray(symbols)) {
+        return [];
+    }
     return symbols.filter((s) => 
-		s !== null &&
-		typeof s === 'object' &&
-		!Array.isArray(s) &&
-		s.hasOwnProperty("glyph") &&
-		s.hasOwnProperty("name")
-	);
+        s !== null &&
+        typeof s === 'object' &&
+        !Array.isArray(s) &&
+        s.hasOwnProperty("glyph") &&
+        s.hasOwnProperty("name")
+    );
 }
 
 
@@ -513,15 +513,14 @@ function editSymbol(elem, classname) {
     input.value = symbols[input.dataset.index][classname];
     input.addEventListener("blur", (e) => handleAction(e.target))
     input.addEventListener("keydown", (e) => {
-		console.warn(e.key)
-		switch (e.key) {
-			case "Enter":
-				handleAction(e.target);
-				break;
-			case "Escape":
-				e.target.parentElement.textContent = 
-					symbols[e.target.dataset.index][e.target.dataset.classname];
-				break;
+        switch (e.key) {
+            case "Enter":
+                handleAction(e.target);
+                break;
+            case "Escape":
+                e.target.parentElement.textContent = 
+                    symbols[e.target.dataset.index][e.target.dataset.classname];
+                break;
         }
     });
     elemClass.innerHTML = '';
@@ -643,20 +642,19 @@ function fileHandler(file) {
             +dataset.todo--;
             try {
                 const content = sanitise(JSON.parse(reader.result));
-				console.warn(content.length)
                 if (content.length) {
-    				if (!+dataset.uploads) {
-						symbols = [];
-					}
-					+dataset.uploads++;
-					symbols.push(...content);
-				}
-			} catch(err) {
+                    if (!+dataset.uploads) {
+                        symbols = [];
+                    }
+                    +dataset.uploads++;
+                    symbols.push(...content);
+                }
+            } catch(err) {
                 console.error(err);
             }
             if (!+dataset.todo) {
                 console.log("Number of files loaded:", dataset.uploads);
-	            window.localStorage.setItem("symbols", JSON.stringify(symbols));
+                window.localStorage.setItem("symbols", JSON.stringify(symbols));
                 renderSymbols();
             }
         }
