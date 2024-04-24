@@ -632,6 +632,19 @@ function renderSymbols(searchTerm) {
     }
 }
 
+function openElement(elem) {
+    elem.classList.add("open");
+    elem.dataset.open_counter |= 0;
+    elem.dataset.open_counter++;
+    window.setTimeout((elem) => {
+        elem.dataset.open_counter--;
+        console.warn(elem.dataset.open_counter, +elem.dataset.open_counter)
+        if (+elem.dataset.open_counter === 0) {
+            elem.classList.remove("open");
+        }
+    }, 5000, elem);
+}
+
 function fileHandler(file) {
     if (file.type === "application/json") {
         const dataset = document.getElementById("save_symbols").dataset;
@@ -643,7 +656,13 @@ function fileHandler(file) {
             try {
                 const content = sanitise(JSON.parse(reader.result));
                 if (content.length) {
-                    if (!+dataset.uploads) {
+                    if (
+                        !+dataset.uploads && 
+                        !document
+                            .getElementById("save_symbols")
+                            .classList
+                            .contains("open")
+                    ) {
                         symbols = [];
                     }
                     +dataset.uploads++;
@@ -675,6 +694,7 @@ function dropHandler(ev) {
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
     ev.target.classList.remove("over");
+    openElement(ev.target);
     document.getElementById("save_symbols").dataset.uploads = 0;
     document.getElementById("save_symbols").dataset.todo = 0;
 

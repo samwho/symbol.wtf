@@ -99,6 +99,10 @@ a {
 .search > button#save_symbols {
   font-size: 1.8rem; /* Prevent the large disk icon to make the button bigger than the others */
 }
+.search > button.open {
+  border-style: dashed;
+}
+
 
 .over#save_symbols {
   background-color: var(--hover-color);
