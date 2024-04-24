@@ -513,8 +513,15 @@ function editSymbol(elem, classname) {
     input.value = symbols[input.dataset.index][classname];
     input.addEventListener("blur", (e) => handleAction(e.target))
     input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            handleAction(e.target);
+		console.warn(e.key)
+		switch (e.key) {
+			case "Enter":
+				handleAction(e.target);
+				break;
+			case "Escape":
+				e.target.parentElement.textContent = 
+					symbols[e.target.dataset.index][e.target.dataset.classname];
+				break;
         }
     });
     elemClass.innerHTML = '';
