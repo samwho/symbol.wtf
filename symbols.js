@@ -359,7 +359,20 @@ const symbols_default = [
     },
     {
         glyph: "⌥",
-        name: "Option"
+        name: "Option Key"
+    },
+    {
+        glyph: "⇪",
+        name: "Caps Lock (Upwards White Arrow from Bar)"
+    },
+    {
+        glyph: "⇧",
+        name: "Shift (Upwards White Arrow)"
+    },
+    {
+        glyph: "⌃",
+        name: "Control (Up Arrowhead)",
+        searchTerms: ["ctrl"]
     },
     {
         glyph: "þ",
