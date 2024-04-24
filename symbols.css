@@ -92,9 +92,12 @@ a {
 .search > button {
   font-size: 3rem;
   margin-left: 0.5rem;
-  width: 4rem;
-  text-align: center;
   padding: 0;
+  text-align: center;
+  width: 3.2rem;
+}
+.search > button#save_symbols {
+  font-size: 1.8rem; /* Prevent the large disk icon to make the button bigger than the others */
 }
 
 .over#save_symbols {
