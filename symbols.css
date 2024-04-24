@@ -91,7 +91,10 @@ a {
 
 .search > button {
   font-size: 3rem;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
+  width: 4rem;
+  text-align: center;
+  padding: 0;
 }
 
 .over#save_symbols {
@@ -142,7 +145,7 @@ a {
 .symbol > .glyph {
   font-size: 60cqw;
   overflow: hidden;
-  width: 100%;
+  width: calc(100% + 3rem);
   white-space: nowrap;
 }
 

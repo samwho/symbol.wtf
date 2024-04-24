@@ -440,13 +440,27 @@ let symbols = []
 
 try {
     // Catching invallid json, not an invalid symbol array
-    symbols = JSON.parse(window.localStorage.getItem("symbols"));
+    symbols = sanitise(JSON.parse(window.localStorage.getItem("symbols")));
 } catch(err) {
     console.error(err);
 }
-if (!symbols) {
+if (symbols.length === 0) {
     symbols = symbols_default;
 }
+
+function sanitise(symbols) {
+	if (!Array.isArray(symbols)) {
+		return [];
+	}
+    return symbols.filter((s) => 
+		s !== null &&
+		typeof s === 'object' &&
+		!Array.isArray(s) &&
+		s.hasOwnProperty("glyph") &&
+		s.hasOwnProperty("name")
+	);
+}
+
 
 function search(searchTerm) {
     searchTerm = searchTerm?.toLowerCase() ?? "";
@@ -621,14 +635,16 @@ function fileHandler(file) {
         reader.onloadend = () => {
             +dataset.todo--;
             try {
-                const content = JSON.parse(reader.result);
-                if (!+dataset.uploads) {
-                    symbols = [];
-                }
-                +dataset.uploads++;
-                symbols.push(...content);
-                
-            } catch(err) {
+                const content = sanitise(JSON.parse(reader.result));
+				console.warn(content.length)
+                if (content.length) {
+    				if (!+dataset.uploads) {
+						symbols = [];
+					}
+					+dataset.uploads++;
+					symbols.push(...content);
+				}
+			} catch(err) {
                 console.error(err);
             }
             if (!+dataset.todo) {
