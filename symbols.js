@@ -638,7 +638,6 @@ function openElement(elem) {
     elem.dataset.open_counter++;
     window.setTimeout((elem) => {
         elem.dataset.open_counter--;
-        console.warn(elem.dataset.open_counter, +elem.dataset.open_counter)
         if (+elem.dataset.open_counter === 0) {
             elem.classList.remove("open");
         }
@@ -665,6 +664,7 @@ function fileHandler(file) {
                     ) {
                         symbols = [];
                     }
+                    openElement(document.getElementById("save_symbols"));
                     +dataset.uploads++;
                     symbols.push(...content);
                 }
@@ -694,7 +694,6 @@ function dropHandler(ev) {
     // Prevent default behavior (Prevent file from being opened)
     ev.preventDefault();
     ev.target.classList.remove("over");
-    openElement(ev.target);
     document.getElementById("save_symbols").dataset.uploads = 0;
     document.getElementById("save_symbols").dataset.todo = 0;
 
