@@ -187,8 +187,8 @@ a {
 
 .symbol:hover > .remove:after {
   color: var(--warning-fg-color);
-  content: "❌";
-  font-size: 1.2rem;
+  content: "🗙";
+  font-size: 1.0rem;
   position: absolute;
   top: 0.3rem;
   right: 0.5rem;
