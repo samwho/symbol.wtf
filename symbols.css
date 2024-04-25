@@ -163,13 +163,16 @@ a {
   background-color: var(--main-bg-color);
 }
 
+.symbol > .copy,
 .symbol > .name {
+  bottom: 15%;
   font-size: 1rem;
+  position: absolute;
   text-wrap: nowrap;
   white-space: nowrap;
   text-overflow: ellipsis;
   display: block;
-  width: 100%;
+  width: 80%;
   overflow: hidden;
 }
 .symbol > .name,
