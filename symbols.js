@@ -245,6 +245,16 @@ const symbols = [
         glyph: "°",
         name: "Degree"
     },
+    {
+        glyph: "′",
+        name: "Prime",
+        searchTerms: ["feet", "minute", "arcminute"]
+    },
+    {
+        glyph: "″",
+        name: "Double prime",
+        searchTerms: ["inch", "second", "arcsecond"]
+    },
 
     /* accented characters */
     {
