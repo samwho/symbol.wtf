@@ -245,11 +245,29 @@ const symbols_default = [
         glyph: "°",
         name: "Degree"
     },
+    {
+        glyph: "′",
+        name: "Prime",
+        searchTerms: ["feet", "minute", "arcminute"]
+    },
+    {
+        glyph: "″",
+        name: "Double prime",
+        searchTerms: ["inch", "second", "arcsecond"]
+    },
 
     /* accented characters */
     {
+        glyph: "ā",
+        name: "A with Macron"
+    },
+    {
         glyph: "á",
         name: "A with Acute"
+    },
+    {
+        glyph: "ǎ",
+        name: "A with Caron"
     },
     {
         glyph: "à",
@@ -277,8 +295,36 @@ const symbols_default = [
         name: "C with Cedilla"
     },
     {
+        glyph: "ē",
+        name: "E with Macron"
+    },
+    {
         glyph: "é",
         name: "E with Acute"
+    },
+    {
+        glyph: "ě",
+        name: "E with Caron"
+    },
+    {
+        glyph: "è",
+        name: "E with Grave"
+    },
+    {
+        glyph: "ī",
+        name: "I with Macron"
+    },
+    {
+        glyph: "í",
+        name: "I with Acute"
+    },
+    {
+        glyph: "ǐ",
+        name: "I with Caron"
+    },
+    {
+        glyph: "ì",
+        name: "I with Grave"
     },
     {
         glyph: "ñ",
@@ -289,6 +335,54 @@ const symbols_default = [
         glyph: "Ñ",
         name: "Latin Capital Letter N with Tilde",
         searchTerms: ["jalapeno"]
+    },
+    {
+        glyph: "ō",
+        name: "O with Macron"
+    },
+    {
+        glyph: "ó",
+        name: "O with Acute"
+    },
+    {
+        glyph: "ǒ",
+        name: "O with Caron"
+    },
+    {
+        glyph: "ò",
+        name: "O with Grave"
+    },
+    {
+        glyph: "ū",
+        name: "U with Macron"
+    },
+    {
+        glyph: "ú",
+        name: "U with Acute"
+    },
+    {
+        glyph: "ǔ",
+        name: "U with Caron"
+    },
+    {
+        glyph: "ù",
+        name: "U with Grave"
+    },
+    {
+        glyph: "ǖ",
+        name: "Ü with Macron"
+    },
+    {
+        glyph: "ǘ",
+        name: "Ü with Acute"
+    },
+    {
+        glyph: "ǚ",
+        name: "Ü with Caron"
+    },
+    {
+        glyph: "ǜ",
+        name: "Ü with Grave"
     },
 
     /* combined characters */
