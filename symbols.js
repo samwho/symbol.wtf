@@ -543,22 +543,70 @@ const symbols = [
     }
 ];
 
+function fuzzyMatch(haystack, needle) {
+    let haystackIndex = 0;
+    let needleIndex = 0;
+    let haystackIndexLastMatch = -1;
+    let matchGaps = [];
+
+    while (haystackIndex < haystack.length && needleIndex < needle.length) {
+        if (haystack[haystackIndex] === needle[needleIndex]) {
+            if (haystackIndexLastMatch >= 0) {
+                // `haystackIndex - haystackIndexLastMatch - 1` may overrepresent
+                // the gap between matches due to greedy matching, so we search
+                // backwards to find the actual gap. This correction may be overly
+                // charitable if the haystack has multiple instances of the same
+                // character, but it's well worth the improvement in identifying
+                // exact matches.
+                //
+                // For example, the needle "note" should match "beamed sixteenth
+                // notes" with no gaps, but without this correction there would
+                // be a gap of 4 ("th n").
+                let gap = haystackIndex - haystackIndexLastMatch - 1;
+                for (let i = haystackIndex - 1; i > haystackIndexLastMatch; i--) {
+                    if (haystack[i] === needle[needleIndex - 1]) {
+                        gap = haystackIndex - i - 1;
+                        break;
+                    }
+                }
+                if (gap > 0) {
+                    matchGaps.push(gap);
+                }
+            }
+            needleIndex++;
+            haystackIndexLastMatch = haystackIndex;
+        }
+        haystackIndex++;
+    }
+
+    if (needleIndex !== needle.length) {
+        // No match: not all needle characters were found in sequence
+        return 0;
+    }
+
+    return 1 / matchGaps.map(gap => Math.log(gap + 1)).reduce((a, b) => a + b, 0);
+}
+
 function search(searchTerm) {
     searchTerm = searchTerm?.toLowerCase() ?? "";
 
-    return symbols.filter((s) => {
-        /* Get hex representation of codepoint, e.g. 00A0 for &nbsp; or 20AC for € */
-        const codePoint = s.glyph.codePointAt(0).toString(16).padStart(4, 0);
+    return searchTerm == "" ? symbols :
+        symbols.map((symbol) => {
+            /* Get hex representation of codepoint, e.g. 00A0 for &nbsp; or 20AC for € */
+            const codePoint = symbol.glyph.codePointAt(0).toString(16).padStart(4, 0);
 
-        const searchTerms = [
-            s.name,
-            s.glyph,
-            ...s.searchTerms ?? [],
-            `U+${codePoint}`,
-            `0x${codePoint}`
-        ];
-        return searchTerm === "" || searchTerms.join(" ").toLowerCase().includes(searchTerm);
-    });
+            const searchTerms = [
+                symbol.name,
+                symbol.glyph,
+                ...symbol.searchTerms ?? [],
+                `U+${codePoint}`,
+                `0x${codePoint}`
+            ];
+            const score = fuzzyMatch(searchTerms.join(" ").toLowerCase(), searchTerm);
+            return { symbol, score };
+        }).filter(({ score }) => score !== 0)
+        .sort((a, b) => b.score - a.score)
+        .map(({ symbol }) => symbol);
 }
 
 function renderSymbols(searchTerm) {
