@@ -40,6 +40,26 @@ const symbols = [
         searchTerms: ["close", "quote", "'"]
     },
     {
+        glyph: "«",
+        name: "Left Pointing Double Angle Quotation Mark",
+        searchTerms: ["guillemet", "quote", '<<']
+    },
+    {
+        glyph: "»",
+        name: "Right Pointing Double Angle Quotation Mark",
+        searchTerms: ["guillemet", "quote", '>>']
+    },
+    {
+        glyph: "\u2039",
+        name: "Single Left Pointing Angle Quotation Mark",
+        searchTerms: ["guillemet", "quote", "<"]
+    },
+    {
+        glyph: "\u203A",
+        name: "Single Right Pointing Angle Quotation Mark",
+        searchTerms: ["guillemet", "quote", ">"]
+    },
+    {
         glyph: "—",
         name: "Em-dash"
     },
