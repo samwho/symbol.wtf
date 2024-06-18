@@ -187,6 +187,11 @@ const symbols = [
         name: "Partial Derivative"
     },
     {
+        glyph: "≠",
+        name: "Not equals",
+        searchTerms: ["neq","unequal","different"]
+    },
+    {
         glyph: "¹",
         name: "Superscript One",
         searchTerms: ["power","exponent","1","^1","**1"]
