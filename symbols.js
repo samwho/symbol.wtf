@@ -86,7 +86,12 @@ const symbols = [
     {
         glyph: "…",
         name: "Ellipsis",
-        searchTerms: ["..."]
+        searchTerms: ["...", "dot"]
+    },
+    {
+        glyph: "⋮",
+        name: "Vertical ellipsis",
+        searchTerms: ["...", "dot"]
     },
     {
         glyph: "−",
@@ -99,9 +104,9 @@ const symbols = [
         searchTerms: ["acute", "e"]
     },
     {
-        glyph: "•",
-        name: "Vertically Centered Dot",
-        searchTerms: ["bullet", "."]
+        glyph: "·",
+        name: "Middle Dot",
+        searchTerms: ["bullet", ".", "interpunct", "center"]
     },
     {
         glyph: "§",
@@ -510,10 +515,6 @@ const symbols = [
         name: "uppercase eth"
     },
     {
-        glyph: "†",
-        name: "dagger"
-    },
-    {
         glyph: "♥",
         name: "heart"
     },
@@ -533,6 +534,31 @@ const symbols = [
         glyph: "℠",
         name: "Service Mark",
         searchTerms: ["service mark", "SM"]
+    },
+    {
+        glyph: "↻",
+        name: "Clockwise Open Circle Arrow",
+        searchTerms: ["replay", "retry"]
+    },
+
+    /** typography */
+    {
+        glyph: "•",
+        name: "Bullet",
+        searchTerms: ["bullet", ".", "center"]
+    },
+    {
+        glyph: "†",
+        name: "Dagger"
+    },
+    {
+        glyph: "‡",
+        name: "Double Dagger"
+    },
+    {
+        glyph: "⁂",
+        name: "Asterism",
+        searchTerms: ["asterisk"]
     },
 
     /* invisible characters */
