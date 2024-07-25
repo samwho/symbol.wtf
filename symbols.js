@@ -540,6 +540,10 @@ const symbols = [
         name: "Clockwise Open Circle Arrow",
         searchTerms: ["replay", "retry"]
     },
+    {
+        glyph: "‰",
+        name: "Per mille"
+    },
 
     /** typography */
     {
