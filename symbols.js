@@ -480,6 +480,7 @@ const symbols = [
     {
         glyph: "⌘",
         name: "Command (Looped Square)",
+        searchTerms: ["interest"]
     },
     {
         glyph: "⌥",
@@ -497,6 +498,23 @@ const symbols = [
         glyph: "⌃",
         name: "Control (Up Arrowhead)",
         searchTerms: ["ctrl"]
+    },
+    {
+        glyph: "⌫",
+        name: "Erase To The Left (Backspace)",
+        searchTerms: ["bksp"]
+    },
+    {
+        glyph: "⌧",
+        name: "X In A Rectangle Box (Clear)"
+    },
+    {
+        glyph: "⌦",
+        name: "Erase To The Right (Delete)"
+    },
+    {
+        glyph: "⌨",
+        name: "Keyboard"
     },
     {
         glyph: "þ",
@@ -545,6 +563,89 @@ const symbols = [
         name: "Per mille"
     },
 
+    /** Media Controls */
+    {
+        glyph: "⏏",
+        name: "Eject Symbol"
+    },
+    {
+        glyph: "⏮",
+        name: "Black Left-Pointing Double Triangle with Vertical Bar",
+        searchTerms: ["media","previous","track"]
+    },
+    {
+        glyph: "⏪",
+        name: "Black Left-Pointing Double Triangle",
+        searchTerms: ["media","rewind"]
+    },
+    {
+        glyph: "⏬",
+        name: "Black Down-Pointing Double Triangle",
+        searchTerms: ["media"]
+    },
+    {
+        glyph: "⏫",
+        name: "Black Up-Pointing Double Triangle",
+        searchTerms: ["media"]
+    },
+    {
+        glyph: "⏩",
+        name: "Black Right-Pointing Double Triangle",
+        searchTerms: ["media","fast forward","track"]
+    },
+    {
+        glyph: "⏭",
+        name: "Black Right-Pointing Double Triangle with Vertical Bar",
+        searchTerms: ["media","next"]
+    },
+    {
+        glyph: "⏯",
+        name: "Black Right-Pointing Triangle with Double Vertical Bar",
+        searchTerms: ["media","play","pause"]
+    },
+    {
+        glyph: "⏸",
+        name: "Double Vertical Bar",
+        searchTerms: ["media","pause"]
+    },
+    {
+        glyph: "⏹",
+        name: "Black Square for Stop",
+        searchTerms: ["media"]
+    },
+    {
+        glyph: "⏺",
+        name: "Black Square for Record",
+        searchTerms: ["media"]
+    },
+    {
+        glyph: "▶",
+        name: "Black Right-Pointing Triangle",
+        searchTerms: ["media","play"]
+    },
+    {
+        glyph: "↪",
+        name: "Rightwards Arrow with Hook",
+        searchTerms: ["media","replay"]
+    },
+    {
+        glyph: "🔂",
+        name: "Clockwise Rightwards and Leftwards Open Circle Arrows with Circled One Overlay",
+        searchTerms: ["media","repeat","track","loop"]
+    },
+    {
+        glyph: "🔁",
+        name: "Clockwise Rightwards and Leftwards Open Circle Arrows",
+        searchTerms: ["media","shuffle","random","randomize"]
+    },
+    
+    /** sus */
+    {
+        glyph: "⍝",
+        name: "APL Functional Symbol Up Shoe Jot",
+        searchTerms: ["amogus"]
+    },
+    
     /** typography */
     {
         glyph: "•",
