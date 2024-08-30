@@ -285,6 +285,16 @@ const symbols = [
         name: "Double prime",
         searchTerms: ["inch", "second", "arcsecond"]
     },
+    {
+        glyph: "∈",
+        name: "Is an element of",
+        searchTerms: ["is in", "in", "belongs to", "is a member of"]
+    },
+    {
+        glyph: "∉",
+        name: "Is not an element of",
+        searchTerms: ["is not in", "not in", "is not a member of"]
+    },
 
     /* accented characters */
     {
