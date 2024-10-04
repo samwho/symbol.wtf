@@ -295,7 +295,11 @@ const symbols = [
         name: "Is not an element of",
         searchTerms: ["is not in", "not in", "is not a member of"]
     },
-
+    {
+        glyph: "∝",
+        name: "Is proportional to",
+        searchTerms: ["proportional", "is prop"]
+    },
     /* accented characters */
     {
         glyph: "ā",
