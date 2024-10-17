@@ -197,6 +197,19 @@ const symbols = [
         searchTerms: ["neq","unequal","different"]
     },
     {
+        glyph: "≡",
+        name: "Identical"
+    },
+    {
+        glyph: "≢",
+        name: "Not identical"
+    },
+    {
+        glyph: "≈",
+        name: "Almost equals",
+        searchTerms: ["approx"]
+    },
+    {
         glyph: "¹",
         name: "Superscript One",
         searchTerms: ["power","exponent","1","^1","**1"]
