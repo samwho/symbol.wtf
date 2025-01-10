@@ -8,6 +8,11 @@ const symbols = [
         searchTerms: ["(C)"]
     },
     {
+        glyph: "@",
+        name: "At sign",
+        searchTerms: ["At"]
+    },
+    {
         glyph: "®",
         name: "Registered Trademark",
         searchTerms: ["(R)"]
