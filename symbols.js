@@ -464,6 +464,16 @@ const symbols = [
         glyph: "Œ",
         name: "OE"
     },
+    {
+        glyph: "\u00f8",
+        name: "Latin small letter o with stroke",
+        searchTerms: ["scandinavian ø", "smorrebrod"]
+    },
+    {
+        glyph: "\u00d8",
+        name: "Latin capital letter O with stroke",
+        searchTerms: ["scandinavian Ø", "smorrebrod"]
+    },
 
     /* miscellaneous */
     {
