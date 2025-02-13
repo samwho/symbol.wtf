@@ -738,6 +738,188 @@ const symbols = [
     {
         glyph: "\uF8FF",
         name: "Apple Logo"
+    },
+
+    /* music */
+    {
+        glyph: "𝄞",
+        name: "Treble Clef",
+        searchTerms: ["G Clef", "music"]
+    },
+    {
+        glyph: "𝄢",
+        name: "Bass Clef",
+        searchTerms: ["F Clef", "music"]
+    },
+    {
+        glyph: "𝄡",
+        name: "Alto Clef",
+        searchTerms: ["C Clef", "Viola Clef", "music"]
+    },
+    {
+        glyph: "𝄡",
+        name: "Tenor Clef",
+        searchTerms: ["C Clef", "Tenor Clef", "music"]
+    },
+    {
+        glyph: "𝄦",
+        name: "Percussion Clef",
+        searchTerms: ["Neutral Clef", "Indefinite Pitch Clef", "music"]
+    },
+    {
+        glyph: "𝅝",
+        name: "Whole Note",
+        searchTerms: ["Semibreve", "music"]
+    },
+    {
+        glyph: "𝅗𝅥",
+        name: "Half Note",
+        searchTerms: ["Minim", "music"]
+    },
+    {
+        glyph: "𝅘𝅥",
+        name: "Quarter Note",
+        searchTerms: ["Crotchet", "music"]
+    },
+    {
+        glyph: "𝅘𝅥𝅮",
+        name: "Eighth Note",
+        searchTerms: ["Quaver", "music"]
+    },
+    {
+        glyph: "𝅘𝅥𝅯",
+        name: "Sixteenth Note",
+        searchTerms: ["Semiquaver", "music"]
+    },
+    {
+        glyph: "𝅘𝅥𝅰",
+        name: "Thirty-Second Note",
+        searchTerms: ["Demisemiquaver", "music"]
+    },
+    {
+        glyph: "𝅘𝅥𝅱",
+        name: "Sixty-Fourth Note",
+        searchTerms: ["Hemidemisemiquaver", "music"]
+    },
+    {
+        glyph: "𝄻",
+        name: "Whole Rest",
+        searchTerms: ["Semibreve Rest", "music"]
+    },
+    {
+        glyph: "𝄼",
+        name: "Half Rest",
+        searchTerms: ["Minim Rest", "music"]
+    },
+    {
+        glyph: "𝄽",
+        name: "Quarter Rest",
+        searchTerms: ["Crotchet Rest", "music"]
+    },
+    {
+        glyph: "𝄾",
+        name: "Eighth Rest",
+        searchTerms: ["Quaver Rest", "music"]
+    },
+    {
+        glyph: "𝄿",
+        name: "Sixteenth Rest",
+        searchTerms: ["Semiquaver Rest", "music"]
+    },
+    {
+        glyph: "𝅀",
+        name: "Thirty-Second Rest",
+        searchTerms: ["Demisemiquaver Rest", "music"]
+    },
+    {
+        glyph: "♯",
+        name: "Sharp",
+        searchTerms: ["Raise Pitch", "music"]
+    },
+    {
+        glyph: "♭",
+        name: "Flat",
+        searchTerms: ["Lower Pitch", "music"]
+    },
+    {
+        glyph: "♮",
+        name: "Natural",
+        searchTerms: ["Cancel Accidental", "music"]
+    },
+    {
+        glyph: "𝄪",
+        name: "Double Sharp",
+        searchTerms: ["Raise by Two Semitones", "music"]
+    },
+    {
+        glyph: "𝄫",
+        name: "Double Flat",
+        searchTerms: ["Lower by Two Semitones", "music"]
+    },
+    {
+        glyph: "𝄴",
+        name: "Common Time",
+        searchTerms: ["C Time", "4/4 Time", "music"]
+    },
+    {
+        glyph: "𝄵",
+        name: "Cut Time",
+        searchTerms: ["Alla Breve", "2/2 Time", "music"]
+    },
+    {
+        glyph: "p",
+        name: "Piano",
+        searchTerms: ["Soft", "music"]
+    },
+    {
+        glyph: "f",
+        name: "Forte",
+        searchTerms: ["Loud", "music"]
+    },
+    {
+        glyph: "𝆐",
+        name: "Crescendo",
+        searchTerms: ["Gradually Louder", "Hairpin", "music"]
+    },
+    {
+        glyph: "𝆑",
+        name: "Decrescendo",
+        searchTerms: ["Gradually Softer", "Diminuendo", "music"]
+    },
+    {
+        glyph: "𝅫",
+        name: "Staccato",
+        searchTerms: ["Detached Note", "music"]
+    },
+    {
+        glyph: "𝄐",
+        name: "Fermata",
+        searchTerms: ["Pause", "Hold", "music"]
+    },
+    {
+        glyph: "𝄇",
+        name: "Left Repeat Sign",
+        searchTerms: ["Repeat Barline", "music"]
+    },
+    {
+        glyph: "𝄈",
+        name: "Right Repeat Sign",
+        searchTerms: ["Repeat Barline", "music"]
+    },
+    {
+        glyph: "𝄋",
+        name: "Segno",
+        searchTerms: ["Sign", "Dal Segno", "music"]
+    },
+    {
+        glyph: "𝄌",
+        name: "Coda",
+        searchTerms: ["Coda Symbol", "music"]
+    },
+    {
+        glyph: "𝄃",
+        name: "Caesura",
+        searchTerms: ["Pause", "Break", "music"]
     }
 ];
 
