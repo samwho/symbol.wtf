@@ -1063,10 +1063,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchInput = document.querySelector(".search input");
     searchInput.value = search;
     searchInput.addEventListener("input", (e) => {
-        renderSymbols(e.target.value);
+        renderSymbols(e.target.value.trim());
     });
     searchInput.addEventListener("blur", (e) => {
-        window.location.hash = e.target.value;
+        window.location.hash = e.target.value.trim();
     });
 
     window.addEventListener("hashchange", () => {
