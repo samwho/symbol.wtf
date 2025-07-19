@@ -277,7 +277,7 @@ const symbols = [
         searchTerms: ["pie"]
     },
     {
-        glyph: "∆",
+        glyph: "Δ",
         name: "Delta"
     },
     {
