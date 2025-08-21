@@ -474,6 +474,11 @@ const symbols = [
         name: "Latin capital letter O with stroke",
         searchTerms: ["scandinavian Ø", "smorrebrod"]
     },
+        {
+        glyph: "ẞ",
+        name: "German capital ligature ẞ",
+        searchTerms: ["ß", "eszett" , "sz", "großes"]
+    },
 
     /* miscellaneous */
     {
