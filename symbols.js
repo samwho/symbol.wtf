@@ -1249,6 +1249,7 @@ function renderSymbols(searchTerm) {
 document.addEventListener("DOMContentLoaded", () => {
     const search = window.location.hash ? window.location.hash.substring(1) : "";
     renderSymbols(search);
+    setCategoryNames("");
 
     const searchInput = document.querySelector(".search input");
     searchInput.value = search;
