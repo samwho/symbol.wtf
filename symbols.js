@@ -1191,7 +1191,17 @@ function renderSymbols(searchTerm) {
         return;
     }
 
+    const category = document.querySelector(".search select").value;
+
     for (const symbol of results) {
+        if (category && isCategoryValid(category)) {
+            /* if the category is provided, exclude results that do not match the category by checking the glyph's unicode category with regex */
+            let regexpFilter = new RegExp(`\\p{gc=${category}}`, 'gu')
+            if (!symbol.glyph.match(regexpFilter)) {
+                continue;
+            }
+        }
+
         const elem = document.createElement("div");
         const glyphElem = document.createElement("div");
         const nameElem = document.createElement("div");
