@@ -1152,6 +1152,23 @@ function isCategoryValid(category){
     return categoryCodes.includes(category);
 }
 
+function setCategoryNames(category){
+    const categorySelect = document.querySelector(".search select");
+
+    unicodeCategories.forEach(cat => {
+        /* for each category in the `categories` array, create an option element in the category select */
+        const option = document.createElement("option");
+        option.value = cat.code;
+        option.textContent = cat.description;
+        categorySelect.appendChild(option);
+    })
+
+    if (category && isCategoryValid(category)) {
+        /* if the category is provided, set the value of the category select */
+        categorySelect.value = category;
+    }
+}
+
 function renderSymbols(searchTerm) {
     const parent = document.querySelector(".symbols");
     parent.innerHTML = "";
