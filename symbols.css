@@ -79,8 +79,15 @@ a {
 }
 
 .search > input {
-  width: 100%;
+  width: 90%;
   font-size: 3rem;
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+}
+
+.search > select {
+  width: 10%;
+  font-size: 1rem;
   color: var(--main-fg-color);
   background-color: var(--main-bg-color);
 }
