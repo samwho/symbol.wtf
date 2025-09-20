@@ -1247,12 +1247,19 @@ function renderSymbols(searchTerm) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+
     const search = window.location.hash ? window.location.hash.substring(1) : "";
-    renderSymbols(search);
-    setCategoryNames("");
+    const category = urlParams.get("category");
 
     const searchInput = document.querySelector(".search input");
+    const categorySelect = document.querySelector(".search select");
     searchInput.value = search;
+    categorySelect.value = category;
+
+    setCategoryNames(category);
+    renderSymbols(search);
+
     searchInput.addEventListener("input", (e) => {
         renderSymbols(e.target.value.trim());
     });
@@ -1264,5 +1271,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const search = window.location.hash ? window.location.hash.substring(1) : "";
         searchInput.value = search;
         renderSymbols(search);
+    });
+
+    categorySelect.addEventListener("change", (e) => {
+        const urlParams = new URLSearchParams(window.location.search);
+        urlParams.set("category", e.target.value);
+        window.location.search = urlParams.toString();
     });
 });
