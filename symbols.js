@@ -685,14 +685,14 @@ const symbols = [
         name: "Clockwise Rightwards and Leftwards Open Circle Arrows",
         searchTerms: ["media","shuffle","random","randomize"]
     },
-    
+
     /** sus */
     {
         glyph: "⍝",
         name: "APL Functional Symbol Up Shoe Jot",
         searchTerms: ["amogus"]
     },
-    
+
     /** typography */
     {
         glyph: "•",
@@ -927,6 +927,134 @@ const symbols = [
         searchTerms: ["Pause", "Break", "music"]
     }
 ];
+
+const unicodeCategories = [
+    {
+      "code": "Cc",
+      "description": "Other, Control"
+    },
+    {
+      "code": "Cf",
+      "description": "Other, Format"
+    },
+    {
+      "code": "Cn",
+      "description": "Other, Not Assigned (no characters in the file have this property)"
+    },
+    {
+      "code": "Co",
+      "description": "Other, Private Use"
+    },
+    {
+      "code": "Cs",
+      "description": "Other, Surrogate"
+    },
+    {
+      "code": "LC",
+      "description": "Letter, Cased"
+    },
+    {
+      "code": "Ll",
+      "description": "Letter, Lowercase"
+    },
+    {
+      "code": "Lm",
+      "description": "Letter, Modifier"
+    },
+    {
+      "code": "Lo",
+      "description": "Letter, Other"
+    },
+    {
+      "code": "Lt",
+      "description": "Letter, Titlecase"
+    },
+    {
+      "code": "Lu",
+      "description": "Letter, Uppercase"
+    },
+    {
+      "code": "Mc",
+      "description": "Mark, Spacing Combining"
+    },
+    {
+      "code": "Me",
+      "description": "Mark, Enclosing"
+    },
+    {
+      "code": "Mn",
+      "description": "Mark, Nonspacing"
+    },
+    {
+      "code": "Nd",
+      "description": "Number, Decimal Digit"
+    },
+    {
+      "code": "Nl",
+      "description": "Number, Letter"
+    },
+    {
+      "code": "No",
+      "description": "Number, Other"
+    },
+    {
+      "code": "Pc",
+      "description": "Punctuation, Connector"
+    },
+    {
+      "code": "Pd",
+      "description": "Punctuation, Dash"
+    },
+    {
+      "code": "Pe",
+      "description": "Punctuation, Close"
+    },
+    {
+      "code": "Pf",
+      "description": "Punctuation, Final quote (may behave like Ps or Pe depending on usage)"
+    },
+    {
+      "code": "Pi",
+      "description": "Punctuation, Initial quote (may behave like Ps or Pe depending on usage)"
+    },
+    {
+      "code": "Po",
+      "description": "Punctuation, Other"
+    },
+    {
+      "code": "Ps",
+      "description": "Punctuation, Open"
+    },
+    {
+      "code": "Sc",
+      "description": "Symbol, Currency"
+    },
+    {
+      "code": "Sk",
+      "description": "Symbol, Modifier"
+    },
+    {
+      "code": "Sm",
+      "description": "Symbol, Math"
+    },
+    {
+      "code": "So",
+      "description": "Symbol, Other"
+    },
+    {
+      "code": "Zl",
+      "description": "Separator, Line"
+    },
+    {
+      "code": "Zp",
+      "description": "Separator, Paragraph"
+    },
+    {
+      "code": "Zs",
+      "description": "Separator, Space"
+    }
+]
+
 
 function fuzzyMatch(haystack, needle) {
     let haystackIndex = 0;
