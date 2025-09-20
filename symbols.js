@@ -1146,6 +1146,12 @@ function search(searchTerm) {
         .map(({ symbol }) => symbol);
 }
 
+function isCategoryValid(category){
+    /* check if the category is a valid category code */
+    const categoryCodes = unicodeCategories.map(cat => cat.code);
+    return categoryCodes.includes(category);
+}
+
 function renderSymbols(searchTerm) {
     const parent = document.querySelector(".symbols");
     parent.innerHTML = "";
