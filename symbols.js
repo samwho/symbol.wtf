@@ -1254,6 +1254,28 @@ function renderSymbols(searchTerm) {
     }
 }
 
+function changeUrl(searchString = "") {
+    /* get the category and search from the search input and select */
+    const category = document.querySelector(".search select").value;
+    const search = searchString ? searchString : document.querySelector(".search input").value.trim();
+
+    /* create a new URL object and set the category param and search hash */
+    const lastUrl = window.location.href;
+    const url = new URL(lastUrl);
+    if (category !== "") {
+        url.searchParams.set("category", category);
+    } else {
+        url.searchParams.delete("category");
+    }
+    url.hash = search;
+
+    /* push the new URL to the history if it is different from the last URL,
+    with state containing the category and search */
+    if (url.toString() !== lastUrl) {
+        window.history.pushState({"category": category, "search": search}, '', url.toString());
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -1272,7 +1294,12 @@ document.addEventListener("DOMContentLoaded", () => {
         renderSymbols(e.target.value.trim());
     });
     searchInput.addEventListener("blur", (e) => {
-        window.location.hash = e.target.value.trim();
+        changeUrl(e.target.value.trim());
+    });
+
+    categorySelect.addEventListener("change", (e) => {
+        changeUrl();
+        renderSymbols(searchInput.value);
     });
 
     window.addEventListener("hashchange", () => {
@@ -1281,9 +1308,11 @@ document.addEventListener("DOMContentLoaded", () => {
         renderSymbols(search);
     });
 
-    categorySelect.addEventListener("change", (e) => {
-        const urlParams = new URLSearchParams(window.location.search);
-        urlParams.set("category", e.target.value);
-        window.location.search = urlParams.toString();
-    });
+    window.addEventListener("popstate", (e) => {
+        /* on popstate event, set the search and category
+        from state (if available) and render symbols */
+        searchInput.value = e.state ? e.state.search : "";
+        categorySelect.value = e.state ? e.state.category : "";
+        renderSymbols(searchInput.value);
+    })
 });
