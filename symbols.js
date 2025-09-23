@@ -1079,6 +1079,7 @@ const unicodeCategories = [
   }
 ]
 
+let validCategories = new Set();
 
 function fuzzyMatch(haystack, needle) {
     let haystackIndex = 0;
@@ -1148,19 +1149,25 @@ function search(searchTerm) {
 
 function isCategoryValid(category){
     /* check if the category is a valid category code */
-    const categoryCodes = unicodeCategories.map(cat => cat.code);
-    return categoryCodes.includes(category);
+    return validCategories.has(category);
 }
 
 function setCategoryNames(category){
     const categorySelect = document.querySelector(".search select");
+    const glyphs = symbols.map(symbol => symbol.glyph).join("");
 
     unicodeCategories.forEach(cat => {
-        /* for each category in the `categories` array, create an option element in the category select */
-        const option = document.createElement("option");
-        option.value = cat.code;
-        option.textContent = cat.description;
-        categorySelect.appendChild(option);
+        /* determine if the category should be displayed by testing
+        if any of the glyphs in our set are in the category */
+        if (validCategories.has(cat.code)) return;
+        const regexpFilter = new RegExp(`\\p{gc=${cat.code}}`, 'u');
+        if (regexpFilter.test(glyphs)){
+            const option = document.createElement("option");
+            option.value = cat.code;
+            option.textContent = cat.description;
+            categorySelect.appendChild(option);
+            validCategories.add(cat.code);
+        }
     })
 
     if (category && isCategoryValid(category)) {
@@ -1195,7 +1202,8 @@ function renderSymbols(searchTerm) {
 
     for (const symbol of results) {
         if (category && isCategoryValid(category)) {
-            /* if the category is provided, exclude results that do not match the category by checking the glyph's unicode category with regex */
+            /* if the category is provided, exclude results that do not match
+            the category by checking the glyph's unicode category with regex */
             let regexpFilter = new RegExp(`\\p{gc=${category}}`, 'gu')
             if (!symbol.glyph.match(regexpFilter)) {
                 continue;
