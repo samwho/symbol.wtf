@@ -929,155 +929,155 @@ const symbols = [
 ];
 
 const unicodeCategories = [
-    {
-      "code": "L",
-      "description": "Letter"
-    },
-    {
-      "code": "Lu",
-      "description": "Uppercase Letter"
-    },
-    {
-      "code": "Ll",
-      "description": "Lowercase Letter"
-    },
-    {
-      "code": "Lt",
-      "description": "Titlecase Letter"
-    },
-    {
-      "code": "Lm",
-      "description": "Modifier Letter"
-    },
-    {
-      "code": "Lo",
-      "description": "Other Letter"
-    },
-    {
-      "code": "M",
-      "description": "Mark"
-    },
-    {
-      "code": "Mn",
-      "description": "Non-Spacing Mark"
-    },
-    {
-      "code": "Mc",
-      "description": "Spacing Combining Mark"
-    },
-    {
-      "code": "Me",
-      "description": "Enclosing Mark"
-    },
-    {
-      "code": "N",
-      "description": "Number"
-    },
-    {
-      "code": "Nd",
-      "description": "Decimal Digit Number"
-    },
-    {
-      "code": "Nl",
-      "description": "Letter Number"
-    },
-    {
-      "code": "No",
-      "description": "Other Number"
-    },
-    {
-      "code": "S",
-      "description": "Symbol"
-    },
-    {
-      "code": "Sm",
-      "description": "Math Symbol"
-    },
-    {
-      "code": "Sc",
-      "description": "Currency Symbol"
-    },
-    {
-      "code": "Sk",
-      "description": "Modifier Symbol"
-    },
-    {
-      "code": "So",
-      "description": "Other Symbol"
-    },
-    {
-      "code": "P",
-      "description": "Punctuation"
-    },
-    {
-      "code": "Pc",
-      "description": "Connector Punctuation"
-    },
-    {
-      "code": "Pd",
-      "description": "Dash Punctuation"
-    },
-    {
-      "code": "Ps",
-      "description": "Open Punctuation"
-    },
-    {
-      "code": "Pe",
-      "description": "Close Punctuation"
-    },
-    {
-      "code": "Pi",
-      "description": "Initial Punctuation"
-    },
-    {
-      "code": "Pf",
-      "description": "Final Punctuation"
-    },
-    {
-      "code": "Po",
-      "description": "Other Punctuation"
-    },
-    {
-      "code": "Z",
-      "description": "Separator"
-    },
-    {
-      "code": "Zs",
-      "description": "Space Separator"
-    },
-    {
-      "code": "Zl",
-      "description": "Line Separator"
-    },
-    {
-      "code": "Zp",
-      "description": "Paragraph Separator"
-    },
-    {
-      "code": "C",
-      "description": "Other"
-    },
-    {
-      "code": "Cc",
-      "description": "Control"
-    },
-    {
-      "code": "Cf",
-      "description": "Format"
-    },
-    {
-      "code": "Cs",
-      "description": "Surrogate"
-    },
-    {
-      "code": "Co",
-      "description": "Private Use"
-    },
-    {
-      "code": "Cn",
-      "description": "Unassigned"
-    }
-  ]
+  {
+    "code": "L",
+    "description": "Letter"
+  },
+  {
+    "code": "Lu",
+    "description": "Uppercase Letter"
+  },
+  {
+    "code": "Ll",
+    "description": "Lowercase Letter"
+  },
+  {
+    "code": "Lt",
+    "description": "Titlecase Letter"
+  },
+  {
+    "code": "Lm",
+    "description": "Modifier Letter"
+  },
+  {
+    "code": "Lo",
+    "description": "Other Letter"
+  },
+  {
+    "code": "M",
+    "description": "Mark"
+  },
+  {
+    "code": "Mn",
+    "description": "Non-Spacing Mark"
+  },
+  {
+    "code": "Mc",
+    "description": "Spacing Combining Mark"
+  },
+  {
+    "code": "Me",
+    "description": "Enclosing Mark"
+  },
+  {
+    "code": "N",
+    "description": "Number"
+  },
+  {
+    "code": "Nd",
+    "description": "Decimal Digit Number"
+  },
+  {
+    "code": "Nl",
+    "description": "Letter Number"
+  },
+  {
+    "code": "No",
+    "description": "Other Number"
+  },
+  {
+    "code": "S",
+    "description": "Symbol"
+  },
+  {
+    "code": "Sm",
+    "description": "Math Symbol"
+  },
+  {
+    "code": "Sc",
+    "description": "Currency Symbol"
+  },
+  {
+    "code": "Sk",
+    "description": "Modifier Symbol"
+  },
+  {
+    "code": "So",
+    "description": "Other Symbol"
+  },
+  {
+    "code": "P",
+    "description": "Punctuation"
+  },
+  {
+    "code": "Pc",
+    "description": "Connector Punctuation"
+  },
+  {
+    "code": "Pd",
+    "description": "Dash Punctuation"
+  },
+  {
+    "code": "Ps",
+    "description": "Open Punctuation"
+  },
+  {
+    "code": "Pe",
+    "description": "Close Punctuation"
+  },
+  {
+    "code": "Pi",
+    "description": "Initial Punctuation"
+  },
+  {
+    "code": "Pf",
+    "description": "Final Punctuation"
+  },
+  {
+    "code": "Po",
+    "description": "Other Punctuation"
+  },
+  {
+    "code": "Z",
+    "description": "Separator"
+  },
+  {
+    "code": "Zs",
+    "description": "Space Separator"
+  },
+  {
+    "code": "Zl",
+    "description": "Line Separator"
+  },
+  {
+    "code": "Zp",
+    "description": "Paragraph Separator"
+  },
+  {
+    "code": "C",
+    "description": "Other"
+  },
+  {
+    "code": "Cc",
+    "description": "Control"
+  },
+  {
+    "code": "Cf",
+    "description": "Format"
+  },
+  {
+    "code": "Cs",
+    "description": "Surrogate"
+  },
+  {
+    "code": "Co",
+    "description": "Private Use"
+  },
+  {
+    "code": "Cn",
+    "description": "Unassigned"
+  }
+]
 
 
 function fuzzyMatch(haystack, needle) {
