@@ -71,6 +71,7 @@ a {
 
 .search {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: auto;
   margin-bottom: 1em;
@@ -79,15 +80,15 @@ a {
 }
 
 .search > input {
-  width: 90%;
+  width: 100%;
   font-size: 3rem;
   color: var(--main-fg-color);
   background-color: var(--main-bg-color);
 }
 
 .search > select {
-  width: 10%;
-  font-size: 1rem;
+  width: 100%;
+  font-size: 1.2rem;
   color: var(--main-fg-color);
   background-color: var(--main-bg-color);
 }
@@ -146,4 +147,18 @@ a {
 
 .clicked {
   background-color: var(--clicked-color) !important;
+}
+
+@media (min-width: 768px) {
+  .search {
+    flex-direction: row;
+  }
+
+  .search > input {
+    width: 80%;
+  }
+
+  .search > select {
+    width: 20%;
+  }
 }
