@@ -71,6 +71,7 @@ a {
 
 .search {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: auto;
   margin-bottom: 1em;
@@ -79,8 +80,18 @@ a {
 }
 
 .search > input {
-  width: 100%;
+  flex: 1;
+  min-width: 80%;
   font-size: 3rem;
+  color: var(--main-fg-color);
+  background-color: var(--main-bg-color);
+
+}
+
+.search > select {
+  flex: 1;
+  min-width: 10rem;
+  font-size: 1.2rem;
   color: var(--main-fg-color);
   background-color: var(--main-bg-color);
 }

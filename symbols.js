@@ -685,14 +685,14 @@ const symbols = [
         name: "Clockwise Rightwards and Leftwards Open Circle Arrows",
         searchTerms: ["media","shuffle","random","randomize"]
     },
-    
+
     /** sus */
     {
         glyph: "⍝",
         name: "APL Functional Symbol Up Shoe Jot",
         searchTerms: ["amogus"]
     },
-    
+
     /** typography */
     {
         glyph: "•",
@@ -928,6 +928,159 @@ const symbols = [
     }
 ];
 
+const unicodeCategories = [
+  {
+    "code": "L",
+    "description": "Letter"
+  },
+  {
+    "code": "Lu",
+    "description": "Uppercase Letter"
+  },
+  {
+    "code": "Ll",
+    "description": "Lowercase Letter"
+  },
+  {
+    "code": "Lt",
+    "description": "Titlecase Letter"
+  },
+  {
+    "code": "Lm",
+    "description": "Modifier Letter"
+  },
+  {
+    "code": "Lo",
+    "description": "Other Letter"
+  },
+  {
+    "code": "M",
+    "description": "Mark"
+  },
+  {
+    "code": "Mn",
+    "description": "Non-Spacing Mark"
+  },
+  {
+    "code": "Mc",
+    "description": "Spacing Combining Mark"
+  },
+  {
+    "code": "Me",
+    "description": "Enclosing Mark"
+  },
+  {
+    "code": "N",
+    "description": "Number"
+  },
+  {
+    "code": "Nd",
+    "description": "Decimal Digit Number"
+  },
+  {
+    "code": "Nl",
+    "description": "Letter Number"
+  },
+  {
+    "code": "No",
+    "description": "Other Number"
+  },
+  {
+    "code": "S",
+    "description": "Symbol"
+  },
+  {
+    "code": "Sm",
+    "description": "Math Symbol"
+  },
+  {
+    "code": "Sc",
+    "description": "Currency Symbol"
+  },
+  {
+    "code": "Sk",
+    "description": "Modifier Symbol"
+  },
+  {
+    "code": "So",
+    "description": "Other Symbol"
+  },
+  {
+    "code": "P",
+    "description": "Punctuation"
+  },
+  {
+    "code": "Pc",
+    "description": "Connector Punctuation"
+  },
+  {
+    "code": "Pd",
+    "description": "Dash Punctuation"
+  },
+  {
+    "code": "Ps",
+    "description": "Open Punctuation"
+  },
+  {
+    "code": "Pe",
+    "description": "Close Punctuation"
+  },
+  {
+    "code": "Pi",
+    "description": "Initial Punctuation"
+  },
+  {
+    "code": "Pf",
+    "description": "Final Punctuation"
+  },
+  {
+    "code": "Po",
+    "description": "Other Punctuation"
+  },
+  {
+    "code": "Z",
+    "description": "Separator"
+  },
+  {
+    "code": "Zs",
+    "description": "Space Separator"
+  },
+  {
+    "code": "Zl",
+    "description": "Line Separator"
+  },
+  {
+    "code": "Zp",
+    "description": "Paragraph Separator"
+  },
+  {
+    "code": "C",
+    "description": "Other"
+  },
+  {
+    "code": "Cc",
+    "description": "Control"
+  },
+  {
+    "code": "Cf",
+    "description": "Format"
+  },
+  {
+    "code": "Cs",
+    "description": "Surrogate"
+  },
+  {
+    "code": "Co",
+    "description": "Private Use"
+  },
+  {
+    "code": "Cn",
+    "description": "Unassigned"
+  }
+]
+
+let validCategories = new Set();
+
 function fuzzyMatch(haystack, needle) {
     let haystackIndex = 0;
     let needleIndex = 0;
@@ -994,6 +1147,35 @@ function search(searchTerm) {
         .map(({ symbol }) => symbol);
 }
 
+function isCategoryValid(category){
+    /* check if the category is a valid category code */
+    return validCategories.has(category);
+}
+
+function setCategoryNames(category){
+    const categorySelect = document.querySelector(".search select");
+    const glyphs = symbols.map(symbol => symbol.glyph).join("");
+
+    unicodeCategories.forEach(cat => {
+        /* determine if the category should be displayed by testing
+        if any of the glyphs in our set are in the category */
+        if (validCategories.has(cat.code)) return;
+        const regexpFilter = new RegExp(`\\p{gc=${cat.code}}`, 'u');
+        if (regexpFilter.test(glyphs)){
+            const option = document.createElement("option");
+            option.value = cat.code;
+            option.textContent = cat.description;
+            categorySelect.appendChild(option);
+            validCategories.add(cat.code);
+        }
+    })
+
+    if (category && isCategoryValid(category)) {
+        /* if the category is provided, set the value of the category select */
+        categorySelect.value = category;
+    }
+}
+
 function renderSymbols(searchTerm) {
     const parent = document.querySelector(".symbols");
     parent.innerHTML = "";
@@ -1016,7 +1198,18 @@ function renderSymbols(searchTerm) {
         return;
     }
 
+    const category = document.querySelector(".search select").value;
+
     for (const symbol of results) {
+        if (category && isCategoryValid(category)) {
+            /* if the category is provided, exclude results that do not match
+            the category by checking the glyph's unicode category with regex */
+            let regexpFilter = new RegExp(`\\p{gc=${category}}`, 'gu')
+            if (!symbol.glyph.match(regexpFilter)) {
+                continue;
+            }
+        }
+
         const elem = document.createElement("div");
         const glyphElem = document.createElement("div");
         const nameElem = document.createElement("div");
@@ -1061,17 +1254,52 @@ function renderSymbols(searchTerm) {
     }
 }
 
+function changeUrl(searchString = "") {
+    /* get the category and search from the search input and select */
+    const category = document.querySelector(".search select").value;
+    const search = searchString ? searchString : document.querySelector(".search input").value.trim();
+
+    /* create a new URL object and set the category param and search hash */
+    const lastUrl = window.location.href;
+    const url = new URL(lastUrl);
+    if (category !== "") {
+        url.searchParams.set("category", category);
+    } else {
+        url.searchParams.delete("category");
+    }
+    url.hash = search;
+
+    /* push the new URL to the history if it is different from the last URL,
+    with state containing the category and search */
+    if (url.toString() !== lastUrl) {
+        window.history.pushState({"category": category, "search": search}, '', url.toString());
+    }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+
     const search = window.location.hash ? window.location.hash.substring(1) : "";
-    renderSymbols(search);
+    const category = urlParams.get("category");
 
     const searchInput = document.querySelector(".search input");
+    const categorySelect = document.querySelector(".search select");
     searchInput.value = search;
+    categorySelect.value = category;
+
+    setCategoryNames(category);
+    renderSymbols(search);
+
     searchInput.addEventListener("input", (e) => {
         renderSymbols(e.target.value.trim());
     });
     searchInput.addEventListener("blur", (e) => {
-        window.location.hash = e.target.value.trim();
+        changeUrl(e.target.value.trim());
+    });
+
+    categorySelect.addEventListener("change", (e) => {
+        changeUrl();
+        renderSymbols(searchInput.value);
     });
 
     window.addEventListener("hashchange", () => {
@@ -1079,4 +1307,12 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.value = search;
         renderSymbols(search);
     });
+
+    window.addEventListener("popstate", (e) => {
+        /* on popstate event, set the search and category
+        from state (if available) and render symbols */
+        searchInput.value = e.state ? e.state.search : "";
+        categorySelect.value = e.state ? e.state.category : "";
+        renderSymbols(searchInput.value);
+    })
 });
