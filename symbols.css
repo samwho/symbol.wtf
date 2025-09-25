@@ -73,6 +73,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 1rem;
   margin: auto;
   margin-bottom: 1em;
   margin-top: 1em;
@@ -92,6 +93,7 @@ a {
   flex: 1;
   min-width: 10rem;
   font-size: 1.2rem;
+  padding: 0.5rem;
   color: var(--main-fg-color);
   background-color: var(--main-bg-color);
 }
