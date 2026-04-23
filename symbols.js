@@ -194,7 +194,8 @@ const symbols = [
     },
     {
         glyph: "∂",
-        name: "Partial Derivative"
+        name: "Partial Differential",
+        searchTerms: ["derivative"]
     },
     {
         glyph: "≠",
@@ -270,24 +271,6 @@ const symbols = [
     {
         glyph: "⌀",
         name: "Diameter",
-    },
-    {
-        glyph: "π",
-        name: "pi",
-        searchTerms: ["pie"]
-    },
-    {
-        glyph: "Δ",
-        name: "Delta"
-    },
-    {
-        glyph: "ε",
-        name: "Epsilon"
-    },
-    {
-        glyph: "µ",
-        name: "Micro",
-        searchTerms: ["mu"]
     },
     {
         glyph: "°",
@@ -925,7 +908,284 @@ const symbols = [
         glyph: "𝄃",
         name: "Caesura",
         searchTerms: ["Pause", "Break", "music"]
-    }
+    },
+    
+    /* greek alphabet */
+    {
+        glyph: "Α",
+        name: "Uppercase Alpha",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "α",
+        name: "Alpha",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Β",
+        name: "Uppercase Beta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "β",
+        name: "Beta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Γ",
+        name: "Uppercase Gamma",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "γ",
+        name: "Gamma",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Δ",
+        name: "Uppercase Delta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "δ",
+        name: "Delta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ε",
+        name: "Uppercase Epsilon",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ε",
+        name: "Epsilon",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ϵ",
+        name: "Epsilon Variant",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ζ",
+        name: "Uppercase Zeta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ζ",
+        name: "Zeta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Η",
+        name: "Uppercase Eta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "η",
+        name: "Eta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Θ",
+        name: "Uppercase Theta",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "θ",
+        name: "Theta",
+        searchTerms: ["Angle", "Greek"]
+    },
+    {
+        glyph: "ϑ",
+        name: "Theta Variant",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ι",
+        name: "Uppercase Iota",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ι",
+        name: "Iota",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Κ",
+        name: "Uppercase Kappa",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "κ",
+        name: "Kappa",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Λ",
+        name: "Uppercase Lambda",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "λ",
+        name: "Lambda",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Μ",
+        name: "Uppercase Mu",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "µ",
+        name: "Mu",
+        searchTerms: ["Micro", "Greek"]
+    },
+    {
+        glyph: "Ν",
+        name: "Uppercase Nu",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ν",
+        name: "Nu",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ξ",
+        name: "Uppercase Xi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ξ",
+        name: "Xi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ο",
+        name: "Uppercase Omicron",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ο",
+        name: "Omicron",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Π",
+        name: "Uppercase Pi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "π",
+        name: "Pi",
+        searchTerms: ["Pie", "Greek"]
+    },
+    {
+        glyph: "ϖ",
+        name: "Pi Variant",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ρ",
+        name: "Uppercase Rho",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ρ",
+        name: "Rho",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ϱ",
+        name: "Rho Variant",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Σ",
+        name: "Uppercase Sigma",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "σ",
+        name: "Sigma",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ς",
+        name: "Sigma Variant",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Τ",
+        name: "Uppercase Tau",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "τ",
+        name: "Tau",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Υ",
+        name: "Uppercase Upsilon",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "υ",
+        name: "Upsilon",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Φ",
+        name: "Uppercase Phi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "φ",
+        name: "Phi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ϕ",
+        name: "Phi Variant",
+        searchTerms: ["Angle", "Greek"]
+    },
+    {
+        glyph: "Χ",
+        name: "Uppercase Chi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "χ",
+        name: "Chi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ψ",
+        name: "Uppercase Psi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "ψ",
+        name: "Psi",
+        searchTerms: ["Greek"]
+    },
+    {
+        glyph: "Ω",
+        name: "Uppercase Omega",
+        searchTerms: ["Ohm", "Greek"]
+    },
+    {
+        glyph: "ω",
+        name: "Omega",
+        searchTerms: ["Radians", "Greek"]
+    },
+    {
+        glyph: "℧",
+        name: "Inverted Omega",
+        searchTerms: ["Mho", "Siemens"]
+    },
 ];
 
 const unicodeCategories = [
