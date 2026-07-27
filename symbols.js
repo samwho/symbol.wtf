@@ -1186,6 +1186,11 @@ const symbols = [
         name: "Inverted Omega",
         searchTerms: ["Mho", "Siemens"]
     },
+    {                                                                                                                
+        glyph: "﷽",                                                                                                  
+        name: "Bismillah",                                                                                           
+        searchTerms: ["bismillah", "basmala"]                                                                        
+    },
 ];
 
 const unicodeCategories = [
