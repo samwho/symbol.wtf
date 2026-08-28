@@ -216,24 +216,59 @@ const symbols = [
         searchTerms: ["approx"]
     },
     {
+        glyph: "⁰",
+        name: "Superscript Zero",
+        searchTerms: ["power", "exponent", "0", "^0", "**0"]
+    },
+    {
         glyph: "¹",
         name: "Superscript One",
-        searchTerms: ["power","exponent","1","^1","**1"]
+        searchTerms: ["power", "exponent", "1", "^1", "**1"]
     },
     {
         glyph: "²",
         name: "Superscript Two",
-        searchTerms: ["squared", "power","exponent","2","^2","**2"]
+        searchTerms: ["squared", "power", "exponent", "2", "^2", "**2"]
     },
     {
         glyph: "³",
         name: "Superscript Three",
-        searchTerms: ["cubed", "power","exponent","3","^3","**3"]
+        searchTerms: ["cubed", "power", "exponent", "3", "^3", "**3"]
+    },
+    {
+        glyph: "⁴",
+        name: "Superscript Four",
+        searchTerms: ["power", "exponent", "4", "^4", "**4"]
+    },
+    {
+        glyph: "⁵",
+        name: "Superscript Five",
+        searchTerms: ["power", "exponent", "5", "^5", "**5"]
+    },
+    {
+        glyph: "⁶",
+        name: "Superscript Six",
+        searchTerms: ["power", "exponent", "6", "^6", "**6"]
+    },
+    {
+        glyph: "⁷",
+        name: "Superscript Seven",
+        searchTerms: ["power", "exponent", "7", "^7", "**7"]
+    },
+    {
+        glyph: "⁸",
+        name: "Superscript Eight",
+        searchTerms: ["power", "exponent", "8", "^8", "**8"]
+    },
+    {
+        glyph: "⁹",
+        name: "Superscript Nine",
+        searchTerms: ["power", "exponent", "9", "^9", "**9"]
     },
     {
         glyph: "₀",
         name: "Subscript Zero",
-        searchTerms: ["not", "0", "_0"]
+        searchTerms: ["not", "nought", "0", "_0"]
     },
     {
         glyph: "₁",
@@ -243,7 +278,47 @@ const symbols = [
     {
         glyph: "₂",
         name: "Subscript Two",
-        searchTerms: ["2", "_2"]
+        searchTerms: ["half", "2", "_2"]
+    },
+    {
+        glyph: "₃",
+        name: "Subscript Three",
+        searchTerms: ["third", "3", "_3"]
+    },
+    {
+        glyph: "₄",
+        name: "Subscript Four",
+        searchTerms: ["quarter", "4", "_4"]
+    },
+    {
+        glyph: "₅",
+        name: "Subscript Five",
+        searchTerms: ["fifth", "5", "_5"]
+    },
+    {
+        glyph: "₆",
+        name: "Subscript Six",
+        searchTerms: ["sixth", "6", "_6"]
+    },
+    {
+        glyph: "₇",
+        name: "Subscript Seven",
+        searchTerms: ["seventh", "7", "_7"]
+    },
+    {
+        glyph: "₈",
+        name: "Subscript Eight",
+        searchTerms: ["eighth", "8", "_8"]
+    },
+    {
+        glyph: "₉",
+        name: "Subscript Nine",
+        searchTerms: ["ninth", "9", "_9"]
+    },
+    {
+        glyph: "∕",
+        name: "Division Slash",
+        searchTerms: ["divide", "fraction", "over", "/"]
     },
     {
         glyph: "¼",
