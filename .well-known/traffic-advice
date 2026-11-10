@@ -1,0 +1,6 @@
+[
+  {
+    "user_agent": "*",
+    "disallow": true
+  }
+]
