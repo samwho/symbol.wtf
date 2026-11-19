@@ -667,6 +667,17 @@ const symbols = [
         glyph: "‰",
         name: "Per mille"
     },
+    {                                                                                                                
+        glyph: "﷽",                                                                                                  
+        name: "Bismillah",                                                                                           
+        searchTerms: ["bismillah", "basmala"]                                                                        
+    },
+    {                                                                                                                
+        glyph: "⍼",                                                                                                  
+        name: "Angzarr",                                                                                           
+        searchTerms: ["angzarr", "Right Angle with Downwards Zigzag Arrow", "Angle with Down Zig-zag Arrow"]                                                                        
+    },
+
 
     /** Media Controls */
     {
@@ -1260,11 +1271,6 @@ const symbols = [
         glyph: "℧",
         name: "Inverted Omega",
         searchTerms: ["Mho", "Siemens"]
-    },
-    {                                                                                                                
-        glyph: "﷽",                                                                                                  
-        name: "Bismillah",                                                                                           
-        searchTerms: ["bismillah", "basmala"]                                                                        
     },
 ];
 
